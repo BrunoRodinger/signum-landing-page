@@ -1,13 +1,13 @@
-const { defineConfig } = require('vite');
-const { resolve } = require('path');
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
-module.exports = defineConfig({
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        obrigado: resolve(__dirname, 'obrigado/index.html')
-      }
+export default defineConfig({
+    build: {
+        rollupOptions: {
+            input: {
+                main: resolve(__dirname, 'index.html'),
+                obrigado: resolve(__dirname, 'obrigado/index.html')
+            }
+        }
     }
-  }
 });
