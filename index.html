@@ -4249,12 +4249,8 @@
 
       <!-- STEP 2: PAYMENT + FORM -->
       <div id="modal-step2" style="display:none">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
-          <button onclick="backStep1()"
-            style="background:none;border:none;color:var(--fg3);cursor:pointer;font-size:12px;display:flex;align-items:center;gap:4px">←
-            Voltar</button>
-          <div style="flex:1;height:1px;background:var(--bdr)"></div>
-          <span style="font-size:10px;color:var(--c);font-weight:700">✓ Perfil confirmado</span>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;justify-content:center">
+          <span style="font-size:12px;color:var(--c);font-weight:700">✓ Inscrição Liberada</span>
         </div>
         <div class="modal-h">Comece Sua Transformação</div>
         <p class="modal-sub">Escolha a forma de pagamento e preencha seus dados.</p>
@@ -4366,8 +4362,6 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome, tel, email, source: src })
       }).catch(err => console.error('Webhook error:', err));
-
-      setTimeout(openModal, 1200);
     }
 
     /* ── SCROLL PROGRESS BAR ── */
@@ -4396,7 +4390,7 @@
     window.addEventListener('scroll', () => { sbar.classList.toggle('show', window.scrollY > 600) });
 
     /* ── MODAL ── */
-    function openModal() { document.getElementById('modal').classList.add('on'); document.body.style.overflow = 'hidden'; backStep1(); }
+    function openModal() { document.getElementById('modal').classList.add('on'); document.body.style.overflow = 'hidden'; goStep2(); }
     function closeModal() { document.getElementById('modal').classList.remove('on'); document.body.style.overflow = '' }
     function goStep2() { document.getElementById('modal-step1').style.display = 'none'; document.getElementById('modal-step2').style.display = 'block' }
     function backStep1() { document.getElementById('modal-step1').style.display = 'block'; document.getElementById('modal-step2').style.display = 'none' }
