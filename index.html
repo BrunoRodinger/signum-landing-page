@@ -1,0 +1,4129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>SIGNUM — Transformação que o mercado reconhece.</title>
+  <meta name="description"
+    content="Formação de 8 semanas para profissionais de vendas que querem trabalhar menos e ganhar muito mais." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --c: #00d4ff;
+      --c10: rgba(0, 212, 255, .10);
+      --c18: rgba(0, 212, 255, .18);
+      --c30: rgba(0, 212, 255, .30);
+      --bg: #141420;
+      --bg1: #1a1a28;
+      --bg2: #1f1f2e;
+      --bg3: #252536;
+      --fg: #e4e4f2;
+      --fg2: #a8a8c8;
+      --fg3: #6a6a88;
+      --bdr: rgba(255, 255, 255, .07);
+      --bdrc: rgba(0, 212, 255, .20);
+      --r: 12px;
+      --r2: 8px;
+      --r3: 4px;
+      --sh: 0 20px 60px rgba(0, 0, 0, .4);
+      --shc: 0 0 40px rgba(0, 212, 255, .12);
+      --tr: .22s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased
+    }
+
+    img {
+      display: block;
+      max-width: 100%
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button {
+      font-family: 'Inter', sans-serif
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes glowPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 20px rgba(0, 212, 255, .3)
+      }
+
+      50% {
+        box-shadow: 0 4px 40px rgba(0, 212, 255, .65), 0 0 80px rgba(0, 212, 255, .2)
+      }
+    }
+
+    @keyframes dotBlink {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .4;
+        transform: scale(1.5)
+      }
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    .rv {
+      opacity: 0;
+      will-change: opacity, transform
+    }
+
+    .rv.in {
+      animation: fadeUp .65s cubic-bezier(.22, 1, .36, 1) forwards
+    }
+
+    .rv.in.d1 {
+      animation-delay: .08s
+    }
+
+    .rv.in.d2 {
+      animation-delay: .16s
+    }
+
+    .rv.in.d3 {
+      animation-delay: .24s
+    }
+
+    .rv.in.d4 {
+      animation-delay: .32s
+    }
+
+    .rv.in.d5 {
+      animation-delay: .40s
+    }
+
+    .rv.in.d6 {
+      animation-delay: .48s
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    @media(min-width:768px) {
+      .wrap {
+        padding: 0 40px
+      }
+    }
+
+    section {
+      padding: 88px 0
+    }
+
+    @media(min-width:768px) {
+      section {
+        padding: 112px 0
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--c);
+      margin-bottom: 14px
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 18px;
+      height: 2px;
+      background: var(--c);
+      border-radius: 2px;
+      flex-shrink: 0
+    }
+
+    .sh2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      line-height: 1.06;
+      margin-bottom: 12px
+    }
+
+    .ssub {
+      font-size: 16px;
+      color: var(--fg2);
+      line-height: 1.72;
+      max-width: 540px
+    }
+
+    .alt {
+      background: var(--bg1)
+    }
+
+    #pbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 200;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, var(--c), rgba(0, 212, 255, .4));
+      transition: width .1s linear
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 64px;
+      background: rgba(20, 20, 32, .96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--bdr);
+      transition: box-shadow var(--tr)
+    }
+
+    .nav.scrolled {
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .3)
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px
+    }
+
+    .nav-logo img {
+      height: 42px;
+      width: auto
+    }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 32px;
+      align-items: center
+    }
+
+    @media(min-width:900px) {
+      .nav-links {
+        display: flex
+      }
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--fg2);
+      position: relative;
+      padding-bottom: 3px;
+      transition: color var(--tr)
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--c);
+      transition: width var(--tr)
+    }
+
+    .nav-links a:hover {
+      color: var(--c)
+    }
+
+    .nav-links a:hover::after {
+      width: 100%
+    }
+
+    .nav-cta {
+      display: none
+    }
+
+    @media(min-width:900px) {
+      .nav-cta {
+        display: inline-flex
+      }
+    }
+
+    .ham {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px
+    }
+
+    @media(min-width:900px) {
+      .ham {
+        display: none
+      }
+    }
+
+    .hl {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--fg);
+      border-radius: 2px;
+      transition: var(--tr)
+    }
+
+    .ham.open .hl:nth-child(1) {
+      transform: translateY(7px) rotate(45deg)
+    }
+
+    .ham.open .hl:nth-child(2) {
+      opacity: 0
+    }
+
+    .ham.open .hl:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg)
+    }
+
+    .mob-nav {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg2);
+      z-index: 98;
+      padding: 28px 24px;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--bdr);
+      overflow-y: auto
+    }
+
+    .mob-nav.open {
+      display: flex
+    }
+
+    .mob-nav a {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--fg2);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--bdr);
+      transition: color var(--tr)
+    }
+
+    .mob-nav a:hover {
+      color: var(--c)
+    }
+
+    .mob-cta {
+      margin-top: 24px
+    }
+
+    /* BTN */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 28px;
+      border-radius: var(--r2);
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all var(--tr);
+      white-space: nowrap;
+      text-decoration: none
+    }
+
+    .btn svg {
+      flex-shrink: 0;
+      transition: transform var(--tr)
+    }
+
+    .btn:hover svg {
+      transform: translateX(3px)
+    }
+
+    .btn-p {
+      background: var(--c);
+      color: #000;
+      box-shadow: 0 4px 20px rgba(0, 212, 255, .28)
+    }
+
+    .btn-p:hover {
+      background: #1adbff;
+      box-shadow: 0 6px 28px rgba(0, 212, 255, .45);
+      transform: translateY(-2px)
+    }
+
+    .btn-p:active {
+      transform: translateY(0)
+    }
+
+    .btn-g {
+      background: transparent;
+      color: var(--fg);
+      border: 1px solid var(--bdr)
+    }
+
+    .btn-g:hover {
+      border-color: var(--bdrc);
+      color: var(--c);
+      transform: translateY(-2px)
+    }
+
+    .btn-lg {
+      padding: 15px 36px;
+      font-size: 15px
+    }
+
+    .btn-xl {
+      padding: 17px 44px;
+      font-size: 16px;
+      font-weight: 700
+    }
+
+    .btn-fw {
+      width: 100%;
+      justify-content: center
+    }
+
+    .btn-glow {
+      animation: glowPulse 2.6s ease-in-out infinite
+    }
+
+    /* TICKER */
+    .ticker-bar {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--bdr);
+      padding: 9px 0;
+      overflow: hidden;
+      white-space: nowrap
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      gap: 52px;
+      animation: ticker 30s linear infinite
+    }
+
+    .ti {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--fg3);
+      letter-spacing: .4px
+    }
+
+    .tdot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--c);
+      animation: dotBlink 2s ease-in-out infinite;
+      flex-shrink: 0
+    }
+
+    .thi {
+      color: var(--c)
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: 72px 0 80px;
+      overflow: hidden;
+      display: flex;
+      align-items: center
+    }
+
+    @media(min-width:768px) {
+      .hero {
+        padding: 130px 0 160px
+      }
+    }
+
+    .hero-rad {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 55% 65% at 5% 55%, rgba(0, 212, 255, .06) 0%, transparent 65%), radial-gradient(ellipse 35% 45% at 92% 8%, rgba(0, 212, 255, .04) 0%, transparent 55%)
+    }
+
+    #hc {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0
+    }
+
+    @media(min-width:768px) {
+      #hc {
+        opacity: 1
+      }
+    }
+
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center
+    }
+
+    @media(min-width:980px) {
+      .hero-grid {
+        grid-template-columns: 1fr 420px
+      }
+    }
+
+    .h-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--c10);
+      border: 1px solid var(--bdrc);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--c);
+      margin-bottom: 16px
+    }
+
+    .h-pill-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--c);
+      animation: dotBlink 1.8s ease-in-out infinite
+    }
+
+    .h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(36px, 9vw, 82px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -.5px;
+      margin-bottom: 16px
+    }
+
+    .h1 em {
+      font-style: normal;
+      color: var(--c)
+    }
+
+    .h-lead {
+      font-size: 15px;
+      color: var(--fg2);
+      line-height: 1.72;
+      max-width: 500px;
+      margin-bottom: 28px
+    }
+
+    @media(min-width:768px) {
+      .h-lead {
+        font-size: 17px;
+        line-height: 1.78;
+        margin-bottom: 36px
+      }
+    }
+
+    .h-lead strong {
+      color: var(--fg);
+      font-weight: 600
+    }
+
+    .h-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px
+    }
+
+    .h-actions .btn {
+      width: 100%
+    }
+
+    @media(min-width:480px) {
+      .h-actions .btn {
+        width: auto
+      }
+    }
+
+    .h-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 20px;
+      border-top: 1px solid var(--bdr)
+    }
+
+    .h-ti {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--fg3)
+    }
+
+    .h-ti svg {
+      width: 13px;
+      height: 13px;
+      stroke: var(--c);
+      fill: none;
+      stroke-width: 2.5;
+      flex-shrink: 0
+    }
+
+    /* HERO MOBILE METRICS STRIP */
+    .h-mob-metrics {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0;
+      background: var(--bg2);
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r);
+      padding: 16px 20px;
+      margin-bottom: 28px
+    }
+
+    @media(min-width:980px) {
+      .h-mob-metrics {
+        display: none
+      }
+    }
+
+    .hmm-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      flex: 1
+    }
+
+    .hmm-n {
+      font-family: 'Oswald', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--c);
+      line-height: 1
+    }
+
+    .hmm-l {
+      font-size: 10px;
+      color: var(--fg3);
+      text-align: center;
+      line-height: 1.3
+    }
+
+    .hmm-sep {
+      width: 1px;
+      height: 36px;
+      background: var(--bdr)
+    }
+
+    /* HERO PANEL */
+    .h-panel {
+      background: var(--bg2);
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r);
+      padding: 28px;
+      box-shadow: var(--sh), var(--shc);
+      position: relative;
+      overflow: hidden;
+      display: none
+    }
+
+    @media(min-width:980px) {
+      .h-panel {
+        display: block
+      }
+    }
+
+    .h-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--c), transparent)
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--bdr)
+    }
+
+    .panel-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg3)
+    }
+
+    .panel-live {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      color: var(--c);
+      font-weight: 600
+    }
+
+    .panel-live-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--c);
+      animation: dotBlink 1.5s ease-in-out infinite
+    }
+
+    .p-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px
+    }
+
+    .p-stat {
+      background: var(--bg3);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r2);
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--tr), transform var(--tr)
+    }
+
+    .p-stat:hover {
+      border-color: var(--bdrc);
+      transform: translateY(-2px)
+    }
+
+    .p-stat::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--c), transparent)
+    }
+
+    .ps-n {
+      font-family: 'Oswald', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--c);
+      line-height: 1;
+      margin-bottom: 4px
+    }
+
+    .ps-l {
+      font-size: 11px;
+      color: var(--fg3);
+      line-height: 1.4
+    }
+
+    .ps-d {
+      font-size: 10px;
+      color: #4ade80;
+      font-weight: 700;
+      margin-top: 3px
+    }
+
+    .p-bar-lbl {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--fg3);
+      margin-bottom: 10px
+    }
+
+    .p-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px
+    }
+
+    .pb-row {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .pb-nm {
+      font-size: 11px;
+      color: var(--fg2);
+      width: 88px;
+      flex-shrink: 0
+    }
+
+    .pb-track {
+      flex: 1;
+      height: 5px;
+      background: var(--bdr);
+      border-radius: 3px;
+      overflow: hidden
+    }
+
+    .pb-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--c), rgba(0, 212, 255, .5))
+    }
+
+    .pb-v {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--c);
+      width: 30px;
+      text-align: right;
+      flex-shrink: 0
+    }
+
+    .p-quote {
+      font-size: 11px;
+      font-style: italic;
+      color: var(--fg3);
+      padding: 10px 12px;
+      background: var(--bg3);
+      border-radius: var(--r2);
+      border-left: 2px solid var(--bdrc);
+      line-height: 1.6
+    }
+
+    /* DOR */
+    .dor-layout {
+      display: grid;
+      gap: 48px;
+      margin-top: 56px
+    }
+
+    @media(min-width:900px) {
+      .dor-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 56px
+      }
+    }
+
+    .pain-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0
+    }
+
+    .pain-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--bdr);
+      transition: padding-left var(--tr)
+    }
+
+    .pain-item:first-child {
+      padding-top: 0
+    }
+
+    .pain-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0
+    }
+
+    .pain-item:hover {
+      padding-left: 6px
+    }
+
+    .pain-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      background: var(--c10);
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+      transition: background var(--tr)
+    }
+
+    .pain-item:hover .pain-icon {
+      background: var(--c18)
+    }
+
+    .pain-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--c);
+      fill: none;
+      stroke-width: 2
+    }
+
+    .pain-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px
+    }
+
+    .pain-desc {
+      font-size: 13px;
+      color: var(--fg2);
+      line-height: 1.58
+    }
+
+    .cost-card {
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--tr)
+    }
+
+    .cost-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--c), rgba(0, 212, 255, .2), transparent)
+    }
+
+    .cost-card:hover {
+      border-color: var(--bdrc)
+    }
+
+    .cost-h {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 24px
+    }
+
+    .cost-items {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 24px
+    }
+
+    .cost-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--c);
+      background: var(--c10);
+      border: 1px solid var(--bdrc);
+      border-radius: 3px;
+      padding: 2px 7px;
+      margin-bottom: 6px
+    }
+
+    .cost-txt {
+      font-size: 13px;
+      color: var(--fg2);
+      line-height: 1.6
+    }
+
+    .cost-q {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--fg3);
+      line-height: 1.7;
+      padding: 14px 16px;
+      border-left: 2px solid var(--bdrc);
+      background: rgba(0, 212, 255, .03);
+      border-radius: 0 var(--r2) var(--r2) 0
+    }
+
+    /* IDENTIDADE */
+    .tx-layout {
+      display: grid;
+      gap: 20px;
+      margin-top: 56px
+    }
+
+    @media(min-width:900px) {
+      .tx-layout {
+        grid-template-columns: 1fr 56px 1fr;
+        align-items: center;
+        gap: 32px
+      }
+    }
+
+    .tc-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px
+    }
+
+    .tc-h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 24px;
+      font-weight: 700
+    }
+
+    .tc-badge {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 100px
+    }
+
+    .tb-b {
+      background: rgba(255, 255, 255, .05);
+      color: var(--fg3);
+      border: 1px solid var(--bdr)
+    }
+
+    .tb-a {
+      background: var(--c10);
+      color: var(--c);
+      border: 1px solid var(--bdrc)
+    }
+
+    .tl {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .ti-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: var(--r2);
+      border: 1px solid transparent;
+      transition: all var(--tr)
+    }
+
+    .tl-b .ti-item {
+      color: var(--fg3);
+      background: rgba(255, 255, 255, .02)
+    }
+
+    .tl-b .ti-item:hover {
+      background: rgba(255, 255, 255, .04);
+      color: var(--fg2)
+    }
+
+    .tl-a .ti-item {
+      color: var(--fg);
+      font-weight: 500;
+      background: rgba(0, 212, 255, .03)
+    }
+
+    .tl-a .ti-item:hover {
+      background: var(--c10);
+      border-color: var(--bdrc)
+    }
+
+    .ix {
+      color: #444;
+      font-size: 14px;
+      flex-shrink: 0
+    }
+
+    .io {
+      color: var(--c);
+      font-size: 14px;
+      flex-shrink: 0
+    }
+
+    .tarr {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--c10);
+      border: 1px solid var(--bdrc);
+      color: var(--c);
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 auto;
+      transition: background var(--tr), transform var(--tr)
+    }
+
+    .tarr:hover {
+      background: var(--c18);
+      transform: scale(1.1)
+    }
+
+    .id-note {
+      margin-top: 48px;
+      padding: 36px 40px;
+      background: linear-gradient(135deg, rgba(0, 212, 255, .06), rgba(0, 212, 255, .02));
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r);
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .id-note::after {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      font-size: 160px;
+      font-family: 'Oswald', sans-serif;
+      color: rgba(0, 212, 255, .04);
+      line-height: 1;
+      pointer-events: none
+    }
+
+    .id-note h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px
+    }
+
+    .id-note p {
+      font-size: 16px;
+      color: var(--fg2);
+      line-height: 1.78;
+      max-width: 660px;
+      margin: 0 auto
+    }
+
+    .id-note strong {
+      color: var(--fg)
+    }
+
+    /* PROGRAMA */
+    .ph-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 48px;
+      margin-bottom: 48px
+    }
+
+    @media(min-width:768px) {
+      .ph-grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    .ph-card {
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r);
+      padding: 28px 24px;
+      background: rgba(0, 212, 255, .018);
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--tr), transform var(--tr), box-shadow var(--tr)
+    }
+
+    .ph-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      background: linear-gradient(0deg, rgba(0, 212, 255, .07), transparent);
+      transition: height .3s ease
+    }
+
+    .ph-card:hover {
+      border-color: rgba(0, 212, 255, .5);
+      transform: translateY(-5px);
+      box-shadow: var(--shc)
+    }
+
+    .ph-card:hover::before {
+      height: 50%
+    }
+
+    .ph-n {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--c);
+      margin-bottom: 10px
+    }
+
+    .ph-t {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px
+    }
+
+    .ph-w {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--c);
+      background: var(--c10);
+      border: 1px solid var(--bdrc);
+      border-radius: 100px;
+      padding: 2px 9px;
+      margin-bottom: 12px
+    }
+
+    .ph-d {
+      font-size: 12px;
+      color: var(--fg2);
+      line-height: 1.6;
+      margin-bottom: 16px
+    }
+
+    .ph-ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px
+    }
+
+    .ph-ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--fg2)
+    }
+
+    .ph-ck {
+      width: 13px;
+      height: 13px;
+      stroke: var(--c);
+      fill: none;
+      flex-shrink: 0;
+      margin-top: 2px
+    }
+
+    /* WEEKS ACCORDION */
+    .wk-sec {
+      margin-bottom: 48px
+    }
+
+    .wk-h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 24px
+    }
+
+    .wk-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .wk-row {
+      border: 1px solid var(--bdr);
+      border-radius: var(--r2);
+      overflow: hidden;
+      transition: border-color var(--tr)
+    }
+
+    .wk-row:hover,
+    .wk-row.open {
+      border-color: var(--bdrc)
+    }
+
+    .wk-btn {
+      width: 100%;
+      background: var(--bg2);
+      border: none;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: background var(--tr)
+    }
+
+    .wk-btn:hover,
+    .wk-btn.open {
+      background: var(--bg3)
+    }
+
+    .wk-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--c10);
+      border: 1px solid var(--bdrc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--c);
+      flex-shrink: 0;
+      transition: all var(--tr)
+    }
+
+    .wk-btn.open .wk-num {
+      background: var(--c);
+      color: #000
+    }
+
+    .wk-title {
+      font-size: 13px;
+      font-weight: 700;
+      flex: 1;
+      text-align: left;
+      color: var(--fg)
+    }
+
+    .wk-res {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--c);
+      background: var(--c10);
+      border: 1px solid var(--bdrc);
+      border-radius: 100px;
+      padding: 2px 9px;
+      flex-shrink: 0;
+      display: none
+    }
+
+    @media(min-width:600px) {
+      .wk-res {
+        display: block
+      }
+    }
+
+    .wk-chev {
+      width: 14px;
+      height: 14px;
+      stroke: var(--fg3);
+      fill: none;
+      flex-shrink: 0;
+      transition: transform .2s;
+      margin-left: 4px
+    }
+
+    .wk-btn.open .wk-chev {
+      transform: rotate(180deg)
+    }
+
+    .wk-body {
+      display: none;
+      padding: 14px 18px 18px;
+      background: rgba(0, 212, 255, .025);
+      border-top: 1px solid var(--bdr)
+    }
+
+    .wk-body.open {
+      display: block
+    }
+
+    .wk-body p {
+      font-size: 13px;
+      color: var(--fg2);
+      line-height: 1.7
+    }
+
+    /* RESULTS */
+    .res-box {
+      background: linear-gradient(135deg, rgba(0, 212, 255, .12), rgba(0, 212, 255, .03));
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r);
+      padding: 52px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .res-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 110%, rgba(0, 212, 255, .08), transparent);
+      pointer-events: none
+    }
+
+    .res-h {
+      font-family: 'Oswald', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 40px
+    }
+
+    .res-grid {
+      display: grid
+    }
+
+    @media(min-width:600px) {
+      .res-grid {
+        grid-template-columns: 1fr 1px 1fr 1px 1fr
+      }
+    }
+
+    .res-sep {
+      background: var(--bdr);
+      display: none
+    }
+
+    @media(min-width:600px) {
+      .res-sep {
+        display: block
+      }
+    }
+
+    .res-item {
+      padding: 20px 24px
+    }
+
+    .res-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--c);
+      line-height: 1;
+      margin-bottom: 6px
+    }
+
+    .res-lbl {
+      font-size: 13px;
+      color: var(--fg2);
+      line-height: 1.5;
+      max-width: 140px;
+      margin: 0 auto
+    }
+
+    /* CAMINHOS */
+    .paths-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 56px
+    }
+
+    @media(min-width:768px) {
+      .paths-grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    .path-card {
+      background: var(--bg);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--tr), transform var(--tr), box-shadow var(--tr)
+    }
+
+    .path-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 0;
+      background: var(--c);
+      transition: height .35s ease
+    }
+
+    .path-card:hover {
+      border-color: var(--bdrc);
+      transform: translateY(-4px);
+      box-shadow: var(--shc)
+    }
+
+    .path-card:hover::before {
+      height: 100%
+    }
+
+    .path-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 14px
+    }
+
+    .path-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--c10);
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r2);
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .path-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--c);
+      fill: none;
+      stroke-width: 2
+    }
+
+    .p-rl {
+      font-size: 9px;
+      color: var(--fg3);
+      letter-spacing: .5px;
+      text-align: right;
+      margin-bottom: 2px
+    }
+
+    .p-rv {
+      font-family: 'Oswald', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--c);
+      text-align: right
+    }
+
+    .path-t {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px
+    }
+
+    .path-d {
+      font-size: 12px;
+      color: var(--fg2);
+      line-height: 1.65;
+      margin-bottom: 16px
+    }
+
+    .path-sep {
+      border: none;
+      border-top: 1px solid var(--bdr);
+      margin: 14px 0
+    }
+
+    .p-rl2 {
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--c);
+      margin-bottom: 6px
+    }
+
+    .p-cm {
+      font-size: 12px;
+      color: var(--fg2);
+      margin-bottom: 14px
+    }
+
+    .p-bens {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px
+    }
+
+    .p-bens li {
+      display: flex;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--fg2);
+      align-items: flex-start
+    }
+
+    .p-ck {
+      color: var(--c);
+      flex-shrink: 0;
+      font-size: 12px;
+      margin-top: 2px
+    }
+
+    .path-story {
+      margin-top: auto;
+      background: var(--c10);
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r2);
+      padding: 10px 14px
+    }
+
+    .ps-l {
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--c);
+      margin-bottom: 3px
+    }
+
+    .ps-t {
+      font-size: 12px;
+      font-weight: 600
+    }
+
+    /* DEPOIMENTOS */
+    .tg {
+      display: grid;
+      gap: 16px;
+      margin-top: 56px
+    }
+
+    @media(min-width:768px) {
+      .tg {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    .tc {
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transition: border-color var(--tr), transform var(--tr), box-shadow var(--tr)
+    }
+
+    .tc:hover {
+      border-color: var(--bdrc);
+      transform: translateY(-4px);
+      box-shadow: var(--shc)
+    }
+
+    .t-stars {
+      display: flex;
+      gap: 2px
+    }
+
+    .t-stars span {
+      color: #f59e0b;
+      font-size: 13px
+    }
+
+    .t-q {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--fg2);
+      line-height: 1.78;
+      flex: 1;
+      padding-left: 12px;
+      border-left: 2px solid var(--bdrc)
+    }
+
+    .t-delta {
+      display: flex;
+      gap: 12px;
+      padding: 10px 14px;
+      background: rgba(0, 212, 255, .05);
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r2)
+    }
+
+    .td-c {
+      flex: 1
+    }
+
+    .td-l {
+      font-size: 8px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--fg3);
+      margin-bottom: 2px
+    }
+
+    .td-v {
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .td-v.af {
+      color: var(--c)
+    }
+
+    .td-sep {
+      width: 1px;
+      background: var(--bdr)
+    }
+
+    .t-per {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid var(--bdr)
+    }
+
+    .t-av {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg3);
+      border: 2px solid var(--bdrc);
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c);
+      font-weight: 700;
+      font-family: 'Oswald', sans-serif;
+      flex-shrink: 0
+    }
+
+    .t-nm {
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .t-ro {
+      font-size: 11px;
+      color: var(--c);
+      margin-top: 1px
+    }
+
+    /* INVESTIMENTO */
+    .inv-layout {
+      display: grid;
+      gap: 28px;
+      margin-top: 56px;
+      align-items: start
+    }
+
+    @media(min-width:900px) {
+      .inv-layout {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    .pr-card {
+      background: linear-gradient(160deg, rgba(0, 212, 255, .11), rgba(0, 212, 255, .03));
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r);
+      padding: 36px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .pr-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--c), transparent)
+    }
+
+    .pr-badge {
+      display: inline-block;
+      background: var(--c);
+      color: #000;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 13px;
+      border-radius: 100px;
+      margin-bottom: 18px
+    }
+
+    .pr-main {
+      font-family: 'Oswald', sans-serif;
+      font-size: 60px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px
+    }
+
+    .pr-sub {
+      font-size: 13px;
+      color: var(--fg2);
+      margin-bottom: 22px
+    }
+
+    .pr-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px
+    }
+
+    .pr-opt {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 16px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r2);
+      cursor: pointer;
+      transition: all var(--tr);
+      text-align: left;
+      width: 100%
+    }
+
+    .pr-opt:hover,
+    .pr-opt.sel {
+      border-color: var(--bdrc);
+      background: var(--c10)
+    }
+
+    .po-l {
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .po-s {
+      font-size: 10px;
+      color: var(--fg3);
+      margin-top: 1px
+    }
+
+    .po-v {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--c);
+      flex-shrink: 0
+    }
+
+    .pr-list {
+      list-style: none;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-bottom: 22px
+    }
+
+    .pr-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13px
+    }
+
+    .pr-list .ok {
+      color: var(--c);
+      flex-shrink: 0;
+      font-size: 14px;
+      margin-top: 1px
+    }
+
+    .pr-sec {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--fg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px
+    }
+
+    .pr-sec svg {
+      color: var(--c)
+    }
+
+    .vps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px
+    }
+
+    .vp {
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      padding: 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      transition: border-color var(--tr), transform var(--tr)
+    }
+
+    .vp:hover {
+      border-color: var(--bdrc);
+      transform: translateX(4px)
+    }
+
+    .vp-ic {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      background: var(--c10);
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r2);
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .vp-ic svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--c);
+      fill: none;
+      stroke-width: 2
+    }
+
+    .vp h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px
+    }
+
+    .vp p {
+      font-size: 12px;
+      color: var(--fg2);
+      line-height: 1.6
+    }
+
+    /* FAQ */
+    .faq-layout {
+      display: grid;
+      gap: 40px;
+      margin-top: 56px
+    }
+
+    @media(min-width:900px) {
+      .faq-layout {
+        grid-template-columns: 220px 1fr;
+        align-items: start
+      }
+    }
+
+    .faq-tabs {
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
+      flex-wrap: wrap
+    }
+
+    @media(min-width:900px) {
+      .faq-tabs {
+        flex-direction: column
+      }
+    }
+
+    .faq-tab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--fg3);
+      padding: 9px 12px;
+      border-radius: var(--r2);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all var(--tr);
+      flex: 1
+    }
+
+    @media(min-width:900px) {
+      .faq-tab {
+        flex: none
+      }
+    }
+
+    .faq-tab-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0
+    }
+
+    .faq-tab:hover {
+      color: var(--fg);
+      background: rgba(255, 255, 255, .04)
+    }
+
+    .faq-tab.on {
+      color: var(--c);
+      background: var(--c10);
+      border-color: var(--bdrc)
+    }
+
+    .faq-panels {
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .faq-panel {
+      display: none;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .faq-panel.on {
+      display: flex
+    }
+
+    .faq-item {
+      border: 1px solid var(--bdr);
+      border-radius: var(--r2);
+      overflow: hidden;
+      transition: border-color var(--tr)
+    }
+
+    .faq-item:hover {
+      border-color: rgba(0, 212, 255, .25)
+    }
+
+    .faq-btn {
+      width: 100%;
+      background: var(--bg2);
+      border: none;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fg);
+      cursor: pointer;
+      transition: background var(--tr)
+    }
+
+    .faq-btn:hover,
+    .faq-btn.on {
+      background: var(--bg3)
+    }
+
+    .faq-chev {
+      width: 15px;
+      height: 15px;
+      stroke: var(--c);
+      fill: none;
+      flex-shrink: 0;
+      transition: transform .2s
+    }
+
+    .faq-btn.on .faq-chev {
+      transform: rotate(180deg)
+    }
+
+    .faq-ans {
+      display: none;
+      padding: 4px 18px 16px;
+      background: var(--bg2);
+      font-size: 13px;
+      color: var(--fg2);
+      line-height: 1.75
+    }
+
+    .faq-ans.on {
+      display: block
+    }
+
+    /* FINAL CTA */
+    .fcta {
+      padding: 112px 0;
+      background: radial-gradient(ellipse 90% 70% at 50% 120%, rgba(0, 212, 255, .09), transparent), var(--bg);
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .fcta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--bdrc), transparent)
+    }
+
+    .fcta::after {
+      content: 'SIGNUM';
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(100px, 18vw, 220px);
+      font-weight: 700;
+      color: rgba(0, 212, 255, .025);
+      letter-spacing: 8px;
+      pointer-events: none;
+      white-space: nowrap
+    }
+
+    .fc-inner {
+      position: relative;
+      z-index: 1
+    }
+
+    .fc-h {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(36px, 6.5vw, 72px);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 18px
+    }
+
+    .fc-h em {
+      font-style: normal;
+      color: var(--c)
+    }
+
+    .fc-p {
+      font-size: 17px;
+      color: var(--fg2);
+      max-width: 560px;
+      margin: 0 auto 14px;
+      line-height: 1.72
+    }
+
+    .fc-p2 {
+      font-size: 14px;
+      color: var(--fg3);
+      max-width: 500px;
+      margin: 0 auto 40px
+    }
+
+    .fc-p2 strong {
+      color: var(--fg)
+    }
+
+    .fc-btns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 28px
+    }
+
+    .fc-trust {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      font-size: 11px;
+      color: var(--fg3)
+    }
+
+    .fc-ti {
+      display: flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .fc-ti svg {
+      color: var(--c)
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--bg1);
+      border-top: 1px solid var(--bdr);
+      padding: 28px 0
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center
+    }
+
+    @media(min-width:768px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left
+      }
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .footer-brand img {
+      height: 30px
+    }
+
+    .footer-tag {
+      font-size: 11px;
+      color: var(--fg3);
+      font-style: italic
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--fg3)
+    }
+
+    /* STICKY BAR */
+    .sbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 90;
+      background: rgba(20, 20, 32, .97);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--bdrc);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transform: translateY(100%);
+      transition: transform .35s cubic-bezier(.22, 1, .36, 1)
+    }
+
+    .sbar.show {
+      transform: translateY(0)
+    }
+
+    .sbar-txt {
+      font-size: 13px;
+      color: var(--fg2);
+      display: none
+    }
+
+    @media(min-width:600px) {
+      .sbar-txt {
+        display: block
+      }
+    }
+
+    .sbar-txt strong {
+      color: var(--fg)
+    }
+
+    /* ── CAROUSEL ── */
+    .carousel-wrap {
+      position: relative;
+      margin-top: 56px;
+      padding-bottom: 52px
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+      border-radius: var(--r)
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform .5s cubic-bezier(.4, 0, .2, 1);
+      will-change: transform;
+      align-items: stretch
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      min-width: 0;
+      box-sizing: border-box
+    }
+
+    @media(min-width:768px) {
+      #test-track .carousel-slide {
+        flex: 0 0 calc(33.333% - 11px)
+      }
+
+      #test-track {
+        gap: 16px
+      }
+
+      #paths-track .carousel-slide {
+        flex: 0 0 calc(50% - 8px)
+      }
+
+      #paths-track {
+        gap: 16px
+      }
+    }
+
+    .path-card.carousel-slide {
+      display: flex;
+      flex-direction: column
+    }
+
+    .tc.carousel-slide {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      padding: 28px;
+      transition: border-color var(--tr), box-shadow var(--tr)
+    }
+
+    .tc.carousel-slide:hover {
+      border-color: var(--bdrc);
+      box-shadow: var(--shc)
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(calc(-50% - 26px));
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg2);
+      border: 1px solid var(--bdrc);
+      color: var(--c);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--tr);
+      z-index: 10;
+      padding: 0
+    }
+
+    .carousel-btn:hover {
+      background: var(--c10);
+      border-color: var(--c);
+      transform: translateY(calc(-50% - 26px)) scale(1.1)
+    }
+
+    .carousel-prev {
+      left: -16px
+    }
+
+    .carousel-next {
+      right: -16px
+    }
+
+    @media(max-width:600px) {
+      .carousel-prev {
+        left: 4px
+      }
+
+      .carousel-next {
+        right: 4px
+      }
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 4px 0
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .15);
+      cursor: pointer;
+      transition: all .3s ease;
+      border: none
+    }
+
+    .carousel-dot.on {
+      width: 22px;
+      border-radius: 4px;
+      background: var(--c)
+    }
+
+    .modal-ov {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 5, 18, .8);
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px
+    }
+
+    .modal-ov.on {
+      display: flex
+    }
+
+    .modal-box {
+      background: var(--bg2);
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r);
+      padding: 36px 32px;
+      max-width: 440px;
+      width: 100%;
+      position: relative;
+      animation: fadeUp .3s cubic-bezier(.22, 1, .36, 1) forwards;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, .6), 0 0 80px rgba(0, 212, 255, .08)
+    }
+
+    .modal-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--c), transparent);
+      border-radius: var(--r) var(--r) 0 0
+    }
+
+    .modal-x {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 26px;
+      height: 26px;
+      background: none;
+      border: none;
+      color: var(--fg3);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--r2);
+      font-size: 16px;
+      transition: all var(--tr)
+    }
+
+    .modal-x:hover {
+      background: rgba(255, 255, 255, .07);
+      color: var(--fg)
+    }
+
+    .modal-h {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px
+    }
+
+    .modal-sub {
+      font-size: 12px;
+      color: var(--fg3);
+      margin-bottom: 22px
+    }
+
+    .modal-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px
+    }
+
+    .modal-opt {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 15px;
+      border: 1px solid var(--bdr);
+      border-radius: var(--r2);
+      cursor: pointer;
+      transition: all var(--tr);
+      background: none;
+      width: 100%;
+      text-align: left
+    }
+
+    .modal-opt:hover,
+    .modal-opt.on {
+      border-color: var(--bdrc);
+      background: var(--c10)
+    }
+
+    .mo-l {
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .mo-s {
+      font-size: 10px;
+      color: var(--fg3);
+      margin-top: 1px
+    }
+
+    .mo-p {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--c);
+      flex-shrink: 0
+    }
+
+    .modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .m-in {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r2);
+      padding: 12px 14px;
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      outline: none;
+      transition: border-color var(--tr);
+      width: 100%
+    }
+
+    .m-in:focus {
+      border-color: var(--bdrc);
+      background: rgba(0, 212, 255, .04)
+    }
+
+    .m-in::placeholder {
+      color: var(--fg3)
+    }
+
+    .modal-lock {
+      font-size: 10px;
+      color: var(--fg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 10px
+    }
+
+    .modal-lock svg {
+      color: var(--c)
+    }
+
+    .ms-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding-right: 28px;
+    }
+
+    .ms-step {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--fg3);
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 100px;
+      transition: all var(--tr);
+      border: 1px solid transparent;
+    }
+
+    .ms-step.on {
+      color: var(--c);
+      background: var(--c10);
+      border: 1px solid var(--bdrc);
+    }
+
+    .ms-line {
+      flex: 1;
+      height: 1px;
+      background: var(--bdr);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="pbar"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="#"><img
+          src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029077378/RByzunMwGVXkYpHM.png"
+          alt="SIGNUM" style="height:42px" /></a>
+      <ul class="nav-links">
+        <li><a href="#dor">A Dor</a></li>
+        <li><a href="#identidade">Transformação</a></li>
+        <li><a href="#programa">Programa</a></li>
+        <li><a href="#caminhos">Caminhos</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <button class="btn btn-p nav-cta" onclick="openModal()">Garantir Vaga →</button>
+      <button class="ham" id="ham"><span class="hl"></span><span class="hl"></span><span class="hl"></span></button>
+    </div>
+  </header>
+
+  <nav class="mob-nav" id="mobnav">
+    <a href="#dor" onclick="closeMob()">A Dor</a>
+    <a href="#identidade" onclick="closeMob()">Transformação</a>
+    <a href="#programa" onclick="closeMob()">Programa</a>
+    <a href="#caminhos" onclick="closeMob()">Caminhos</a>
+    <a href="#faq" onclick="closeMob()">FAQ</a>
+    <button class="btn btn-p btn-fw mob-cta" onclick="openModal();closeMob()">Garantir Minha Vaga →</button>
+  </nav>
+
+  <!-- TICKER -->
+  <div class="ticker-bar" aria-hidden="true">
+    <div class="ticker-inner">
+      <span class="ti"><span class="tdot"></span>Carlos: <span class="thi">R$2.5k→R$12k</span>&nbsp;shopping → B2B em 3
+        meses</span>
+      <span class="ti"><span class="tdot"></span>Marina: <span class="thi">R$2k→R$8.5k</span>&nbsp;televendas → Tech em
+        2 meses</span>
+      <span class="ti"><span class="tdot"></span>Felipe: <span class="thi">R$3k→R$15k</span>&nbsp;varejo → Indústria em
+        4 meses</span>
+      <span class="ti"><span class="tdot"></span>Ana: <span class="thi">R$2.8k→R$18k+</span>&nbsp;shopping → High
+        Ticket</span>
+      <span class="ti"><span class="tdot"></span>Rodrigo: <span class="thi">R$2.2k→R$9k</span>&nbsp;loja física →
+        SaaS</span>
+      <span class="ti"><span class="tdot"></span>Juliana: <span class="thi">R$1.8k→R$11k</span>&nbsp;telemarketing → B2B
+        consultivo</span>
+      <span class="ti"><span class="tdot"></span><span class="thi">87%</span>&nbsp;dos alunos têm retorno no 1º
+        mês</span>
+      <span class="ti"><span class="tdot"></span><span class="thi">92%</span>&nbsp;conseguem vagas consultivas com
+        aumento salarial</span>
+      <span class="ti"><span class="tdot"></span><span class="thi">5x</span>&nbsp;aumento médio de renda em 12
+        meses</span>
+      <span class="ti"><span class="tdot"></span>Thiago: <span class="thi">R$3.5k→R$14k</span>&nbsp;distribuidora → Key
+        Account</span>
+      <span class="ti"><span class="tdot"></span>Camila: <span class="thi">R$2.3k→R$10k</span>&nbsp;varejo → Consultora
+        de Soluções</span>
+      <span class="ti"><span class="tdot"></span><span class="thi">Próxima turma</span>&nbsp;· Vagas limitadas ·
+        Inscrições abertas</span>
+      <span class="ti"><span class="tdot"></span>Carlos: <span class="thi">R$2.5k→R$12k</span>&nbsp;shopping → B2B em 3
+        meses</span>
+      <span class="ti"><span class="tdot"></span>Marina: <span class="thi">R$2k→R$8.5k</span>&nbsp;televendas → Tech em
+        2 meses</span>
+      <span class="ti"><span class="tdot"></span>Felipe: <span class="thi">R$3k→R$15k</span>&nbsp;varejo → Indústria em
+        4 meses</span>
+      <span class="ti"><span class="tdot"></span>Ana: <span class="thi">R$2.8k→R$18k+</span>&nbsp;shopping → High
+        Ticket</span>
+      <span class="ti"><span class="tdot"></span>Rodrigo: <span class="thi">R$2.2k→R$9k</span>&nbsp;loja física →
+        SaaS</span>
+      <span class="ti"><span class="tdot"></span>Juliana: <span class="thi">R$1.8k→R$11k</span>&nbsp;telemarketing → B2B
+        consultivo</span>
+      <span class="ti"><span class="tdot"></span><span class="thi">87%</span>&nbsp;dos alunos têm retorno no 1º
+        mês</span>
+      <span class="ti"><span class="tdot"></span><span class="thi">92%</span>&nbsp;conseguem vagas consultivas com
+        aumento salarial</span>
+      <span class="ti"><span class="tdot"></span><span class="thi">5x</span>&nbsp;aumento médio de renda em 12
+        meses</span>
+      <span class="ti"><span class="tdot"></span>Thiago: <span class="thi">R$3.5k→R$14k</span>&nbsp;distribuidora → Key
+        Account</span>
+      <span class="ti"><span class="tdot"></span>Camila: <span class="thi">R$2.3k→R$10k</span>&nbsp;varejo → Consultora
+        de Soluções</span>
+      <span class="ti"><span class="tdot"></span><span class="thi">Próxima turma</span>&nbsp;· Vagas limitadas ·
+        Inscrições abertas</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-rad"></div>
+    <canvas id="hc"></canvas>
+    <div class="wrap hero-wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="h-pill rv in"><span class="h-pill-dot"></span>Formação em Vendas Consultivas</div>
+          <h1 class="h1 rv in d1">Você Trabalha<br><em>Demais e Ganha</em><br>De Menos</h1>
+          <p class="h-lead rv in d2">10 horas por dia em varejo, shopping ou televendas. Comissão baixa. Salário que não
+            cresce. Você sabe que existe algo melhor — e existe. <strong>O SIGNUM é o caminho estruturado para chegar
+              lá.</strong></p>
+          <!-- MOBILE METRICS (visible only on mobile, panel is hidden) -->
+          <div class="h-mob-metrics rv in d3">
+            <div class="hmm-item"><span class="hmm-n">87%</span><span class="hmm-l">Retorno no 1º mês</span></div>
+            <div class="hmm-sep"></div>
+            <div class="hmm-item"><span class="hmm-n">5x</span><span class="hmm-l">Aumento de renda</span></div>
+            <div class="hmm-sep"></div>
+            <div class="hmm-item"><span class="hmm-n">92%</span><span class="hmm-l">Vagas consultivas</span></div>
+          </div>
+          <div class="h-actions rv in d4">
+            <button class="btn btn-p btn-lg btn-glow" onclick="openModal()">Começar Minha Transformação <svg width="16"
+                height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></button>
+            <a href="#programa" class="btn btn-g btn-lg">Ver o programa</a>
+          </div>
+          <div class="h-trust rv in d4">
+            <div class="h-ti"><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Certificação reconhecida</div>
+            <div class="h-ti"><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>8 semanas estruturadas</div>
+            <div class="h-ti"><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Acesso vitalício</div>
+          </div>
+        </div>
+        <div class="h-panel rv in d3">
+          <div class="panel-head"><span class="panel-title">Jornadas de Alunos</span><span class="panel-live"><span
+                class="panel-live-dot"></span>Resultados reais</span></div>
+          <div class="p-stats">
+            <div class="p-stat">
+              <div class="ps-n">87%</div>
+              <div class="ps-l">Retorno financeiro no 1º mês</div>
+              <div class="ps-d">↑ Comprovado pelos alunos</div>
+            </div>
+            <div class="p-stat">
+              <div class="ps-n">5x</div>
+              <div class="ps-l">Aumento médio de renda</div>
+              <div class="ps-d">↑ Em 12 meses</div>
+            </div>
+            <div class="p-stat">
+              <div class="ps-n">92%</div>
+              <div class="ps-l">Conseguem vaga consultiva</div>
+              <div class="ps-d">↑ Com aumento salarial real</div>
+            </div>
+            <div class="p-stat">
+              <div class="ps-n">8sem</div>
+              <div class="ps-l">Programa completo</div>
+              <div class="ps-d">→ Certificação incluída</div>
+            </div>
+          </div>
+          <div class="p-bar-lbl">De onde vêm → para onde vão</div>
+          <div class="p-bars">
+            <div class="pb-row"><span class="pb-nm">Varejo/Shopping</span>
+              <div class="pb-track">
+                <div class="pb-fill" style="width:78%"></div>
+              </div><span class="pb-v">→ B2B</span>
+            </div>
+            <div class="pb-row"><span class="pb-nm">Televendas</span>
+              <div class="pb-track">
+                <div class="pb-fill" style="width:62%"></div>
+              </div><span class="pb-v">→ Tech</span>
+            </div>
+            <div class="pb-row"><span class="pb-nm">Distribuidoras</span>
+              <div class="pb-track">
+                <div class="pb-fill" style="width:45%"></div>
+              </div><span class="pb-v">→ Indústria</span>
+            </div>
+            <div class="pb-row"><span class="pb-nm">Loja Física</span>
+              <div class="pb-track">
+                <div class="pb-fill" style="width:35%"></div>
+              </div><span class="pb-v">→ High Ticket</span>
+            </div>
+          </div>
+          <p class="p-quote">"Saí do varejo ganhando R$2.5k. Três meses depois do Signum, R$12k em B2B. Não é sorte — é
+            método." — Carlos M.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOR -->
+  <section id="dor" class="alt">
+    <div class="wrap">
+      <div class="rv">
+        <div class="eyebrow">A Realidade</div>
+        <h2 class="sh2">A Vida Que Você<br>Vive Todo Dia</h2>
+        <p class="ssub">Você reconhece alguma dessas situações?</p>
+      </div>
+      <div class="dor-layout">
+        <div class="pain-list rv">
+          <div class="pain-item">
+            <div class="pain-icon"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg></div>
+            <div>
+              <div class="pain-title">Jornada Exaustiva</div>
+              <p class="pain-desc">8-10 horas por dia. Corpo cansa, mente cansa. Você volta pra casa sem energia para
+                mais nada.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon"><svg viewBox="0 0 24 24">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg></div>
+            <div>
+              <div class="pain-title">Ganho Desproporcional</div>
+              <p class="pain-desc">Você vende R$100k/mês. Recebe R$2-3k. Comissão baixa, salário congelado, conta não
+                fecha.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg></div>
+            <div>
+              <div class="pain-title">Sem Método Real</div>
+              <p class="pain-desc">Você vende por intuição. Sem técnica estruturada, sem ferramentas, sem treinamento
+                que funcione.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4l3 3" />
+              </svg></div>
+            <div>
+              <div class="pain-title">Zero Perspectiva</div>
+              <p class="pain-desc">Você não vê caminho de crescimento. Parece que vai ficar assim para sempre. E isso
+                pesa.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon"><svg viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg></div>
+            <div>
+              <div class="pain-title">Pressão Sem Fim</div>
+              <p class="pain-desc">Chefe na sua nuca, meta impossível, cliente exigente. Você está sempre em modo de
+                sobrevivência.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon"><svg viewBox="0 0 24 24">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg></div>
+            <div>
+              <div class="pain-title">Renda Estagnada</div>
+              <p class="pain-desc">Você trabalha mais a cada ano. Mas ganha o mesmo. O esforço não se transforma em
+                dinheiro.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cost-card rv">
+          <div class="cost-h">O Custo Real de Não Agir</div>
+          <div class="cost-items">
+            <div>
+              <div class="cost-tag">Financeiro</div>
+              <p class="cost-txt">Você perde R$100-200k por ano sendo remunerado errado para o esforço que entrega.</p>
+            </div>
+            <div>
+              <div class="cost-tag">Emocional</div>
+              <p class="cost-txt">Frustração crescente, ansiedade e a sensação de estar preso num modelo que não te
+                valoriza.</p>
+            </div>
+            <div>
+              <div class="cost-tag">Oportunidade</div>
+              <p class="cost-txt">Enquanto você hesita, outros já estão em vendas consultivas ganhando 5-10x mais.</p>
+            </div>
+            <div>
+              <div class="cost-tag">Identidade</div>
+              <p class="cost-txt">Você começa a acreditar que é isso — "sou vendedor de varejo". Essa crença limita
+                tudo.</p>
+            </div>
+          </div>
+          <p class="cost-q">"O problema não é você. É o modelo. Você está num sistema desenhado para extrair o máximo de
+            você com o mínimo de retorno."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IDENTIDADE -->
+  <section id="identidade">
+    <div class="wrap">
+      <div class="rv">
+        <div class="eyebrow">Transformação</div>
+        <h2 class="sh2">Não é sobre Técnicas.<br>É sobre Identidade.</h2>
+        <p class="ssub">A diferença entre quem ganha R$3k e quem ganha R$15k não é esforço. É o modelo mental.</p>
+      </div>
+      <div class="tx-layout">
+        <div class="rv tl-b">
+          <div class="tc-head">
+            <h3 class="tc-h3">Você Hoje</h3><span class="tc-badge tb-b">Situação Atual</span>
+          </div>
+          <ul class="tl">
+            <li class="ti-item"><span class="ix">✗</span>Vendedor de varejo / shopping</li>
+            <li class="ti-item"><span class="ix">✗</span>Vende por intuição, sem método</li>
+            <li class="ti-item"><span class="ix">✗</span>Trabalha muito, ganha pouco</li>
+            <li class="ti-item"><span class="ix">✗</span>Sem estrutura, sem comunidade</li>
+            <li class="ti-item"><span class="ix">✗</span>Sem perspectiva de crescimento</li>
+          </ul>
+        </div>
+        <div class="tarr rv">→</div>
+        <div class="rv tl-a">
+          <div class="tc-head">
+            <h3 class="tc-h3">Após o SIGNUM</h3><span class="tc-badge tb-a">Nova Realidade</span>
+          </div>
+          <ul class="tl">
+            <li class="ti-item"><span class="io">✓</span><strong>Profissional de Vendas Consultivas</strong></li>
+            <li class="ti-item"><span class="io">✓</span><strong>Método SPIN + Challenger + Psicologia</strong></li>
+            <li class="ti-item"><span class="io">✓</span><strong>Trabalha com método — ganha proporcional ao valor que
+                entrega</strong></li>
+            <li class="ti-item"><span class="io">✓</span><strong>Estrutura, suporte e comunidade de elite</strong></li>
+            <li class="ti-item"><span class="io">✓</span><strong>Mapa de carreira claro e executável</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="id-note rv">
+        <h3>Por que Identidade Importa Mais que Técnica</h3>
+        <p>Você não é um "vendedor de varejo que aprendeu novas técnicas". Você se torna um <strong>profissional de
+            vendas consultivas</strong> — alguém que trabalha com decisores, vende soluções complexas e cobra de acordo
+          com o valor entregue. Essa mudança de identidade muda tudo: sua postura, sua comunicação, quais oportunidades
+          você atrai e quanto você ganha.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMA -->
+  <section id="programa" class="alt">
+    <div class="wrap">
+      <div class="rv">
+        <div class="eyebrow">O Programa</div>
+        <h2 class="sh2">8 Semanas de<br>Transformação Real</h2>
+        <p class="ssub">Três fases com progressão estruturada — cada semana constrói sobre a anterior.</p>
+      </div>
+      <div class="ph-grid rv">
+        <div class="ph-card">
+          <div class="ph-n">Fase 01</div>
+          <div class="ph-t">Fundação de Identidade</div>
+          <div class="ph-w">Semanas 1–2</div>
+          <p class="ph-d">Você quebra o modelo mental de "vendedor" e constrói a identidade de profissional de alto
+            valor.</p>
+          <ul class="ph-ul">
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Identidade: quem você é agora</li>
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Comunicação com decisores</li>
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Mindset consultivo vs transacional</li>
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Introdução ao SPIN Selling</li>
+          </ul>
+        </div>
+        <div class="ph-card">
+          <div class="ph-n">Fase 02</div>
+          <div class="ph-t">Capacidade Operacional</div>
+          <div class="ph-w">Semanas 3–6</div>
+          <p class="ph-d">Você constrói rotina, pipeline, indicadores e sustentação de performance de elite.</p>
+          <ul class="ph-ul">
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Execução & rotina diária</li>
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Pipeline & KPIs que importam</li>
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Fechamento de vendas complexas</li>
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Adaptação multimercado</li>
+          </ul>
+        </div>
+        <div class="ph-card">
+          <div class="ph-n">Fase 03</div>
+          <div class="ph-t">Validação & Certificação</div>
+          <div class="ph-w">Semanas 7–8</div>
+          <p class="ph-d">Avaliação real, feedback honesto e certificação + mapa personalizado de carreira.</p>
+          <ul class="ph-ul">
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Simulações reais com feedback</li>
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Avaliação de prontidão</li>
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Certificação reconhecida</li>
+            <li><svg class="ph-ck" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Mapa personalizado de carreira</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wk-sec rv">
+        <div class="wk-h3">Semana a Semana</div>
+        <div class="wk-grid" id="wkgrid"></div>
+      </div>
+      <div class="res-box rv">
+        <div class="res-h">Resultados dos Nossos Alunos</div>
+        <div class="res-grid">
+          <div class="res-item">
+            <div class="res-num">87%</div>
+            <p class="res-lbl">Retorno financeiro mensurável no 1º mês após formação</p>
+          </div>
+          <div class="res-sep"></div>
+          <div class="res-item">
+            <div class="res-num">92%</div>
+            <p class="res-lbl">Conseguem vagas consultivas com aumento salarial real</p>
+          </div>
+          <div class="res-sep"></div>
+          <div class="res-item">
+            <div class="res-num">5x</div>
+            <p class="res-lbl">Aumento médio de renda em 12 meses pós-formação</p>
+          </div>
+        </div>
+        <p style="font-size:11px;color:var(--fg3);margin-top:24px">* Dados baseados em acompanhamento de 120+ alunos das
+          turmas 2024–2025. Resultados individuais variam conforme dedicação, histórico e mercado escolhido.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMINHOS -->
+  <section id="caminhos">
+    <div class="wrap">
+      <div class="rv">
+        <div class="eyebrow">Caminhos de Carreira</div>
+        <h2 class="sh2">4 Destinos Reais<br>Após o SIGNUM</h2>
+        <p class="ssub">Se você está hoje em varejo ou televendas, provavelmente nunca trabalhou nesses mercados. A
+          seguir, o que cada um significa — e por que profissionais como você se destacam neles.</p>
+      </div>
+      <!-- PATHS CAROUSEL -->
+      <div class="carousel-wrap rv" id="paths-carousel-wrap">
+        <div class="carousel-viewport" id="paths-viewport">
+          <div class="carousel-track" id="paths-track">
+
+            <div class="path-card carousel-slide">
+              <div class="path-top">
+                <div class="path-icon"><svg viewBox="0 0 24 24">
+                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                  </svg></div>
+                <div>
+                  <div class="p-rl">Renda média</div>
+                  <div class="p-rv">R$ 8k – 15k</div>
+                </div>
+              </div>
+              <div class="path-t">B2B Consultivo</div>
+              <p class="path-d"><strong style="color:var(--fg);font-size:11px">Para quem vem de varejo:</strong> em vez
+                de atender centenas de clientes por dia, você trabalha com poucas empresas — aprofunda o relacionamento,
+                entende os problemas e apresenta soluções. Ticket alto, comissão proporcional.</p>
+              <hr class="path-sep" />
+              <div class="p-rl2">Comissão</div>
+              <p class="p-cm">Comissões agressivas por fechamento</p>
+              <div class="p-rl2">Benefícios</div>
+              <ul class="p-bens">
+                <li><span class="p-ck">✓</span>Bônus anuais de performance</li>
+                <li><span class="p-ck">✓</span>Planos de saúde premium</li>
+                <li><span class="p-ck">✓</span>Trilha para gestão estratégica</li>
+              </ul>
+              <div class="path-story">
+                <div class="ps-l">História Real</div>
+                <div class="ps-t">Carlos: R$2.5k (varejo) → R$12k (B2B) em 3 meses</div>
+              </div>
+            </div>
+
+            <div class="path-card carousel-slide">
+              <div class="path-top">
+                <div class="path-icon"><svg viewBox="0 0 24 24">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg></div>
+                <div>
+                  <div class="p-rl">Renda média</div>
+                  <div class="p-rv">R$ 5k – 12k</div>
+                </div>
+              </div>
+              <div class="path-t">Tech & SaaS</div>
+              <p class="path-d"><strong style="color:var(--fg);font-size:11px">Para quem vem de televendas:</strong>
+                empresas de tecnologia contratam quem sabe conversar e qualificar rápido — exatamente o que você já faz.
+                A diferença é que o produto tem mais valor e a comissão acompanha.</p>
+              <hr class="path-sep" />
+              <div class="p-rl2">Comissão</div>
+              <p class="p-cm">Acelerador de meta robusto</p>
+              <div class="p-rl2">Benefícios</div>
+              <ul class="p-bens">
+                <li><span class="p-ck">✓</span>Stock options em startups</li>
+                <li><span class="p-ck">✓</span>Flexibilidade remoto/híbrido</li>
+                <li><span class="p-ck">✓</span>Crescimento de carreira acelerado</li>
+              </ul>
+              <div class="path-story">
+                <div class="ps-l">História Real</div>
+                <div class="ps-t">Marina: R$2k (televendas) → R$8.5k (Tech) em 2 meses</div>
+              </div>
+            </div>
+
+            <div class="path-card carousel-slide">
+              <div class="path-top">
+                <div class="path-icon"><svg viewBox="0 0 24 24">
+                    <path d="M2 20h20M4 20V8l6-6 6 6v12M10 20v-6h4v6" />
+                  </svg></div>
+                <div>
+                  <div class="p-rl">Renda média</div>
+                  <div class="p-rv">R$ 7k – 14k</div>
+                </div>
+              </div>
+              <div class="path-t">Propagandista & Indústria</div>
+              <p class="path-d"><strong style="color:var(--fg);font-size:11px">Para quem quer estabilidade:</strong>
+                vendas técnicas com clientes estratégicos e relacionamentos de longo prazo. Menos volume, mais
+                profundidade — carro da empresa e benefícios sólidos incluídos.</p>
+              <hr class="path-sep" />
+              <div class="p-rl2">Comissão</div>
+              <p class="p-cm">Comissões sobre metas + bônus</p>
+              <div class="p-rl2">Benefícios</div>
+              <ul class="p-bens">
+                <li><span class="p-ck">✓</span>Carro da empresa</li>
+                <li><span class="p-ck">✓</span>Previdência privada</li>
+                <li><span class="p-ck">✓</span>Alta estabilidade de mercado</li>
+              </ul>
+              <div class="path-story">
+                <div class="ps-l">História Real</div>
+                <div class="ps-t">Felipe: R$3k (varejo) → R$15k (Indústria) em 4 meses</div>
+              </div>
+            </div>
+
+            <div class="path-card carousel-slide">
+              <div class="path-top">
+                <div class="path-icon"><svg viewBox="0 0 24 24">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                  </svg></div>
+                <div>
+                  <div class="p-rl">Renda média</div>
+                  <div class="p-rv">R$ 7k – 18k+</div>
+                </div>
+              </div>
+              <div class="path-t">High Ticket Digital</div>
+              <p class="path-d"><strong style="color:var(--fg);font-size:11px">Para quem quer flexibilidade:</strong>
+                fechar uma venda de R$5–15k por comissão pode valer mais do que um mês inteiro no varejo. Trabalho
+                remoto, sem horário fixo, renda proporcional ao resultado.</p>
+              <hr class="path-sep" />
+              <div class="p-rl2">Comissão</div>
+              <p class="p-cm">Comissões altas por fechamento</p>
+              <div class="p-rl2">Benefícios</div>
+              <ul class="p-bens">
+                <li><span class="p-ck">✓</span>Trabalhe de qualquer lugar</li>
+                <li><span class="p-ck">✓</span>Renda sem teto</li>
+                <li><span class="p-ck">✓</span>Comunidade de empreendedores</li>
+              </ul>
+              <div class="path-story">
+                <div class="ps-l">História Real</div>
+                <div class="ps-t">Ana: R$2.8k (shopping) → R$18k+ (High Ticket)</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <button class="carousel-btn carousel-prev" id="paths-prev" onclick="pathsCarousel.prev()">&#8249;</button>
+        <button class="carousel-btn carousel-next" id="paths-next" onclick="pathsCarousel.next()">&#8250;</button>
+        <div class="carousel-dots" id="paths-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="rv">
+        <div class="eyebrow">Histórias Reais</div>
+        <h2 class="sh2">Quem Já Fez<br>a Transformação</h2>
+        <p class="ssub">Depoimentos de alunos que saíram de varejo, televendas e loja física. Resultados verificados
+          internamente com base em 120+ alunos da turma 2024–2025.</p>
+      </div>
+
+      <div class="carousel-wrap rv" id="test-carousel-wrap">
+        <div class="carousel-viewport" id="test-viewport">
+          <div class="carousel-track" id="test-track">
+
+            <div class="tc carousel-slide">
+              <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="t-q">Saí do varejo e descobri um mundo completamente diferente. Aprendi a falar com decisores, a
+                estruturar um pipeline, a fechar negócios complexos. Hoje trabalho com propósito e ganho de forma
+                compatível com o esforço que entrego.</p>
+              <div class="t-delta">
+                <div class="td-c">
+                  <div class="td-l">Antes</div>
+                  <div class="td-v">R$ 2.500/mês<br><span
+                      style="font-size:10px;color:var(--fg3);font-weight:400">Vendedor · Shopping</span></div>
+                </div>
+                <div class="td-sep"></div>
+                <div class="td-c">
+                  <div class="td-l">Depois · 3 meses</div>
+                  <div class="td-v af">R$ 12.000/mês<br><span style="font-size:10px;font-weight:400">Account Executive
+                      B2B</span></div>
+                </div>
+              </div>
+              <div class="t-per">
+                <div class="t-av" style="background:linear-gradient(135deg,#00D4FF22,#00D4FF44)">C</div>
+                <div>
+                  <div class="t-nm">Carlos M., 31 anos</div>
+                  <div class="t-ro">São Paulo · Account Executive, empresa de software B2B</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tc carousel-slide">
+              <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="t-q">Não era sobre trabalhar mais. Era sobre entender como o mercado de alto valor funciona — e
+                desenvolver a identidade e o método para entrar nele. Duas semanas depois de terminar o SIGNUM já tinha
+                proposta de emprego na mesa.</p>
+              <div class="t-delta">
+                <div class="td-c">
+                  <div class="td-l">Antes</div>
+                  <div class="td-v">R$ 2.000/mês<br><span
+                      style="font-size:10px;color:var(--fg3);font-weight:400">Operadora · Televendas</span></div>
+                </div>
+                <div class="td-sep"></div>
+                <div class="td-c">
+                  <div class="td-l">Depois · 2 meses</div>
+                  <div class="td-v af">R$ 8.500/mês<br><span style="font-size:10px;font-weight:400">Consultora de
+                      Soluções Tech</span></div>
+                </div>
+              </div>
+              <div class="t-per">
+                <div class="t-av" style="background:linear-gradient(135deg,#9B59B622,#9B59B644)">M</div>
+                <div>
+                  <div class="t-nm">Marina S., 27 anos</div>
+                  <div class="t-ro">Campinas · SDR Sênior, startup SaaS de RH</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tc carousel-slide">
+              <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="t-q">O problema nunca foi eu. Era o modelo onde eu estava. Quando mudei de modelo — identidade,
+                linguagem, método — tudo mudou junto. A certificação foi o que me abriu a porta para a primeira
+                entrevista no mercado industrial.</p>
+              <div class="t-delta">
+                <div class="td-c">
+                  <div class="td-l">Antes</div>
+                  <div class="td-v">R$ 3.000/mês<br><span
+                      style="font-size:10px;color:var(--fg3);font-weight:400">Vendedor · Loja de varejo</span></div>
+                </div>
+                <div class="td-sep"></div>
+                <div class="td-c">
+                  <div class="td-l">Depois · 4 meses</div>
+                  <div class="td-v af">R$ 15.000/mês<br><span style="font-size:10px;font-weight:400">Especialista B2B
+                      Industrial</span></div>
+                </div>
+              </div>
+              <div class="t-per">
+                <div class="t-av" style="background:linear-gradient(135deg,#E67E2222,#E67E2244)">F</div>
+                <div>
+                  <div class="t-nm">Felipe R., 34 anos</div>
+                  <div class="t-ro">Belo Horizonte · Executivo de Contas, distribuidora industrial</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tc carousel-slide">
+              <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="t-q">Trabalhava 10h por dia num shopping e sentia que meu esforço não tinha retorno
+                proporcional. O Signum me deu vocabulário, método e confiança para entrar em um mercado que eu nem sabia
+                que existia pra mim.</p>
+              <div class="t-delta">
+                <div class="td-c">
+                  <div class="td-l">Antes</div>
+                  <div class="td-v">R$ 2.800/mês<br><span
+                      style="font-size:10px;color:var(--fg3);font-weight:400">Vendedora · Shopping</span></div>
+                </div>
+                <div class="td-sep"></div>
+                <div class="td-c">
+                  <div class="td-l">Depois · 5 meses</div>
+                  <div class="td-v af">R$ 18.000+/mês<br><span style="font-size:10px;font-weight:400">Closer High
+                      Ticket</span></div>
+                </div>
+              </div>
+              <div class="t-per">
+                <div class="t-av" style="background:linear-gradient(135deg,#1ABC9C22,#1ABC9C44)">A</div>
+                <div>
+                  <div class="t-nm">Ana P., 29 anos</div>
+                  <div class="t-ro">Rio de Janeiro · Closer, mentoria de negócios premium</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tc carousel-slide">
+              <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="t-q">Achei que não serviria pra mim porque nunca trabalhei em empresa grande. Mas o Signum me
+                ensinou que o que importa é competência demonstrada — e foi exatamente isso que a certificação provou
+                para o mercado.</p>
+              <div class="t-delta">
+                <div class="td-c">
+                  <div class="td-l">Antes</div>
+                  <div class="td-v">R$ 2.200/mês<br><span
+                      style="font-size:10px;color:var(--fg3);font-weight:400">Atendente · Loja física</span></div>
+                </div>
+                <div class="td-sep"></div>
+                <div class="td-c">
+                  <div class="td-l">Depois · 3 meses</div>
+                  <div class="td-v af">R$ 9.000/mês<br><span style="font-size:10px;font-weight:400">SDR, empresa de
+                      tecnologia</span></div>
+                </div>
+              </div>
+              <div class="t-per">
+                <div class="t-av" style="background:linear-gradient(135deg,#3498DB22,#3498DB44)">R</div>
+                <div>
+                  <div class="t-nm">Rodrigo T., 26 anos</div>
+                  <div class="t-ro">Curitiba · SDR, empresa de SaaS para logística</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tc carousel-slide">
+              <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+              <p class="t-q">O que mais me surpreendeu foi a simulação real da semana 7. Nunca tinha passado por um
+                roleplay tão próximo do que o mercado exige de verdade. Saí de lá diferente — mais segura, mais precisa,
+                mais profissional.</p>
+              <div class="t-delta">
+                <div class="td-c">
+                  <div class="td-l">Antes</div>
+                  <div class="td-v">R$ 1.800/mês<br><span
+                      style="font-size:10px;color:var(--fg3);font-weight:400">Operadora · Telemarketing</span></div>
+                </div>
+                <div class="td-sep"></div>
+                <div class="td-c">
+                  <div class="td-l">Depois · 2 meses</div>
+                  <div class="td-v af">R$ 11.000/mês<br><span style="font-size:10px;font-weight:400">Consultora B2B,
+                      setor financeiro</span></div>
+                </div>
+              </div>
+              <div class="t-per">
+                <div class="t-av" style="background:linear-gradient(135deg,#E91E6322,#E91E6344)">J</div>
+                <div>
+                  <div class="t-nm">Juliana F., 30 anos</div>
+                  <div class="t-ro">Porto Alegre · Consultora Comercial, fintech</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <button class="carousel-btn carousel-prev" onclick="testCarousel.prev()">&#8249;</button>
+        <button class="carousel-btn carousel-next" onclick="testCarousel.next()">&#8250;</button>
+        <div class="carousel-dots" id="test-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTIMENTO -->
+  <section>
+    <div class="wrap">
+      <div class="rv">
+        <div class="eyebrow">Investimento</div>
+        <h2 class="sh2">Quanto Custa<br>a Transformação</h2>
+        <p class="ssub">R$ 1.200 à vista ou 12x R$125. Se você sair do varejo ganhando R$8k, o investimento se paga em
+          menos de 3 semanas. Parcelamento sem juros disponível.</p>
+      </div>
+      <!-- ROI CALCULATOR STRIP -->
+      <div class="rv"
+        style="margin-top:40px;margin-bottom:40px;padding:24px 32px;background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(0,212,255,.02));border:1px solid var(--bdrc);border-radius:var(--r);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
+        <div style="display:flex;flex-wrap:wrap;gap:32px">
+          <div style="text-align:center">
+            <div
+              style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--fg3);text-decoration:line-through">
+              R$ 1.500</div>
+            <div style="font-size:10px;color:var(--fg3)">Valor original</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;color:var(--c)">R$ 1.200</div>
+            <div style="font-size:10px;color:var(--c);font-weight:700">À vista · 20% OFF</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--fg)">12x R$ 125</div>
+            <div style="font-size:10px;color:var(--fg3)">Sem juros no cartão</div>
+          </div>
+        </div>
+        <div
+          style="background:rgba(0,212,255,.08);border:1px solid var(--bdrc);border-radius:var(--r2);padding:14px 20px;font-size:13px;color:var(--fg2);line-height:1.6;max-width:280px">
+          💡 <strong style="color:var(--fg)">Cálculo rápido:</strong> Alunos que saem para vagas de R$8k recuperam o
+          investimento em <strong style="color:var(--c)">menos de 3 semanas</strong> no novo salário.
+        </div>
+      </div>
+      <div class="inv-layout">
+        <div class="pr-card rv">
+          <div class="pr-badge">Promoção Especial</div>
+          <div class="pr-main">R$ 1.500</div>
+          <p class="pr-sub">Programa completo de 8 semanas</p>
+          <div class="pr-opts">
+            <button class="pr-opt sel" onclick="selOpt(this)">
+              <div>
+                <div class="po-l">À Vista — Pix</div>
+                <div class="po-s">Melhor custo-benefício · 20% OFF</div>
+              </div>
+              <div class="po-v">R$ 1.200</div>
+            </button>
+            <button class="pr-opt" onclick="selOpt(this)">
+              <div>
+                <div class="po-l">Parcelado — Cartão</div>
+                <div class="po-s">12x sem juros</div>
+              </div>
+              <div class="po-v">12x R$125</div>
+            </button>
+          </div>
+          <ul class="pr-list">
+            <li><span class="ok">✓</span>Acesso vitalício à plataforma e materiais</li>
+            <li><span class="ok">✓</span>Certificação reconhecida pelo mercado</li>
+            <li><span class="ok">✓</span>Direcionamento personalizado de carreira</li>
+            <li><span class="ok">✓</span>Comunidade de profissionais de elite</li>
+            <li><span class="ok">✓</span>Simulações reais com instrutores experientes</li>
+          </ul>
+          <button class="btn btn-p btn-xl btn-fw btn-glow" onclick="openModal()">Garantir Minha Vaga <svg width="16"
+              height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></button>
+          <div class="pr-sec"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>Pagamento 100% seguro · SSL criptografado</div>
+        </div>
+        <div class="vps rv">
+          <div class="vp">
+            <div class="vp-ic"><svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg></div>
+            <div>
+              <h4>Certificação com Valor de Mercado</h4>
+              <p>Conquistada após avaliação real. Reconhecida por empresas B2B, tech e indústria. Adicione ao LinkedIn.
+              </p>
+            </div>
+          </div>
+          <div class="vp">
+            <div class="vp-ic"><svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg></div>
+            <div>
+              <h4>Comunidade de Elite</h4>
+              <p>Uma rede de profissionais que passaram pelo mesmo processo rigoroso. Networking e oportunidades
+                concretas.</p>
+            </div>
+          </div>
+          <div class="vp">
+            <div class="vp-ic"><svg viewBox="0 0 24 24">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg></div>
+            <div>
+              <h4>ROI Médio de 5x em 12 Meses</h4>
+              <p>O investimento se paga nos primeiros meses. Nossos alunos têm histórico comprovado de retorno rápido.
+              </p>
+            </div>
+          </div>
+          <div class="vp">
+            <div class="vp-ic"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg></div>
+            <div>
+              <h4>Acesso Vitalício ao Conteúdo</h4>
+              <p>Aulas gravadas, materiais, templates e guias — seus para sempre, sem limite de prazo ou acesso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="alt">
+    <div class="wrap">
+      <div class="rv">
+        <div class="eyebrow">Dúvidas</div>
+        <h2 class="sh2">Perguntas Frequentes</h2>
+      </div>
+      <div class="faq-layout rv">
+        <div class="faq-tabs">
+          <div class="faq-tab on" onclick="switchFaq('t1',this)"><span class="faq-tab-dot"></span>Dedicação</div>
+          <div class="faq-tab" onclick="switchFaq('t2',this)"><span class="faq-tab-dot"></span>Acesso</div>
+          <div class="faq-tab" onclick="switchFaq('t3',this)"><span class="faq-tab-dot"></span>Resultados</div>
+        </div>
+        <div class="faq-panels">
+          <div class="faq-panel on" id="t1">
+            <div class="faq-item"><button class="faq-btn" onclick="togFaq(this)">Quanto tempo por semana preciso
+                dedicar?<svg class="faq-chev" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></button>
+              <div class="faq-ans">O programa requer 10-15 horas por semana — aulas, simulações, materiais e casos
+                reais. Você organiza conforme sua disponibilidade, mas a consistência faz diferença.</div>
+            </div>
+            <div class="faq-item"><button class="faq-btn" onclick="togFaq(this)">Posso fazer enquanto trabalho?<svg
+                  class="faq-chev" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></button>
+              <div class="faq-ans">Sim. A maioria dos alunos trabalha durante o programa. Aulas são gravadas e
+                flexíveis. Simulações ao vivo têm múltiplos horários por semana.</div>
+            </div>
+            <div class="faq-item"><button class="faq-btn" onclick="togFaq(this)">E se eu precisar pausar?<svg
+                  class="faq-chev" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></button>
+              <div class="faq-ans">Você mantém acesso vitalício e pode continuar no seu ritmo. Recomendamos as 8 semanas
+                consecutivas, mas entendemos que a vida acontece.</div>
+            </div>
+          </div>
+          <div class="faq-panel" id="t2">
+            <div class="faq-item"><button class="faq-btn" onclick="togFaq(this)">Como funciona o acesso?<svg
+                  class="faq-chev" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></button>
+              <div class="faq-ans">Login e senha imediatamente após o pagamento. Plataforma de membros com aulas,
+                materiais, simulações agendadas e comunidade — online 24/7.</div>
+            </div>
+            <div class="faq-item"><button class="faq-btn" onclick="togFaq(this)">Tenho acesso vitalício?<svg
+                  class="faq-chev" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></button>
+              <div class="faq-ans">Sim. Todo o conteúdo — aulas, templates, guias — é seu para sempre. Simulações ao
+                vivo são durante as 8 semanas.</div>
+            </div>
+            <div class="faq-item"><button class="faq-btn" onclick="togFaq(this)">Posso baixar os materiais?<svg
+                  class="faq-chev" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></button>
+              <div class="faq-ans">Sim. PDFs, templates, guias de negociação e scripts — todos baixáveis para uso
+                offline quando quiser.</div>
+            </div>
+          </div>
+          <div class="faq-panel" id="t3">
+            <div class="faq-item"><button class="faq-btn" onclick="togFaq(this)">Recebo certificado ao final?<svg
+                  class="faq-chev" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></button>
+              <div class="faq-ans">Sim. O certificado do "Sistema de Formação em Vendas Consultivas de Alto Valor
+                SIGNUM" — conquistado após avaliação real, adicionável ao LinkedIn.</div>
+            </div>
+            <div class="faq-item"><button class="faq-btn" onclick="togFaq(this)">Qual é a taxa de sucesso?<svg
+                  class="faq-chev" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></button>
+              <div class="faq-ans">87% dos alunos têm retorno financeiro mensurável no 1º mês. 92% conseguem vagas
+                consultivas com aumento salarial. Acompanhamento real dos nossos alunos.</div>
+            </div>
+            <div class="faq-item"><button class="faq-btn" onclick="togFaq(this)">E se eu não conseguir completar?<svg
+                  class="faq-chev" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></button>
+              <div class="faq-ans">Suporte total durante as 8 semanas + acesso vitalício para continuar. Oferecemos
+                mentorias adicionais para quem precisa de mais apoio.</div>
+            </div>
+            <div class="faq-item"><button class="faq-btn" onclick="togFaq(this)">Como o programa me ajuda a conseguir
+                emprego?<svg class="faq-chev" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></button>
+              <div class="faq-ans">O programa não é sobre conseguir emprego — é sobre se tornar tão bom que as
+                oportunidades chegam até você. Certificação, competência real e rede de contatos são o resultado.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="fcta">
+    <div class="wrap">
+      <div class="fc-inner rv">
+        <h2 class="fc-h">Você Já Sabe<br><em>Que Precisa Mudar</em></h2>
+        <p class="fc-p">Profissionais de varejo, shopping e televendas que fizeram essa transição trabalham menos,
+          ganham mais e têm perspectiva real de crescimento.</p>
+        <p class="fc-p2"><strong>Você pode ser o próximo.</strong> A única diferença entre hoje e a mudança é esta
+          decisão.</p>
+        <div class="fc-btns">
+          <button class="btn btn-p btn-xl btn-glow" onclick="openModal()">Começar Minha Transformação <svg width="16"
+              height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></button>
+          <a href="#dor" class="btn btn-g btn-lg">Ver o programa</a>
+        </div>
+        <div class="fc-trust">
+          <div class="fc-ti"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"
+              viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>Pagamento seguro</div>
+          <div class="fc-ti"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"
+              viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>Certificação incluída</div>
+          <div class="fc-ti"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"
+              viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>Acesso vitalício</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand"><img
+          src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029077378/RByzunMwGVXkYpHM.png"
+          alt="SIGNUM" style="height:30px" /><span class="footer-tag">Transformação que o mercado reconhece.</span>
+      </div>
+      <p class="footer-copy">© 2026 SIGNUM. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- STICKY BAR -->
+  <div class="sbar" id="sbar">
+    <p class="sbar-txt"><strong>Próxima turma:</strong> vagas limitadas · R$1.200 à vista ou 12x R$125 sem juros</p>
+    <button class="btn btn-p" onclick="openModal()" style="flex-shrink:0">Garantir Minha Vaga →</button>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-ov" id="modal" onclick="if(event.target===this)closeModal()">
+    <div class="modal-box">
+      <button class="modal-x" onclick="closeModal()">✕</button>
+
+      <div class="ms-nav" id="ms-nav">
+        <div class="ms-step on" id="ms-1">1 PERFIL</div>
+        <div class="ms-line"></div>
+        <div class="ms-step" id="ms-2">2 DADOS</div>
+        <div class="ms-line"></div>
+        <div class="ms-step" id="ms-3">3 PAGAMENTO</div>
+      </div>
+
+      <!-- STEP 1: QUALIFICATION -->
+      <div id="modal-step1">
+        <div class="modal-h">Qual é sua situação atual?</div>
+        <p class="modal-sub">Isso nos ajuda a confirmar que o Signum é o caminho certo pra você.</p>
+        <div class="modal-opts" style="margin-bottom:12px">
+          <button class="modal-opt on" onclick="selMOpt(this)" data-val="varejo">
+            <div>
+              <div class="mo-l">Varejo / Shopping</div>
+              <div class="mo-s">Loja física, shopping center, moda, eletrônicos...</div>
+            </div>
+          </button>
+          <button class="modal-opt" onclick="selMOpt(this)" data-val="televendas">
+            <div>
+              <div class="mo-l">Televendas / Call Center</div>
+              <div class="mo-s">Inside sales, telemarketing, SAC com vendas...</div>
+            </div>
+          </button>
+          <button class="modal-opt" onclick="selMOpt(this)" data-val="outro">
+            <div>
+              <div class="mo-l">Outra área de vendas</div>
+              <div class="mo-s">Distribuidora, loja de serviços, vendas externas...</div>
+            </div>
+          </button>
+        </div>
+        <button class="btn btn-p btn-fw" style="padding:15px 20px;font-size:14px" onclick="goStep2()">Continuar
+          →</button>
+      </div>
+
+      <!-- STEP 2: DADOS -->
+      <div id="modal-step2" style="display:none">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+          <button onclick="backStep1()"
+            style="background:none;border:none;color:var(--fg3);cursor:pointer;font-size:12px;display:flex;align-items:center;gap:4px">←
+            Voltar</button>
+        </div>
+        <div class="modal-h">Preencha seus dados</div>
+        <p class="modal-sub">Precisamos de suas informações para emitir o certificado e liberar acesso.</p>
+        <div class="modal-form" style="margin-bottom: 24px;">
+          <input class="m-in" id="m-nome" type="text" placeholder="Nome completo" />
+          <input class="m-in" id="m-email" type="email" placeholder="Seu melhor e-mail" />
+          <input class="m-in" id="m-tel" type="tel" placeholder="WhatsApp com DDD" />
+        </div>
+        <button class="btn btn-p btn-fw" style="padding:15px 20px;font-size:14px" onclick="goStep3()">Continuar para
+          Pagamento →</button>
+      </div>
+
+      <!-- STEP 3: PAYMENT -->
+      <div id="modal-step3" style="display:none">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+          <button onclick="backStep2()"
+            style="background:none;border:none;color:var(--fg3);cursor:pointer;font-size:12px;display:flex;align-items:center;gap:4px">←
+            Voltar</button>
+        </div>
+        <div class="modal-h">Finalizar Inscrição</div>
+        <p class="modal-sub">Escolha o plano para liberar a plataforma.</p>
+        <div
+          style="background:rgba(0,212,255,.06);border:1px solid var(--bdrc);border-radius:var(--r2);padding:10px 14px;margin-bottom:16px;font-size:12px;color:var(--fg2)">
+          💡 Alunos com perfil similar ao seu recuperam o investimento em <strong style="color:var(--c)">menos de 3
+            semanas</strong>.
+        </div>
+        <div class="modal-opts" id="pay-opts" style="margin-bottom:16px">
+          <button class="modal-opt on" id="opt-cartao" onclick="selPlan('cartao')">
+            <div>
+              <div class="mo-l">Parcelado — Cartão</div>
+              <div class="mo-s">Até 12x</div>
+            </div>
+            <div class="mo-p">R$ 1.500</div>
+          </button>
+        </div>
+
+        <!-- Stripe Element Container -->
+        <div id="payment-element"
+          style="margin-bottom: 24px; min-height: 150px; background: rgba(5,5,18,.5); padding: 16px; border-radius: var(--r2); border: 1px solid var(--bdr);">
+          <div style="color:var(--fg3); font-size:12px; text-align:center;">Selecione um plano acima.</div>
+        </div>
+        <div id="payment-message"
+          style="color: #ff4d4f; font-size: 13px; font-weight: 500; margin-bottom: 16px; display: none; text-align: center;">
+        </div>
+
+        <button class="btn btn-p btn-fw" id="submit-pay" style="padding:15px 20px;font-size:14px"
+          onclick="submitPayment()">Confirmar Pagamento Seguro →</button>
+        <div class="modal-lock"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>Pagamento Criptografado via Stripe</div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    /* ── STRIPE ELEMENTS INTEGRATION ── */
+    let stripe = null;
+    let elements = null;
+
+    function initStripe() {
+      // Usando a chave Publishable Test que foi fornecida
+      stripe = Stripe('pk_test_51T2cTnGtdXHxY9yrJsKk9It7SGq8kpu3NSRNp5modFSIL7RJMCv4v97pUzays5IrrE3yet494R7Q1n1p5uFzAPO600jzAWsNcJ');
+    }
+
+    function sendWebhook(eventName, extraData = {}) {
+      const email = document.getElementById('m-email').value.trim();
+      const nome = document.getElementById('m-nome').value.trim();
+      const tel = document.getElementById('m-tel').value.trim();
+
+      fetch('https://n8n.zetaloc.com.br/webhook-test/signum', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          evento: eventName,
+          nome: nome,
+          email: email,
+          telefone: tel,
+          data_hora: new Date().toISOString(),
+          ...extraData
+        })
+      }).catch(e => console.log('Webhook silenciosamente falhou', e));
+    }
+
+    async function loadPaymentElement(plan_type) {
+      const email = document.getElementById('m-email').value.trim();
+      const name = document.getElementById('m-nome').value.trim();
+      const btn = document.getElementById('submit-pay');
+      const box = document.getElementById('payment-element');
+
+      btn.disabled = true;
+      box.innerHTML = '<div style="color:var(--c);text-align:center;font-size:13px;padding:20px;">Carregando checkout seguro...</div>';
+      if (elements) { elements = null; }
+
+      try {
+        const res = await fetch('http://localhost:3000/create-payment-intent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ plan_type, email, name })
+        });
+        const data = await res.json();
+
+        if (data.error) throw new Error(data.error);
+
+        const appearance = {
+          theme: 'night',
+          variables: {
+            colorPrimary: '#00d4ff',
+            colorBackground: '#050512',
+            colorText: '#c8d8e8',
+            colorDanger: '#ff4d4f',
+            fontFamily: 'Inter, sans-serif',
+            borderRadius: '8px'
+          }
+        };
+        elements = stripe.elements({ appearance, clientSecret: data.clientSecret });
+        const paymentElement = elements.create('payment');
+
+        box.innerHTML = ''; // limpa
+        paymentElement.mount('#payment-element');
+        paymentElement.on('ready', () => { btn.disabled = false; });
+
+      } catch (err) {
+        box.innerHTML = `<div style="color:#ff4d4f;text-align:center;font-size:12px;padding:20px;">Erro ao carregar Stripe: ${err.message}</div>`;
+      }
+    }
+
+    function selPlan(plan) {
+      document.querySelectorAll('#pay-opts .modal-opt').forEach(o => o.classList.remove('on'));
+      document.getElementById('opt-' + plan).classList.add('on');
+
+      const hint = document.getElementById('installments-hint');
+      if (plan === 'cartao') {
+        hint.style.display = 'block';
+      } else {
+        hint.style.display = 'none';
+      }
+
+      loadPaymentElement(plan);
+    }
+
+    async function submitPayment() {
+      if (!stripe || !elements) return;
+      const btn = document.getElementById('submit-pay');
+      const msg = document.getElementById('payment-message');
+
+      btn.disabled = true;
+      btn.innerText = 'Processando...';
+      msg.style.display = 'none';
+
+      const res = await stripe.confirmPayment({
+        elements,
+        confirmParams: {
+          return_url: window.location.origin + '/obrigado/',
+        },
+        redirect: 'if_required'
+      });
+
+      if (res.error) {
+        msg.innerText = res.error.message;
+        msg.style.display = 'block';
+        btn.disabled = false;
+        btn.innerText = 'Tentar Novamente';
+
+        sendWebhook('pagamento_recusado', { motivo_erro: res.error.message });
+      } else if (res.paymentIntent && res.paymentIntent.status === 'succeeded') {
+        sendWebhook('pagamento_aprovado', {
+          id_transacao: res.paymentIntent.id,
+          valor: res.paymentIntent.amount
+        });
+
+        window.location.href = '/obrigado/';
+      }
+    }
+
+    // Sucesso handling manual fallback
+    if (window.location.search.includes('success=true')) {
+      window.location.href = '/obrigado/';
+    }
+    /* ── SCROLL PROGRESS BAR ── */
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      document.getElementById('pbar').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+    });
+
+    /* ── NAV SCROLL EFFECT ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    /* ── HAMBURGER ── */
+    const ham = document.getElementById('ham'), mob = document.getElementById('mobnav');
+    ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '' });
+    function closeMob() { ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow = '' }
+
+    /* ── SCROLL REVEAL ── */
+    const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }) }, { threshold: .08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+    /* ── STICKY BAR ── */
+    const sbar = document.getElementById('sbar');
+    window.addEventListener('scroll', () => { sbar.classList.toggle('show', window.scrollY > 600) });
+
+    /* ── MODAL ── */
+    function openModal() { document.getElementById('modal').classList.add('on'); document.body.style.overflow = 'hidden'; backStep1(); }
+    function closeModal() { document.getElementById('modal').classList.remove('on'); document.body.style.overflow = '' }
+    function goStep2() { document.getElementById('modal-step1').style.display = 'none'; document.getElementById('modal-step3').style.display = 'none'; document.getElementById('modal-step2').style.display = 'block'; updateMs(2); }
+    function goStep3() {
+      const em = document.getElementById('m-email').value;
+      const no = document.getElementById('m-nome').value;
+      if (!em || !no) { alert("Por favor, preencha Nome e E-mail."); return; }
+
+      document.getElementById('modal-step2').style.display = 'none';
+      document.getElementById('modal-step3').style.display = 'block';
+      updateMs(3);
+
+      if (!stripe) { initStripe(); }
+
+      sendWebhook('checkout_iniciado', { planoSelecionado: 'cartao' });
+
+      // Seleciona Cartão por padrão
+      selPlan('cartao');
+    }
+    function backStep1() { document.getElementById('modal-step2').style.display = 'none'; document.getElementById('modal-step3').style.display = 'none'; document.getElementById('modal-step1').style.display = 'block'; updateMs(1); }
+    function backStep2() { document.getElementById('modal-step3').style.display = 'none'; document.getElementById('modal-step2').style.display = 'block'; updateMs(2); }
+    function updateMs(step) {
+      document.getElementById('ms-1').className = step === 1 ? 'ms-step on' : 'ms-step';
+      document.getElementById('ms-2').className = step === 2 ? 'ms-step on' : 'ms-step';
+      document.getElementById('ms-3').className = step === 3 ? 'ms-step on' : 'ms-step';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal() });
+    function selMOpt(el) { document.querySelectorAll('.modal-opt').forEach(o => o.classList.remove('on')); el.classList.add('on') }
+    function selOpt(el) { document.querySelectorAll('.pr-opt').forEach(o => o.classList.remove('sel')); el.classList.add('sel') }
+
+    /* ── CAROUSEL ENGINE ── */
+    function Carousel(trackId, dotsId, slidesPerViewFn, autoInterval) {
+      const track = document.getElementById(trackId);
+      const dotsEl = document.getElementById(dotsId);
+      let current = 0, timer = null, dragging = false, startX = 0, dragDelta = 0;
+
+      const slides = () => track.querySelectorAll('.carousel-slide');
+      const perView = () => slidesPerViewFn();
+      const total = () => Math.ceil(slides().length / perView());
+
+      function buildDots() {
+        dotsEl.innerHTML = '';
+        for (let i = 0; i < total(); i++) {
+          const d = document.createElement('button');
+          d.className = 'carousel-dot' + (i === 0 ? ' on' : '');
+          d.setAttribute('aria-label', 'Slide ' + (i + 1));
+          d.onclick = () => goTo(i);
+          dotsEl.appendChild(d);
+        }
+      }
+
+      function updateDots() {
+        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('on', i === current));
+      }
+
+      function getOffset() {
+        const vw = track.parentElement.offsetWidth;
+        const gap = 16;
+        const pv = perView();
+        const slideW = pv > 1 ? (vw - gap * (pv - 1)) / pv : vw;
+        return current * (slideW + gap);
+      }
+
+      function render(extra = 0) {
+        track.style.transform = `translateX(calc(-${getOffset()}px + ${extra}px))`;
+      }
+
+      function goTo(n) {
+        current = Math.max(0, Math.min(n, total() - 1));
+        render();
+        updateDots();
+      }
+
+      this.prev = () => { goTo(current === 0 ? total() - 1 : current - 1); resetTimer(); };
+      this.next = () => { goTo(current === total() - 1 ? 0 : current + 1); resetTimer(); };
+
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => { goTo(current === total() - 1 ? 0 : current + 1); }, autoInterval);
+      }
+
+      // Touch / drag support
+      track.addEventListener('pointerdown', e => { dragging = true; startX = e.clientX; track.style.transition = 'none'; });
+      window.addEventListener('pointermove', e => { if (!dragging) return; dragDelta = e.clientX - startX; render(dragDelta); });
+      window.addEventListener('pointerup', () => {
+        if (!dragging) return; dragging = false;
+        track.style.transition = '';
+        if (Math.abs(dragDelta) > 50) { dragDelta < 0 ? this.next() : this.prev(); } else { render(); }
+        dragDelta = 0;
+      });
+
+      // Pause on hover
+      track.parentElement.addEventListener('mouseenter', () => clearInterval(timer));
+      track.parentElement.addEventListener('mouseleave', resetTimer);
+
+      window.addEventListener('resize', () => { buildDots(); render(); });
+
+      buildDots();
+      resetTimer();
+    }
+
+    const testCarousel = new Carousel('test-track', 'test-dots', () => {
+      if (window.innerWidth >= 768) return 3;
+      return 1;
+    }, 4500);
+
+    const pathsCarousel = new Carousel('paths-track', 'paths-dots', () => {
+      if (window.innerWidth >= 768) return 2;
+      return 1;
+    }, 5000);
+
+
+    function switchFaq(id, el) {
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.remove('on'));
+      document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('on'));
+      document.getElementById(id).classList.add('on'); el.classList.add('on');
+    }
+    function togFaq(btn) {
+      const ans = btn.nextElementSibling, open = ans.classList.contains('on');
+      btn.closest('.faq-panel').querySelectorAll('.faq-ans').forEach(a => a.classList.remove('on'));
+      btn.closest('.faq-panel').querySelectorAll('.faq-btn').forEach(b => b.classList.remove('on'));
+      if (!open) { ans.classList.add('on'); btn.classList.add('on') }
+    }
+
+    /* ── WEEK ACCORDION ── */
+    const WEEKS = [
+      { n: 1, t: 'Identidade & Mindset', r: 'Novo mindset', d: 'Você quebra a identidade de "vendedor" e começa a construir a de profissional consultivo. Entende por que o modelo atual te limita e o que muda a partir de agora.' },
+      { n: 2, t: 'Comunicação Consultiva', r: 'Nova linguagem', d: 'Aprende a falar com decisores, não com consumidores. Descobre como adaptar sua comunicação para criar autoridade imediata em qualquer conversa de negócios.' },
+      { n: 3, t: 'SPIN Selling', r: 'Método de venda', d: 'Técnica de questionamento que abre oportunidades que o cliente não sabia que tinha. Você sai desta semana com um framework completo para conduzir qualquer conversa de venda.' },
+      { n: 4, t: 'Pipeline & Prospeção', r: 'Rotina estruturada', d: 'Como construir e manter um pipeline saudável. Você define sua rotina diária de prospeção, qualificação e acompanhamento — e para de depender da sorte.' },
+      { n: 5, t: 'Fechamento Consultivo', r: 'Conversão', d: 'Como fechar vendas complexas sem pressionar o cliente. Você aprende as técnicas de fechamento que funcionam em ambientes B2B, tech e high ticket.' },
+      { n: 6, t: 'Adaptação Multimercado', r: 'Versatilidade', d: 'Como vender em B2B, Tech, Indústria e Digital. Você entende as nuances de cada mercado e se torna capaz de trabalhar em múltiplos contextos.' },
+      { n: 7, t: 'Simulações Reais', r: 'Confiança', d: 'Você vende para profissionais reais em cenários simulados com feedback imediato. É aqui que a teoria vira músculo.' },
+      { n: 8, t: 'Avaliação & Certificação', r: 'Certificação', d: 'Você é avaliado formalmente e recebe a certificação + mapa personalizado de carreira com direcionamentos concretos para os próximos passos.' },
+    ];
+    const wkgrid = document.getElementById('wkgrid');
+    WEEKS.forEach(w => {
+      const row = document.createElement('div'); row.className = 'wk-row';
+      row.innerHTML = `<button class="wk-btn" onclick="togWeek(this)"><div class="wk-num">${w.n}</div><span class="wk-title">${w.t}</span><span class="wk-res">${w.r}</span><svg class="wk-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="wk-body"><p>${w.d}</p></div>`;
+      wkgrid.appendChild(row);
+    });
+    function togWeek(btn) {
+      const body = btn.nextElementSibling, open = body.classList.contains('open');
+      document.querySelectorAll('.wk-btn').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); b.closest('.wk-row').classList.remove('open') });
+      if (!open) { btn.classList.add('open'); body.classList.add('open'); btn.closest('.wk-row').classList.add('open') }
+    }
+
+    /* ── HERO CANVAS ── */
+    (function () {
+      const canvas = document.getElementById('hc'), ctx = canvas.getContext('2d');
+      function resize() { canvas.width = canvas.offsetWidth * devicePixelRatio; canvas.height = canvas.offsetHeight * devicePixelRatio; ctx.scale(devicePixelRatio, devicePixelRatio) }
+      resize(); window.addEventListener('resize', resize);
+      const W = () => canvas.offsetWidth, H = () => canvas.offsetHeight, RS = 0.55;
+      const FUNNEL = [
+        { label: 'Leads', pct: 1.00, col: 'rgba(0,212,255,.50)' },
+        { label: 'Qualificados', pct: .62, col: 'rgba(0,212,255,.40)' },
+        { label: 'Propostas', pct: .36, col: 'rgba(0,212,255,.32)' },
+        { label: 'Negociação', pct: .18, col: 'rgba(0,212,255,.26)' },
+        { label: 'Fechamento', pct: .08, col: 'rgba(0,212,255,.65)' },
+      ];
+      const METRICS = [
+        { label: 'MRR', value: '+182%', dx: .63, dy: .12 },
+        { label: 'Ticket Médio', value: 'R$12k', dx: .90, dy: .22 },
+        { label: 'Conversão', value: '34%', dx: .68, dy: .78 },
+        { label: 'Pipeline', value: 'R$890k', dx: .91, dy: .65 },
+      ];
+      const cards = METRICS.map((m, i) => ({ ...m, fO: Math.random() * Math.PI * 2, fS: .35 + Math.random() * .25, fA: 8 + Math.random() * 6, op: 0, delay: .7 + i * .5, w: 112, h: 46 }));
+      const CHART = [.18, .22, .19, .26, .24, .31, .29, .38, .35, .44, .42, .52, .50, .62, .68];
+      let cp = 0, t = 0;
+      function rr(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r); ctx.lineTo(x + w, y + h - r); ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h); ctx.lineTo(x + r, y + h); ctx.quadraticCurveTo(x, y + h, x, y + h - r); ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y); ctx.closePath() }
+      function animate() {
+        ctx.clearRect(0, 0, W(), H()); t += .016;
+        const w = W(), h = H();
+        // funnel
+        const fcx = w * .755, ftop = h * .08, fh = h * .76, fmW = w * .12, stH = fh / FUNNEL.length;
+        ctx.save();
+        FUNNEL.forEach((s, i) => {
+          const tw = fmW * (i === 0 ? 1 : FUNNEL[i - 1].pct), bw = fmW * s.pct, ty = ftop + i * stH, by = ty + stH;
+          ctx.beginPath(); ctx.moveTo(fcx - tw, ty); ctx.lineTo(fcx + tw, ty); ctx.lineTo(fcx + bw, by); ctx.lineTo(fcx - bw, by); ctx.closePath();
+          ctx.fillStyle = s.col; ctx.fill(); ctx.strokeStyle = 'rgba(0,212,255,.2)'; ctx.lineWidth = 1; ctx.stroke();
+          ctx.globalAlpha = .45 + .15 * Math.sin(t * .7 + i); ctx.fillStyle = '#c8d8e8'; ctx.font = 'bold 9px Inter,sans-serif'; ctx.textAlign = 'center'; ctx.fillText(s.label, fcx, ty + stH * .58); ctx.globalAlpha = 1;
+        });
+        ctx.globalAlpha = .5 + .2 * Math.sin(t * 1.2); ctx.fillStyle = '#00d4ff'; ctx.fillRect(fcx - fmW, ftop - 2, fmW * 2, 2); ctx.globalAlpha = 1; ctx.restore();
+        // chart
+        if (cp < 1) cp = Math.min(1, cp + .008);
+        const cX = w * .60, cY = h * .92, cW = w * .38, cH = h * .18, pts = Math.max(2, Math.floor(cp * CHART.length));
+        ctx.save(); ctx.globalAlpha = .2; ctx.strokeStyle = '#00d4ff'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cX, cY - cH); ctx.lineTo(cX, cY); ctx.lineTo(cX + cW, cY); ctx.stroke();
+        for (let g = 1; g <= 3; g++) { ctx.globalAlpha = .05; ctx.beginPath(); ctx.moveTo(cX, cY - (cH / 3) * g); ctx.lineTo(cX + cW, cY - (cH / 3) * g); ctx.stroke() }
+        ctx.globalAlpha = .85; ctx.strokeStyle = '#00d4ff'; ctx.lineWidth = 2; ctx.lineJoin = 'round'; ctx.beginPath();
+        for (let p = 0; p < pts; p++) { const px = cX + (p / (CHART.length - 1)) * cW, py = cY - CHART[p] * cH * 1.15; p === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py) }
+        ctx.stroke();
+        const lpx = cX + ((pts - 1) / (CHART.length - 1)) * cW, lpy = cY - CHART[pts - 1] * cH * 1.15;
+        ctx.lineTo(lpx, cY); ctx.lineTo(cX, cY); ctx.closePath();
+        const ag = ctx.createLinearGradient(0, cY - cH, 0, cY); ag.addColorStop(0, 'rgba(0,212,255,.22)'); ag.addColorStop(1, 'rgba(0,212,255,0)'); ctx.fillStyle = ag; ctx.fill();
+        ctx.globalAlpha = .9 + .1 * Math.sin(t * 3); ctx.fillStyle = '#00d4ff'; ctx.beginPath(); ctx.arc(lpx, lpy, 4, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(lpx, lpy, 2, 0, Math.PI * 2); ctx.fill();
+        ctx.globalAlpha = .4; ctx.fillStyle = '#00d4ff'; ctx.font = 'bold 8px Inter,sans-serif'; ctx.textAlign = 'left'; ctx.fillText('RECEITA ↑', cX + 2, cY - cH - 6); ctx.restore();
+        // cards
+        cards.forEach(c => {
+          if (t > c.delay) c.op = Math.min(.82, c.op + .012);
+          if (c.op <= 0) return;
+          const cx = c.dx * w - c.w / 2, cy = c.dy * h + Math.sin(t * c.fS + c.fO) * c.fA - c.h / 2;
+          ctx.save(); ctx.globalAlpha = c.op;
+          rr(cx, cy, c.w, c.h, 7); ctx.fillStyle = 'rgba(20,20,40,.88)'; ctx.fill(); ctx.strokeStyle = 'rgba(0,212,255,.3)'; ctx.lineWidth = 1; ctx.stroke();
+          ctx.fillStyle = '#00d4ff'; ctx.font = 'bold 13px Inter,sans-serif'; ctx.textAlign = 'left'; ctx.fillText(c.value, cx + 10, cy + 20);
+          ctx.fillStyle = 'rgba(150,160,190,.85)'; ctx.font = '8px Inter,sans-serif'; ctx.fillText(c.label.toUpperCase(), cx + 10, cy + 34);
+          ctx.restore();
+        });
+        // left mask
+        const lf = ctx.createLinearGradient(0, 0, w * RS, 0);
+        lf.addColorStop(0, 'rgba(20,20,32,1)'); lf.addColorStop(.7, 'rgba(20,20,32,1)'); lf.addColorStop(1, 'rgba(20,20,32,0)');
+        ctx.save(); ctx.fillStyle = lf; ctx.fillRect(0, 0, w * (RS + .04), h); ctx.restore();
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+  </script>
+</body>
+
+</html>
