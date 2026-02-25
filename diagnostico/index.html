@@ -551,6 +551,33 @@
       background: rgba(0, 212, 255, .04);
     }
 
+    .phone-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .phone-prefix {
+      position: absolute;
+      left: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+      font-size: 14px;
+      color: var(--fg);
+    }
+
+    .phone-prefix img {
+      width: 18px;
+      border-radius: 2px;
+    }
+
+    .phone-wrapper input {
+      padding-left: 72px !important;
+    }
+
     .lead-input::placeholder {
       color: var(--fg3);
     }
@@ -980,8 +1007,11 @@
       <div class="lead-form">
         <input class="lead-input" type="text" id="leadNome" placeholder="Seu nome completo" autocomplete="name"
           required />
-        <input class="lead-input" type="tel" id="leadTel" placeholder="WhatsApp com DDD (ex: 11 99999-9999)"
-          autocomplete="tel" required />
+        <div class="phone-wrapper">
+          <div class="phone-prefix"><img src="https://flagcdn.com/w20/br.png" alt="BR">+55</div>
+          <input class="lead-input" type="tel" id="leadTel" placeholder="WhatsApp com DDD (ex: 11 99999-9999)"
+            autocomplete="tel" required />
+        </div>
         <input class="lead-input" type="email" id="leadEmail" placeholder="Seu melhor e-mail" autocomplete="email"
           required />
         <button class="lead-submit" onclick="submitLead()">
@@ -1085,9 +1115,11 @@
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const telNums = tel.replace(/\D/g, '');
 
-      if (!nome) { highlight('leadNome'); return; }
+      if (!nome || nome.split(/\s+/).length < 2) { highlight('leadNome'); return; }
       if (!tel || telNums.length < 10) { highlight('leadTel'); return; }
       if (!email || !emailRegex.test(email)) { highlight('leadEmail'); return; }
+
+      const fullTel = '+55' + telNums;
 
       // ── Enviar para o webhook ──
       fetch('https://n8n.zetaloc.com.br/webhook/sigdiag', {
@@ -1095,7 +1127,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           nome,
-          tel,
+          tel: fullTel,
           email,
           answers,
           respostasPorExtenso: answerTexts,

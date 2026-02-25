@@ -2845,6 +2845,33 @@
       gap: 14px;
     }
 
+    .phone-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .phone-prefix {
+      position: absolute;
+      left: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+      font-size: 14px;
+      color: var(--fg);
+    }
+
+    .phone-prefix img {
+      width: 18px;
+      border-radius: 2px;
+    }
+
+    .phone-wrapper input {
+      padding-left: 72px !important;
+    }
+
     .hf-input::placeholder {
       color: var(--fg3);
     }
@@ -3182,7 +3209,10 @@
               <div class="hf-title">Garanta Sua <em>Vaga Agora</em></div>
               <p class="hf-sub">Preencha abaixo e receba acesso imediato.</p>
               <input class="hf-input" type="text" placeholder="Seu nome completo" id="hfMobNome" />
-              <input class="hf-input" type="tel" placeholder="WhatsApp com DDD" id="hfMobTel" />
+              <div class="phone-wrapper">
+                <div class="phone-prefix"><img src="https://flagcdn.com/w20/br.png" alt="BR">+55</div>
+                <input class="hf-input" type="tel" placeholder="WhatsApp com DDD" id="hfMobTel" />
+              </div>
               <input class="hf-input" type="email" placeholder="Seu melhor e-mail" id="hfMobEmail" />
               <button class="hf-submit" onclick="submitHeroForm('mob')">Garantir Minha Vaga →</button>
             </div>
@@ -3267,7 +3297,10 @@
                 material.
               </p>
               <input class="hf-input" type="text" placeholder="Seu nome completo" id="hfNome" />
-              <input class="hf-input" type="tel" placeholder="WhatsApp com DDD" id="hfTel" />
+              <div class="phone-wrapper">
+                <div class="phone-prefix"><img src="https://flagcdn.com/w20/br.png" alt="BR">+55</div>
+                <input class="hf-input" type="tel" placeholder="WhatsApp com DDD" id="hfTel" />
+              </div>
               <input class="hf-input" type="email" placeholder="Seu melhor e-mail" id="hfEmail" />
               <button class="hf-submit" onclick="submitHeroForm('desk')">Garantir Minha Vaga →</button>
             </div>
@@ -3970,7 +4003,82 @@
           investimento em <strong style="color:var(--c)">menos de 3 semanas</strong> no novo salário.
         </div>
       </div>
-      <div class="inv-layout">
+      <style>
+        @media(min-width: 900px) {
+          .inv-layout-new {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+          }
+        }
+
+        @media(max-width: 899px) {
+          .inv-layout-new {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+          }
+        }
+
+        .vps-new {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .vps-new .vp {
+          background: var(--bg2);
+          border: 1px solid var(--bdr);
+          border-radius: var(--r);
+          padding: 24px;
+          display: flex;
+          align-items: flex-start;
+          gap: 16px;
+          transition: border-color var(--tr);
+        }
+
+        .vps-new .vp:hover {
+          border-color: var(--bdrc);
+        }
+
+        .vps-new .vp-ic {
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
+          background: rgba(0, 212, 255, .1);
+          border: 1px solid rgba(0, 212, 255, .22);
+          color: #00d4ff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .vps-new .vp-ic svg {
+          width: 20px;
+          height: 20px;
+          stroke: currentColor;
+          stroke-width: 2;
+          fill: none;
+        }
+
+        .vps-new h4 {
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          color: var(--fg);
+          margin-bottom: 6px;
+        }
+
+        .vps-new p {
+          font-size: 13px;
+          color: var(--fg2);
+          line-height: 1.5;
+          margin: 0;
+        }
+      </style>
+      <div class="inv-layout-new">
         <div class="pr-card rv">
           <div class="pr-badge">Promoção Especial</div>
           <div class="pr-main">R$ 1.500</div>
@@ -3978,85 +4086,81 @@
           <div class="pr-opts">
             <button class="pr-opt sel" onclick="selOpt(this)">
               <div>
-                <div class="po-l">À Vista Pix</div>
+                <div class="po-l">À Vista — Pix</div>
                 <div class="po-s">Melhor custo-benefício · 20% OFF</div>
               </div>
-              <div class="po-v">R$ 1.200</div>
+              <div class="po-v" style="color:var(--c);">R$ 1.200</div>
             </button>
             <button class="pr-opt" onclick="selOpt(this)">
               <div>
-                <div class="po-l">Parcelado Cartão</div>
+                <div class="po-l">Parcelado — Cartão</div>
                 <div class="po-s">12x sem juros</div>
               </div>
-              <div class="po-v">12x R$125</div>
+              <div class="po-v" style="color:var(--c);">12x R$125</div>
             </button>
           </div>
-          <ul class="pr-list">
+          <ul class="pr-list" style="margin-top:24px;margin-bottom:24px;">
             <li><span class="ok">✓</span>Acesso vitalício à plataforma e materiais</li>
             <li><span class="ok">✓</span>Certificação reconhecida pelo mercado</li>
             <li><span class="ok">✓</span>Direcionamento personalizado de carreira</li>
             <li><span class="ok">✓</span>Comunidade de profissionais de elite</li>
             <li><span class="ok">✓</span>Simulações reais com instrutores experientes</li>
           </ul>
-          <div class="cta-box rv in">
-            <h2 class="ch2">Sua Transição Começa Agora</h2>
-            <p class="csub">Junte-se a dezenas de profissionais que já dobraram a renda. As inscrições encerram neste
-              domingo às 23:59.</p>
+          <div class="cta-box rv in" style="padding:0; background:transparent; border:none; margin-top:0;">
             <button class="btn btn-p btn-xl btn-fw btn-glow" onclick="scrollToHeroForm()">Garantir Minha Vaga <svg
                 width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg></button>
-            <div class="pr-sec"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"
-                viewBox="0 0 24 24">
+            <div class="pr-sec" style="margin-top:16px; justify-content:center; color:var(--fg3); font-size:11px;"><svg
+                width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <rect x="3" y="11" width="18" height="11" rx="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>Pagamento 100% seguro · SSL criptografado</div>
           </div>
-          <div class="vps rv">
-            <div class="vp">
-              <div class="vp-ic"><svg viewBox="0 0 24 24">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg></div>
-              <div>
-                <h4>Certificação com Valor de Mercado</h4>
-                <p>Conquistada após avaliação real. Reconhecida por empresas B2B, tech e indústria. Adicione ao
-                  LinkedIn.
-                </p>
-              </div>
+        </div>
+        <div class="vps-new rv">
+          <div class="vp">
+            <div class="vp-ic"><svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg></div>
+            <div>
+              <h4>Certificação com Valor de Mercado</h4>
+              <p>Conquistada após avaliação real. Reconhecida por empresas B2B, tech e indústria. Adicione ao LinkedIn.
+              </p>
             </div>
-            <div class="vp">
-              <div class="vp-ic"><svg viewBox="0 0 24 24">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg></div>
-              <div>
-                <h4>Comunidade de Elite</h4>
-                <p>Uma rede de profissionais que passaram pelo mesmo processo rigoroso. Networking e oportunidades
-                  concretas.</p>
-              </div>
+          </div>
+          <div class="vp">
+            <div class="vp-ic"><svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg></div>
+            <div>
+              <h4>Comunidade de Elite</h4>
+              <p>Uma rede de profissionais que passaram pelo mesmo processo rigoroso. Networking e oportunidades
+                concretas.</p>
             </div>
-            <div class="vp">
-              <div class="vp-ic"><svg viewBox="0 0 24 24">
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                  <polyline points="17 6 23 6 23 12" />
-                </svg></div>
-              <div>
-                <h4>ROI Médio de 5x em 12 Meses</h4>
-                <p>O investimento se paga nos primeiros meses. Nossos alunos têm histórico comprovado de retorno rápido.
-                </p>
-              </div>
+          </div>
+          <div class="vp">
+            <div class="vp-ic"><svg viewBox="0 0 24 24">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg></div>
+            <div>
+              <h4>ROI Médio de 5x em 12 Meses</h4>
+              <p>O investimento se paga nos primeiros meses. Nossos alunos têm histórico comprovado de retorno rápido.
+              </p>
             </div>
-            <div class="vp">
-              <div class="vp-ic"><svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg></div>
-              <div>
-                <h4>Acesso Vitalício ao Conteúdo</h4>
-                <p>Aulas gravadas, materiais, templates e guias seus para sempre, sem limite de prazo ou acesso.</p>
-              </div>
+          </div>
+          <div class="vp">
+            <div class="vp-ic"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg></div>
+            <div>
+              <h4>Acesso Vitalício ao Conteúdo</h4>
+              <p>Aulas gravadas, materiais, templates e guias — seus para sempre, sem limite de prazo ou acesso.</p>
             </div>
           </div>
         </div>
@@ -4162,15 +4266,20 @@
   <section class="fcta">
     <div class="wrap">
       <div class="fc-inner rv">
-        <h2 class="fh2 rv in d1">O Que Você Está Esperando?</h2>
-        <p class="flead rv in d2">O mercado corporativo continua contratando. A diferença é que agora quem decide se
-          você vai ficar de fora é você.</p>
+        <h2 class="fh2 rv in d1">Você Já Sabe<br><span style="color:var(--c)">Que Precisa Mudar</span></h2>
+        <p class="flead rv in d2" style="font-size:15px;max-width:560px;margin:0 auto 20px;">Profissionais de varejo,
+          shopping e televendas que fizeram essa transição trabalham menos, ganham mais e têm perspectiva real de
+          crescimento.</p>
+        <p class="flead rv in d2" style="font-size:13px;color:var(--fg);font-weight:700;margin-bottom:32px;">Você pode
+          ser o próximo. <span style="color:var(--fg3);font-weight:400;">A única diferença entre hoje e a mudança é esta
+            decisão.</span></p>
         <div class="f-actions rv in d3">
           <button class="btn btn-p btn-xl btn-glow" onclick="scrollToHeroForm()">Começar Minha Transformação <svg
               width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg></button>
-          <a href="#dor" class="btn btn-g btn-lg">Ver o programa</a>
+          <a href="#dor" class="btn btn-g btn-lg"
+            style="background:transparent;border:1px solid var(--bdr);color:var(--fg);">Ver o programa</a>
         </div>
         <div class="fc-trust">
           <div class="fc-ti"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -4340,7 +4449,7 @@
       const email = emailInput.value.trim();
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      if (!nome) { nomeInput.style.borderColor = '#ff4d4d'; nomeInput.focus(); return; } else { nomeInput.style.borderColor = 'var(--bdrc)'; }
+      if (!nome || nome.split(/\s+/).length < 2) { nomeInput.style.borderColor = '#ff4d4d'; nomeInput.focus(); return; } else { nomeInput.style.borderColor = 'var(--bdrc)'; }
       if (!tel || telNums.length < 10) { telInput.style.borderColor = '#ff4d4d'; telInput.focus(); return; } else { telInput.style.borderColor = 'var(--bdrc)'; }
       if (!email || !emailRegex.test(email)) { emailInput.style.borderColor = '#ff4d4d'; emailInput.focus(); return; } else { emailInput.style.borderColor = 'var(--bdrc)'; }
 
@@ -4356,11 +4465,13 @@
       if (mNome) mNome.value = nome;
       if (mEmail) mEmail.value = email;
 
+      const fullTel = '+55' + telNums;
+
       // Send data to webhook
       fetch('https://n8n.zetaloc.com.br/webhook/siglading', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, tel, email, source: src })
+        body: JSON.stringify({ nome, tel: fullTel, email, source: src })
       }).catch(err => console.error('Webhook error:', err));
     }
 
