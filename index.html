@@ -2430,7 +2430,7 @@
       background: var(--c)
     }
 
-    .modal-ov {
+      {
       display: none;
       position: fixed;
       inset: 0;
@@ -2591,38 +2591,6 @@
 
     .modal-lock svg {
       color: var(--c)
-    }
-
-    .ms-nav {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 32px;
-      padding-right: 28px;
-    }
-
-    .ms-step {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--fg3);
-      text-transform: uppercase;
-      padding: 6px 12px;
-      border-radius: 100px;
-      transition: all var(--tr);
-      border: 1px solid transparent;
-    }
-
-    .ms-step.on {
-      color: var(--c);
-      background: var(--c10);
-      border: 1px solid var(--bdrc);
-    }
-
-    .ms-line {
-      flex: 1;
-      height: 1px;
-      background: var(--bdr);
     }
   </style>
 </head>
@@ -3657,14 +3625,6 @@
     <div class="modal-box">
       <button class="modal-x" onclick="closeModal()">✕</button>
 
-      <div class="ms-nav" id="ms-nav">
-        <div class="ms-step on" id="ms-1">1 PERFIL</div>
-        <div class="ms-line"></div>
-        <div class="ms-step" id="ms-2">2 DADOS</div>
-        <div class="ms-line"></div>
-        <div class="ms-step" id="ms-3">3 PAGAMENTO</div>
-      </div>
-
       <!-- STEP 1: QUALIFICATION -->
       <div id="modal-step1">
         <div class="modal-h">Qual é sua situação atual?</div>
@@ -3675,213 +3635,79 @@
               <div class="mo-l">Varejo / Shopping</div>
               <div class="mo-s">Loja física, shopping center, moda, eletrônicos...</div>
             </div>
+            <span style="font-size:18px">🏪</span>
           </button>
           <button class="modal-opt" onclick="selMOpt(this)" data-val="televendas">
             <div>
               <div class="mo-l">Televendas / Call Center</div>
               <div class="mo-s">Inside sales, telemarketing, SAC com vendas...</div>
             </div>
+            <span style="font-size:18px">📞</span>
           </button>
           <button class="modal-opt" onclick="selMOpt(this)" data-val="outro">
             <div>
               <div class="mo-l">Outra área de vendas</div>
               <div class="mo-s">Distribuidora, loja de serviços, vendas externas...</div>
             </div>
+            <span style="font-size:18px">📋</span>
           </button>
         </div>
-        <button class="btn btn-p btn-fw" style="padding:15px 20px;font-size:14px" onclick="goStep2()">Continuar
-          →</button>
+        <button class="btn btn-p btn-fw" style="padding:15px 20px;font-size:14px" onclick="goStep2()">Continuar →
+          Escolher forma de pagamento</button>
+        <p style="font-size:10px;color:var(--fg3);text-align:center;margin-top:10px">Sem compromisso. Você escolhe o
+          plano no próximo passo.</p>
       </div>
 
-      <!-- STEP 2: DADOS -->
+      <!-- STEP 2: PAYMENT + FORM -->
       <div id="modal-step2" style="display:none">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
           <button onclick="backStep1()"
             style="background:none;border:none;color:var(--fg3);cursor:pointer;font-size:12px;display:flex;align-items:center;gap:4px">←
             Voltar</button>
+          <div style="flex:1;height:1px;background:var(--bdr)"></div>
+          <span style="font-size:10px;color:var(--c);font-weight:700">✓ Perfil confirmado</span>
         </div>
-        <div class="modal-h">Preencha seus dados</div>
-        <p class="modal-sub">Precisamos de suas informações para emitir o certificado e liberar acesso.</p>
-        <div class="modal-form" style="margin-bottom: 24px;">
-          <input class="m-in" id="m-nome" type="text" placeholder="Nome completo" />
-          <input class="m-in" id="m-email" type="email" placeholder="Seu melhor e-mail" />
-          <input class="m-in" id="m-tel" type="tel" placeholder="WhatsApp com DDD" />
-        </div>
-        <button class="btn btn-p btn-fw" style="padding:15px 20px;font-size:14px" onclick="goStep3()">Continuar para
-          Pagamento →</button>
-      </div>
-
-      <!-- STEP 3: PAYMENT -->
-      <div id="modal-step3" style="display:none">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
-          <button onclick="backStep2()"
-            style="background:none;border:none;color:var(--fg3);cursor:pointer;font-size:12px;display:flex;align-items:center;gap:4px">←
-            Voltar</button>
-        </div>
-        <div class="modal-h">Finalizar Inscrição</div>
-        <p class="modal-sub">Escolha o plano para liberar a plataforma.</p>
+        <div class="modal-h">Comece Sua Transformação</div>
+        <p class="modal-sub">Escolha a forma de pagamento e preencha seus dados.</p>
         <div
           style="background:rgba(0,212,255,.06);border:1px solid var(--bdrc);border-radius:var(--r2);padding:10px 14px;margin-bottom:16px;font-size:12px;color:var(--fg2)">
           💡 Alunos com perfil similar ao seu recuperam o investimento em <strong style="color:var(--c)">menos de 3
-            semanas</strong>.
+            semanas</strong> no novo emprego.
         </div>
-        <div class="modal-opts" id="pay-opts" style="margin-bottom:16px">
-          <button class="modal-opt on" id="opt-cartao" onclick="selPlan('cartao')">
+        <div class="modal-opts" id="pay-opts">
+          <button class="modal-opt on" id="opt-pix" onclick="selMOpt(this)"
+            data-link="https://buy.stripe.com/test_XXXXXXXXX">
+            <div>
+              <div class="mo-l">À Vista — Pix</div>
+              <div class="mo-s">20% OFF · Melhor custo-benefício</div>
+            </div>
+            <div class="mo-p">R$ 1.200</div>
+          </button>
+          <button class="modal-opt" id="opt-cartao" onclick="selMOpt(this)"
+            data-link="https://buy.stripe.com/test_YYYYYYYYY">
             <div>
               <div class="mo-l">Parcelado — Cartão</div>
-              <div class="mo-s">Até 12x</div>
+              <div class="mo-s">12x sem juros</div>
             </div>
-            <div class="mo-p">R$ 1.500</div>
+            <div class="mo-p">12x R$125</div>
           </button>
         </div>
-
-        <!-- Stripe Element Container -->
-        <div id="payment-element"
-          style="margin-bottom: 24px; min-height: 150px; background: rgba(5,5,18,.5); padding: 16px; border-radius: var(--r2); border: 1px solid var(--bdr);">
-          <div style="color:var(--fg3); font-size:12px; text-align:center;">Selecione um plano acima.</div>
+        <div class="modal-form">
+          <input class="m-in" id="m-nome" type="text" placeholder="Nome completo" />
+          <input class="m-in" id="m-email" type="email" placeholder="Seu melhor e-mail" />
+          <input class="m-in" id="m-tel" type="tel" placeholder="WhatsApp com DDD" />
+          <button class="btn btn-p btn-fw" style="padding:15px 20px;font-size:14px" onclick="goStripe()">Garantir Minha
+            Vaga →</button>
         </div>
-        <div id="payment-message"
-          style="color: #ff4d4f; font-size: 13px; font-weight: 500; margin-bottom: 16px; display: none; text-align: center;">
-        </div>
-
-        <button class="btn btn-p btn-fw" id="submit-pay" style="padding:15px 20px;font-size:14px"
-          onclick="submitPayment()">Confirmar Pagamento Seguro →</button>
         <div class="modal-lock"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24">
             <rect x="3" y="11" width="18" height="11" rx="2" />
             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-          </svg>Pagamento Criptografado via Stripe</div>
+          </svg>Pagamento 100% seguro via Stripe</div>
       </div>
-
-
     </div>
   </div>
-
-  <script src="https://js.stripe.com/v3/"></script>
   <script>
-    /* ── STRIPE ELEMENTS INTEGRATION ── */
-    let stripe = null;
-    let elements = null;
-
-    function initStripe() {
-      // Usando a chave Publishable Test que foi fornecida
-      stripe = Stripe('pk_test_51T2cTnGtdXHxY9yrJsKk9It7SGq8kpu3NSRNp5modFSIL7RJMCv4v97pUzays5IrrE3yet494R7Q1n1p5uFzAPO600jzAWsNcJ');
-    }
-
-    function sendWebhook(eventName, extraData = {}) {
-      const email = document.getElementById('m-email').value.trim();
-      const nome = document.getElementById('m-nome').value.trim();
-      const tel = document.getElementById('m-tel').value.trim();
-
-      fetch('https://n8n.zetaloc.com.br/webhook-test/signum', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          evento: eventName,
-          nome: nome,
-          email: email,
-          telefone: tel,
-          data_hora: new Date().toISOString(),
-          ...extraData
-        })
-      }).catch(e => console.log('Webhook silenciosamente falhou', e));
-    }
-
-    async function loadPaymentElement(plan_type) {
-      const email = document.getElementById('m-email').value.trim();
-      const name = document.getElementById('m-nome').value.trim();
-      const btn = document.getElementById('submit-pay');
-      const box = document.getElementById('payment-element');
-
-      btn.disabled = true;
-      box.innerHTML = '<div style="color:var(--c);text-align:center;font-size:13px;padding:20px;">Carregando checkout seguro...</div>';
-      if (elements) { elements = null; }
-
-      try {
-        const res = await fetch('http://localhost:3000/create-payment-intent', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ plan_type, email, name })
-        });
-        const data = await res.json();
-
-        if (data.error) throw new Error(data.error);
-
-        const appearance = {
-          theme: 'night',
-          variables: {
-            colorPrimary: '#00d4ff',
-            colorBackground: '#050512',
-            colorText: '#c8d8e8',
-            colorDanger: '#ff4d4f',
-            fontFamily: 'Inter, sans-serif',
-            borderRadius: '8px'
-          }
-        };
-        elements = stripe.elements({ appearance, clientSecret: data.clientSecret });
-        const paymentElement = elements.create('payment');
-
-        box.innerHTML = ''; // limpa
-        paymentElement.mount('#payment-element');
-        paymentElement.on('ready', () => { btn.disabled = false; });
-
-      } catch (err) {
-        box.innerHTML = `<div style="color:#ff4d4f;text-align:center;font-size:12px;padding:20px;">Erro ao carregar Stripe: ${err.message}</div>`;
-      }
-    }
-
-    function selPlan(plan) {
-      document.querySelectorAll('#pay-opts .modal-opt').forEach(o => o.classList.remove('on'));
-      document.getElementById('opt-' + plan).classList.add('on');
-
-      const hint = document.getElementById('installments-hint');
-      if (plan === 'cartao') {
-        hint.style.display = 'block';
-      } else {
-        hint.style.display = 'none';
-      }
-
-      loadPaymentElement(plan);
-    }
-
-    async function submitPayment() {
-      if (!stripe || !elements) return;
-      const btn = document.getElementById('submit-pay');
-      const msg = document.getElementById('payment-message');
-
-      btn.disabled = true;
-      btn.innerText = 'Processando...';
-      msg.style.display = 'none';
-
-      const res = await stripe.confirmPayment({
-        elements,
-        confirmParams: {
-          return_url: window.location.origin + '/obrigado/',
-        },
-        redirect: 'if_required'
-      });
-
-      if (res.error) {
-        msg.innerText = res.error.message;
-        msg.style.display = 'block';
-        btn.disabled = false;
-        btn.innerText = 'Tentar Novamente';
-
-        sendWebhook('pagamento_recusado', { motivo_erro: res.error.message });
-      } else if (res.paymentIntent && res.paymentIntent.status === 'succeeded') {
-        sendWebhook('pagamento_aprovado', {
-          id_transacao: res.paymentIntent.id,
-          valor: res.paymentIntent.amount
-        });
-
-        window.location.href = '/obrigado/';
-      }
-    }
-
-    // Sucesso handling manual fallback
-    if (window.location.search.includes('success=true')) {
-      window.location.href = '/obrigado/';
-    }
     /* ── SCROLL PROGRESS BAR ── */
     window.addEventListener('scroll', () => {
       const h = document.documentElement;
@@ -3910,33 +3736,25 @@
     /* ── MODAL ── */
     function openModal() { document.getElementById('modal').classList.add('on'); document.body.style.overflow = 'hidden'; backStep1(); }
     function closeModal() { document.getElementById('modal').classList.remove('on'); document.body.style.overflow = '' }
-    function goStep2() { document.getElementById('modal-step1').style.display = 'none'; document.getElementById('modal-step3').style.display = 'none'; document.getElementById('modal-step2').style.display = 'block'; updateMs(2); }
-    function goStep3() {
-      const em = document.getElementById('m-email').value;
-      const no = document.getElementById('m-nome').value;
-      if (!em || !no) { alert("Por favor, preencha Nome e E-mail."); return; }
-
-      document.getElementById('modal-step2').style.display = 'none';
-      document.getElementById('modal-step3').style.display = 'block';
-      updateMs(3);
-
-      if (!stripe) { initStripe(); }
-
-      sendWebhook('checkout_iniciado', { planoSelecionado: 'cartao' });
-
-      // Seleciona Cartão por padrão
-      selPlan('cartao');
-    }
-    function backStep1() { document.getElementById('modal-step2').style.display = 'none'; document.getElementById('modal-step3').style.display = 'none'; document.getElementById('modal-step1').style.display = 'block'; updateMs(1); }
-    function backStep2() { document.getElementById('modal-step3').style.display = 'none'; document.getElementById('modal-step2').style.display = 'block'; updateMs(2); }
-    function updateMs(step) {
-      document.getElementById('ms-1').className = step === 1 ? 'ms-step on' : 'ms-step';
-      document.getElementById('ms-2').className = step === 2 ? 'ms-step on' : 'ms-step';
-      document.getElementById('ms-3').className = step === 3 ? 'ms-step on' : 'ms-step';
-    }
+    function goStep2() { document.getElementById('modal-step1').style.display = 'none'; document.getElementById('modal-step2').style.display = 'block' }
+    function backStep1() { document.getElementById('modal-step1').style.display = 'block'; document.getElementById('modal-step2').style.display = 'none' }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal() });
     function selMOpt(el) { document.querySelectorAll('.modal-opt').forEach(o => o.classList.remove('on')); el.classList.add('on') }
     function selOpt(el) { document.querySelectorAll('.pr-opt').forEach(o => o.classList.remove('sel')); el.classList.add('sel') }
+
+    function goStripe() {
+      const email = document.getElementById('m-email').value.trim();
+      const activeOpt = document.querySelector('#pay-opts .modal-opt.on');
+      if (!activeOpt) return;
+      let link = activeOpt.getAttribute('data-link');
+      if (email) {
+        // Anexa o email do usuário ao link de checkout do Stripe
+        link += (link.includes('?') ? '&' : '?') + 'prefilled_email=' + encodeURIComponent(email);
+      }
+      // Remove o comentário abaixo quando os links reais forem colocados no HTML
+      window.location.href = link;
+      // alert('Redirecionando para: ' + link);
+    }
 
     /* ── CAROUSEL ENGINE ── */
     function Carousel(trackId, dotsId, slidesPerViewFn, autoInterval) {
