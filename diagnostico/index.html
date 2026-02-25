@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico SIGNUM Descubra Seu Potencial Real</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --c: #00d4ff;
+      --c10: rgba(0, 212, 255, .10);
+      --c18: rgba(0, 212, 255, .18);
+      --bg: #141420;
+      --bg1: #1a1a28;
+      --bg2: #1f1f2e;
+      --bg3: #252536;
+      --fg: #e4e4f2;
+      --fg2: #a8a8c8;
+      --fg3: #6a6a88;
+      --red: #ff4d4d;
+      --yel: #ffd600;
+      --bdr: rgba(255, 255, 255, .07);
+      --bdrc: rgba(0, 212, 255, .22);
+      --r: 14px;
+      --r2: 10px;
+      --tr: .22s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes dotBlink {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .4;
+        transform: scale(1.4)
+      }
+    }
+
+    @keyframes glowPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 20px rgba(0, 212, 255, .3)
+      }
+
+      50% {
+        box-shadow: 0 4px 40px rgba(0, 212, 255, .65), 0 0 60px rgba(0, 212, 255, .18)
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    /* ── NAV (same as main page) ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 72px;
+      background: rgba(20, 20, 32, .96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--bdr);
+      width: 100%;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      width: 100%;
+      max-width: 600px;
+      padding: 52px 24px 36px;
+      text-align: center;
+      animation: slideUp .6s ease both;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: var(--c);
+      border: 1px solid var(--bdrc);
+      background: var(--c10);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--c);
+      border-radius: 50%;
+      animation: dotBlink 1.6s infinite;
+    }
+
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(30px, 6vw, 48px);
+      font-weight: 700;
+      line-height: 1.08;
+      margin-bottom: 14px;
+      letter-spacing: -.5px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--c);
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--fg2);
+      line-height: 1.72;
+      max-width: 480px;
+      margin: 0 auto 24px;
+    }
+
+    .zones {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+
+    .zone-pill {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 5px 13px;
+      border-radius: 100px;
+      border: 1.5px solid;
+      text-transform: uppercase;
+    }
+
+    .z1 {
+      color: var(--red);
+      border-color: var(--red);
+      background: rgba(255, 77, 77, .08);
+    }
+
+    .z2 {
+      color: var(--yel);
+      border-color: var(--yel);
+      background: rgba(255, 214, 0, .08);
+    }
+
+    .z3 {
+      color: var(--c);
+      border-color: var(--c);
+      background: var(--c10);
+    }
+
+    /* ── FORM WRAP ── */
+    .form-wrap {
+      width: 100%;
+      max-width: 600px;
+      padding: 0 20px 80px;
+    }
+
+    /* Progress */
+    .progress-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .progress-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--fg3);
+      letter-spacing: .5px;
+    }
+
+    .progress-pct {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--c);
+    }
+
+    .progress-bar-outer {
+      height: 3px;
+      background: rgba(255, 255, 255, .07);
+      border-radius: 10px;
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+
+    .progress-bar-inner {
+      height: 100%;
+      background: var(--c);
+      border-radius: 10px;
+      transition: width .45s cubic-bezier(.4, 0, .2, 1);
+      box-shadow: 0 0 12px rgba(0, 212, 255, .55);
+    }
+
+    /* Question card */
+    .q-card {
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      padding: 28px 24px;
+      margin-bottom: 16px;
+      display: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .q-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--c), rgba(0, 212, 255, .2), transparent);
+    }
+
+    .q-card.active {
+      display: block;
+      animation: slideUp .35s cubic-bezier(.22, 1, .36, 1) both;
+    }
+
+    .q-number {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: var(--c);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-num-badge {
+      width: 22px;
+      height: 22px;
+      background: var(--c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 900;
+      color: #000;
+    }
+
+    .q-text {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--fg);
+      margin-bottom: 20px;
+    }
+
+    /* Options */
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: var(--r2);
+      border: 1.5px solid var(--bdr);
+      cursor: pointer;
+      transition: all var(--tr);
+      background: transparent;
+      color: var(--fg2);
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.5;
+      width: 100%;
+    }
+
+    .option:hover {
+      border-color: var(--bdrc);
+      background: rgba(0, 212, 255, .05);
+      color: var(--fg);
+      transform: translateX(3px);
+    }
+
+    .option.selected {
+      border-color: var(--c);
+      background: rgba(0, 212, 255, .1);
+      color: var(--fg);
+    }
+
+    .opt-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, .2);
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--tr);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .option.selected .opt-icon {
+      background: var(--c);
+      border-color: var(--c);
+      color: #000;
+    }
+
+    /* Nav */
+    .q-nav {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-back {
+      flex: 0 0 auto;
+      padding: 14px 20px;
+      border-radius: var(--r2);
+      border: 1.5px solid var(--bdr);
+      background: transparent;
+      color: var(--fg3);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--tr);
+      display: none;
+    }
+
+    .btn-back:hover {
+      border-color: var(--bdrc);
+      color: var(--c);
+    }
+
+    .btn-next {
+      flex: 1;
+      padding: 15px 24px;
+      border-radius: var(--r2);
+      border: none;
+      background: var(--c);
+      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--tr);
+      animation: glowPulse 2.6s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-next:disabled {
+      background: var(--bg3);
+      color: var(--fg3);
+      animation: none;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    .btn-next:not(:disabled):hover {
+      background: #1adbff;
+      transform: translateY(-2px);
+    }
+
+    /* ── LEAD CAPTURE SCREEN ── */
+    #leadScreen {
+      display: none;
+      width: 100%;
+      max-width: 600px;
+      padding: 0 20px 80px;
+      animation: slideUp .5s cubic-bezier(.22, 1, .36, 1) both;
+    }
+
+    .lead-card {
+      background: var(--bg2);
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r);
+      padding: 40px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lead-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--c), transparent);
+    }
+
+    .lead-card::after {
+      content: 'SIGNUM';
+      position: absolute;
+      bottom: -16px;
+      right: -8px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: rgba(0, 212, 255, .04);
+      pointer-events: none;
+      letter-spacing: 2px;
+    }
+
+    .lead-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--c10);
+      border: 2px solid var(--bdrc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 20px;
+    }
+
+    .lead-card h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+
+    .lead-card h2 em {
+      font-style: normal;
+      color: var(--c);
+    }
+
+    .lead-card p {
+      font-size: 14px;
+      color: var(--fg2);
+      line-height: 1.7;
+      max-width: 380px;
+      margin: 0 auto 28px;
+    }
+
+    .lead-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .lead-input {
+      width: 100%;
+      background: rgba(255, 255, 255, .04);
+      border: 1.5px solid var(--bdr);
+      border-radius: var(--r2);
+      padding: 14px 16px;
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color var(--tr), background var(--tr);
+    }
+
+    .lead-input:focus {
+      border-color: var(--bdrc);
+      background: rgba(0, 212, 255, .04);
+    }
+
+    .lead-input::placeholder {
+      color: var(--fg3);
+    }
+
+    .lead-submit {
+      width: 100%;
+      padding: 16px 24px;
+      border-radius: var(--r2);
+      border: none;
+      background: var(--c);
+      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--tr);
+      animation: glowPulse 2.6s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .lead-submit:hover {
+      background: #1adbff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 212, 255, .45);
+    }
+
+    .lead-submit svg {
+      flex-shrink: 0;
+      transition: transform var(--tr);
+    }
+
+    .lead-submit:hover svg {
+      transform: translateX(3px);
+    }
+
+    .lead-privacy {
+      font-size: 10px;
+      color: var(--fg3);
+      text-align: center;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    /* ── RESULT SCREEN ── */
+    #result {
+      display: none;
+      width: 100%;
+      max-width: 600px;
+      padding: 0 20px 80px;
+      animation: slideUp .6s cubic-bezier(.22, 1, .36, 1) both;
+      text-align: center;
+    }
+
+    .result-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin: 0 auto 16px;
+    }
+
+    .result-zone {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .result-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+
+    .result-desc {
+      font-size: 14px;
+      color: var(--fg2);
+      line-height: 1.78;
+      margin-bottom: 24px;
+      text-align: left;
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      padding: 20px;
+    }
+
+    .result-insight {
+      background: var(--bg2);
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r);
+      padding: 24px;
+      margin-bottom: 24px;
+      text-align: left;
+      border-left: 3px solid var(--c);
+    }
+
+    .result-insight h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--c);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .result-insight p {
+      font-size: 13px;
+      color: var(--fg2);
+      line-height: 1.75;
+    }
+
+    .cta-block {
+      background: linear-gradient(135deg, rgba(0, 212, 255, .12), rgba(0, 212, 255, .03));
+      border: 1px solid var(--bdrc);
+      border-radius: var(--r);
+      padding: 32px 28px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--c), transparent);
+    }
+
+    .cta-block h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .cta-block p {
+      font-size: 13px;
+      color: var(--fg2);
+      line-height: 1.72;
+      margin-bottom: 22px;
+    }
+
+    .cta-block a {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 15px 32px;
+      border-radius: var(--r2);
+      background: #25D366;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all var(--tr);
+      box-shadow: 0 4px 20px rgba(37, 211, 102, .3);
+    }
+
+    .cta-block a:hover {
+      background: #1dba57;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, .45);
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      font-size: 11px;
+      color: var(--fg3);
+      margin-bottom: 32px;
+    }
+
+    .trust-row span::before {
+      content: '✓ ';
+      color: var(--c);
+    }
+
+    .brand-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding-top: 24px;
+      border-top: 1px solid var(--bdr);
+    }
+
+    .brand-footer .brand-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--c);
+      letter-spacing: 3px;
+      margin: 6px 0 2px;
+    }
+
+    .brand-footer .brand-tag {
+      font-size: 10px;
+      color: var(--fg3);
+      letter-spacing: .5px;
+      font-style: italic;
+    }
+
+    @media(max-width:480px) {
+      .lead-card {
+        padding: 28px 20px;
+      }
+
+      .cta-block {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="/"><img
+          src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029077378/RByzunMwGVXkYpHM.png"
+          alt="SIGNUM" style="height:50px" /></a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge"><span class="dot"></span>Diagnóstico Gratuito · 3 minutos</div>
+    <h1>Em qual <em>zona</em> você está<br>na sua carreira?</h1>
+    <p>8 perguntas que revelam onde você está travado e qual é o próximo passo real para avançar.</p>
+    <div class="zones">
+      <div class="zone-pill z1"><svg width="10" height="10" viewBox="0 0 10 10">
+          <circle cx="5" cy="5" r="5" fill="currentColor" />
+        </svg> Zona de Conforto</div>
+      <div class="zone-pill z2"><svg width="10" height="10" viewBox="0 0 10 10">
+          <circle cx="5" cy="5" r="5" fill="currentColor" />
+        </svg> Em Crescimento</div>
+      <div class="zone-pill z3"><svg width="10" height="10" viewBox="0 0 10 10">
+          <circle cx="5" cy="5" r="5" fill="currentColor" />
+        </svg> Nível Elite</div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-wrap" id="formWrap">
+    <div class="progress-head">
+      <span class="progress-label" id="progressLabel">Pergunta 1 de 8</span>
+      <span class="progress-pct" id="progressPct">0%</span>
+    </div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar" style="width:0%"></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="q-card active" id="q1">
+      <div class="q-number">
+        <div class="q-num-badge">1</div>Situação Atual
+      </div>
+      <div class="q-text">Como você descreveria sua situação atual em vendas?</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,1,0)"><span class="opt-icon"></span>Trabalho muito, mas o
+          salário não reflete o esforço</button>
+        <button class="option" onclick="selectOption(this,1,1)"><span class="opt-icon"></span>Estou crescendo, mas de
+          forma irregular e sem método</button>
+        <button class="option" onclick="selectOption(this,1,2)"><span class="opt-icon"></span>Tenho resultados
+          consistentes, mas quero vender coisas maiores</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card" id="q2">
+      <div class="q-number">
+        <div class="q-num-badge">2</div>Comunicação
+      </div>
+      <div class="q-text">Quando você pensa em conversar com um gerente, diretor ou decisor de uma empresa grande, o que
+        sente?</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,2,0)"><span class="opt-icon"></span>Insegurança não sei se
+          sou levado a sério</button>
+        <button class="option" onclick="selectOption(this,2,1)"><span class="opt-icon"></span>Algum nervosismo, mas
+          consigo me virar</button>
+        <button class="option" onclick="selectOption(this,2,2)"><span class="opt-icon"></span>Confiança sei conduzir a
+          conversa com maturidade</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card" id="q3">
+      <div class="q-number">
+        <div class="q-num-badge">3</div>Rotina Comercial
+      </div>
+      <div class="q-text">Como é a sua rotina comercial hoje?</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,3,0)"><span class="opt-icon"></span>Apago incêndio o dia todo
+          não tenho rotina de verdade</button>
+        <button class="option" onclick="selectOption(this,3,1)"><span class="opt-icon"></span>Tenho alguma organização,
+          mas ainda é inconsistente</button>
+        <button class="option" onclick="selectOption(this,3,2)"><span class="opt-icon"></span>Sigo um método claro e
+          monitoro meus indicadores</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card" id="q4">
+      <div class="q-number">
+        <div class="q-num-badge">4</div>Objeções
+      </div>
+      <div class="q-text">Quando aparece uma objeção difícil (preço alto, "vou pensar", vários decisores), como você
+        reage?</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,4,0)"><span class="opt-icon"></span>Travo ou já baixo o preço
+          pra fechar de qualquer jeito</button>
+        <button class="option" onclick="selectOption(this,4,1)"><span class="opt-icon"></span>Tento contornar, mas não
+          tenho um método estruturado</button>
+        <button class="option" onclick="selectOption(this,4,2)"><span class="opt-icon"></span>Conduzo a decisão com
+          calma e defendo o valor sem desespero</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card" id="q5">
+      <div class="q-number">
+        <div class="q-num-badge">5</div>Renda Atual
+      </div>
+      <div class="q-text">Qual é a sua faixa de renda mensal atualmente?</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,5,0)"><span class="opt-icon"></span>Até R$ 3.000 por
+          mês</button>
+        <button class="option" onclick="selectOption(this,5,1)"><span class="opt-icon"></span>Entre R$ 3.000 e R$ 7.000
+          por mês</button>
+        <button class="option" onclick="selectOption(this,5,2)"><span class="opt-icon"></span>Acima de R$ 7.000 por
+          mês</button>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-card" id="q6">
+      <div class="q-number">
+        <div class="q-num-badge">6</div>Segmento
+      </div>
+      <div class="q-text">Em qual segmento você trabalha hoje?</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,6,0)"><span class="opt-icon"></span>Varejo, shopping center ou
+          loja física</button>
+        <button class="option" onclick="selectOption(this,6,1)"><span class="opt-icon"></span>Televendas, call center ou
+          inside sales</button>
+        <button class="option" onclick="selectOption(this,6,2)"><span class="opt-icon"></span>Distribuidora, indústria
+          ou B2B com alguma estrutura</button>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q-card" id="q7">
+      <div class="q-number">
+        <div class="q-num-badge">7</div>Maior Barreira
+      </div>
+      <div class="q-text">Qual é o maior obstáculo que te impede de migrar para vendas mais valorizadas?</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,7,0)"><span class="opt-icon"></span>Não sei por onde começar
+          ou qual mercado escolher</button>
+        <button class="option" onclick="selectOption(this,7,1)"><span class="opt-icon"></span>Tenho medo de não ser
+          aceito por falta de experiência formal</button>
+        <button class="option" onclick="selectOption(this,7,2)"><span class="opt-icon"></span>Me falta método e
+          vocabulário para o mercado consultivo</button>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-card" id="q8">
+      <div class="q-number">
+        <div class="q-num-badge">8</div>Objetivo
+      </div>
+      <div class="q-text">Qual é o seu principal objetivo nos próximos 12 meses?</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,8,0)"><span class="opt-icon"></span>Sair do varejo /
+          operacional e entrar em vendas mais valorizadas</button>
+        <button class="option" onclick="selectOption(this,8,1)"><span class="opt-icon"></span>Estruturar minha forma de
+          vender e subir o ticket médio</button>
+        <button class="option" onclick="selectOption(this,8,2)"><span class="opt-icon"></span>Migrar para B2B,
+          indústria, health ou tech com alto valor</button>
+      </div>
+    </div>
+
+    <div class="q-nav" id="navButtons">
+      <button class="btn-back" id="btnBack" onclick="goBack()">← Voltar</button>
+      <button class="btn-next" id="btnNext" onclick="goNext()" disabled>
+        Próxima
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE SCREEN -->
+  <div id="leadScreen">
+    <div class="lead-card">
+      <div class="lead-icon"><svg width="28" height="28" fill="none" stroke="var(--c)" stroke-width="2"
+          viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="6" />
+          <circle cx="12" cy="12" r="2" />
+        </svg></div>
+      <h2>Seu diagnóstico<br>está <em>pronto!</em></h2>
+      <p>Preencha seus dados abaixo para receber o resultado completo com seu perfil e os próximos passos personalizados
+        para a sua carreira.</p>
+      <div class="lead-form">
+        <input class="lead-input" type="text" id="leadNome" placeholder="Seu nome completo" autocomplete="name"
+          required />
+        <input class="lead-input" type="tel" id="leadTel" placeholder="WhatsApp com DDD (ex: 11 99999-9999)"
+          autocomplete="tel" required />
+        <input class="lead-input" type="email" id="leadEmail" placeholder="Seu melhor e-mail" autocomplete="email"
+          required />
+        <button class="lead-submit" onclick="submitLead()">
+          Ver Meu Resultado Agora
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+      <p class="lead-privacy">
+        Seus dados são 100% seguros e não serão compartilhados.
+      </p>
+    </div>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div id="result"></div>
+
+  <script>
+    const answers = {};
+    const answerTexts = {};
+    let currentQ = 1;
+    const totalQ = 8;
+
+    function selectOption(el, qNum, score) {
+      el.closest('.options').querySelectorAll('.option').forEach(o => {
+        o.classList.remove('selected');
+        o.querySelector('.opt-icon').textContent = '';
+      });
+      el.classList.add('selected');
+      el.querySelector('.opt-icon').textContent = '✓';
+      answers[qNum] = score;
+
+      let text = el.textContent.trim();
+      if (text.startsWith('✓')) text = text.substring(1).trim();
+      answerTexts[qNum] = text;
+
+      document.getElementById('btnNext').disabled = false;
+
+      const isLast = currentQ === totalQ;
+      document.getElementById('btnNext').innerHTML = isLast
+        ? 'Ver Resultado <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
+        : 'Próxima <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    }
+
+    function goNext() {
+      if (answers[currentQ] === undefined) return;
+      if (currentQ < totalQ) {
+        document.getElementById('q' + currentQ).classList.remove('active');
+        currentQ++;
+        document.getElementById('q' + currentQ).classList.add('active');
+        document.getElementById('btnBack').style.display = 'flex';
+        document.getElementById('btnNext').disabled = true;
+
+        const isLast = currentQ === totalQ;
+        document.getElementById('btnNext').innerHTML = isLast
+          ? 'Ver Resultado <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
+          : 'Próxima <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+
+        const pct = Math.round((currentQ / totalQ) * 100);
+        document.getElementById('progressBar').style.width = pct + '%';
+        document.getElementById('progressLabel').textContent = `Pergunta ${currentQ} de ${totalQ}`;
+        document.getElementById('progressPct').textContent = pct + '%';
+
+        // Re-check if already answered
+        if (answers[currentQ] !== undefined) {
+          document.getElementById('btnNext').disabled = false;
+        }
+      } else {
+        showLeadScreen();
+      }
+    }
+
+    function goBack() {
+      if (currentQ > 1) {
+        document.getElementById('q' + currentQ).classList.remove('active');
+        currentQ--;
+        document.getElementById('q' + currentQ).classList.add('active');
+        document.getElementById('btnNext').disabled = false;
+        if (currentQ === 1) document.getElementById('btnBack').style.display = 'none';
+
+        const pct = Math.round((currentQ / totalQ) * 100);
+        document.getElementById('progressBar').style.width = pct + '%';
+        document.getElementById('progressLabel').textContent = `Pergunta ${currentQ} de ${totalQ}`;
+        document.getElementById('progressPct').textContent = pct + '%';
+
+        document.getElementById('btnNext').innerHTML = 'Próxima <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+      }
+    }
+
+    function showLeadScreen() {
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('leadScreen').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function submitLead() {
+      const nome = document.getElementById('leadNome').value.trim();
+      const tel = document.getElementById('leadTel').value.trim();
+      const email = document.getElementById('leadEmail').value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const telNums = tel.replace(/\D/g, '');
+
+      if (!nome) { highlight('leadNome'); return; }
+      if (!tel || telNums.length < 10) { highlight('leadTel'); return; }
+      if (!email || !emailRegex.test(email)) { highlight('leadEmail'); return; }
+
+      // ── Enviar para o webhook ──
+      fetch('https://n8n.zetaloc.com.br/webhook/sigdiag', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome,
+          tel,
+          email,
+          answers,
+          respostasPorExtenso: answerTexts,
+          totalScore: Object.values(answers).reduce((a, b) => a + b, 0)
+        })
+      }).catch(err => console.error('Webhook error:', err));
+
+      document.getElementById('leadScreen').style.display = 'none';
+      showResult(nome);
+    }
+
+    function highlight(id) {
+      const el = document.getElementById(id);
+      el.style.borderColor = '#ff4d4d';
+      el.focus();
+      setTimeout(() => { el.style.borderColor = ''; }, 2000);
+    }
+
+    function showResult(nome) {
+      const total = Object.values(answers).reduce((a, b) => a + b, 0);
+      const max = totalQ * 2;
+      const pct = total / max;
+
+      let zone, icon, color, title, desc, insight, ctaText;
+
+      if (pct < 0.35) {
+        zone = 'ZONA DE CONFORTO'; icon = '<svg width="32" height="32" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#ff4d4d"/></svg>'; color = '#ff4d4d';
+        title = 'Você está preso no mesmo lugar.';
+        desc = 'Você trabalha muito, mas sem método. O mercado que você quer atingir exige uma abordagem completamente diferente  e isso começa com identidade profissional, não com mais esforço.';
+        insight = '<h4>Seu próximo passo</h4><p>O primeiro movimento não é estudar mais técnica de vendas. É reconstruir como você se enxerga como profissional. Quem ainda se vê como "vendedor de piso de loja" não vai conseguir falar com decisores com a postura certa. O SIGNUM começa exatamente aqui.</p>';
+        ctaText = 'Quero sair da zona de conforto';
+      } else if (pct < 0.70) {
+        zone = 'ZONA DE CRESCIMENTO'; icon = '<svg width="32" height="32" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#ffd600"/></svg>'; color = '#ffd600';
+        title = 'Você está crescendo  mas de forma irregular.';
+        desc = 'Você já tem potencial e alguns resultados, mas ainda falta método, consistência e clareza de caminho. Você sente que pode mais  e pode mesmo. Falta estrutura, não talento.';
+        insight = '<h4>Seu próximo passo</h4><p>O que separa quem cresce de forma irregular de quem cresce de forma consistente é simples: método. Você precisa de uma estrutura que transforme esforço em previsibilidade  não de motivação extra. É exatamente isso que o SIGNUM entrega.</p>';
+        ctaText = 'Quero estruturar meu crescimento';
+      } else {
+        zone = 'PRÓXIMO DO NÍVEL ELITE'; icon = '<svg width="32" height="32" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#00d4ff"/></svg>'; color = '#00d4ff';
+        title = 'Você está quase lá.';
+        desc = 'Você já tem base sólida, pensa de forma consultiva e tem resultados consistentes. O que falta é validação formal, acesso a mercados de maior valor e uma rede de profissionais do mesmo nível.';
+        insight = '<h4>Seu próximo passo</h4><p>Profissionais no seu nível não precisam de mais conteúdo  precisam de certificação reconhecida pelo mercado, direcionamento estratégico de carreira e conexão com empresas que valorizam esse perfil. O SIGNUM é o caminho mais direto para isso.</p>';
+        ctaText = 'Quero dar o próximo salto';
+      }
+
+      const firstName = nome.split(' ')[0];
+
+      const r = document.getElementById('result');
+      r.style.display = 'block';
+      r.innerHTML = `
+      <div class="result-icon" style="background:${color}22;border:2px solid ${color}44">${icon}</div>
+      <div class="result-zone" style="color:${color}">${zone}</div>
+      <div class="result-title">Olá, ${firstName}!<br>${title}</div>
+      <div class="result-desc">${desc}</div>
+      <div class="result-insight">${insight}</div>
+      <div class="cta-block">
+        <h3>Quer saber o caminho completo?</h3>
+        <p>O SIGNUM é o sistema de formação que leva profissionais de vendas do ponto onde você está até o nível que o mercado de alto valor exige  com método, validação e direcionamento real.</p>
+        <a href="https://wa.me/55SEUNUMERO?text=Fiz+o+diagnóstico+Signum+e+quero+saber+mais" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          ${ctaText}
+        </a>
+      </div>
+      <div class="trust-row">
+        <span>Gratuito</span>
+        <span>Sem compromisso</span>
+        <span>Resposta em minutos</span>
+      </div>
+      <div class="brand-footer">
+        <div class="logo-hex" style="width:40px;height:40px;font-size:18px">S</div>
+        <div class="brand-name">SIGNUM</div>
+        <div class="brand-tag">Transformação que o mercado reconhece.</div>
+      </div>
+    `;
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+
+</html>
