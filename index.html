@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIGNUM — Transformação que o Mercado Reconhece</title>
+<title>SIGNUN — Transformação que o Mercado Reconhece</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
@@ -19,6 +19,19 @@
     --white: #ffffff;
     --white-60: rgba(255,255,255,0.6);
     --white-20: rgba(255,255,255,0.08);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --dark: #ffffff;
+      --dark-2: #f8f9fa;
+      --dark-3: #ffffff;
+      --dark-4: #e9ecef;
+      --white: #111115;
+      --white-60: rgba(17, 17, 21, 0.7);
+      --white-20: rgba(17, 17, 21, 0.1);
+    }
+    body::before { opacity: 0.1; }
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -57,6 +70,11 @@
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(0,229,255,0.08);
     transition: all 0.3s;
+  }
+  @media (prefers-color-scheme: light) {
+    nav { background: rgba(255,255,255,0.92); border-bottom-color: rgba(0,0,0,0.08); }
+    /* Darken the links in light mode so they are visible correctly */
+    .nav-links a { color: var(--white-60); }
   }
 
   .nav-logo {
@@ -163,6 +181,9 @@
   .hero-title .outline {
     -webkit-text-stroke: 2px var(--white);
     color: transparent;
+  }
+  @media (prefers-color-scheme: light) {
+    .hero-title .outline { -webkit-text-stroke: 2px var(--white); }
   }
 
   .hero-subtitle {
@@ -1695,12 +1716,13 @@
     margin-right: auto;
   }
   .diag-card {
-    background: var(--dark-3);
+    background: linear-gradient(135deg, #0d2133, #071018);
     border: 1px solid rgba(0,229,255,0.15);
     border-radius: 16px;
     padding: 48px 40px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   }
   .diag-card::before {
     content: '';
@@ -1737,6 +1759,7 @@
     letter-spacing: 2px;
     line-height: .95;
     margin-bottom: 12px;
+    color: #ffffff;
   }
   .diag-card h3 em {
     font-style: italic;
@@ -1744,7 +1767,7 @@
   }
   .diag-card p {
     font-size: .9rem;
-    color: var(--white-60);
+    color: rgba(255,255,255,0.7);
     line-height: 1.7;
     font-weight: 300;
     margin-bottom: 32px;
@@ -1762,7 +1785,7 @@
     gap: 8px;
     margin-top: 24px;
     font-size: .75rem;
-    color: var(--white-60);
+    color: rgba(255,255,255,0.7);
     font-weight: 300;
   }
   .diag-social-proof strong {
@@ -1776,7 +1799,7 @@
     flex-wrap: wrap;
     margin-top: 20px;
     font-size: .7rem;
-    color: rgba(255,255,255,.35);
+    color: rgba(255,255,255,0.7);
   }
   .diag-trust span::before { content: '✓ '; color: var(--cyan); }
 
@@ -1804,12 +1827,12 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">SIGNUM<span>.</span></a>
+  <a href="#" class="nav-logo">SIGNUN<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#ecossistema">Soluções</a></li>
     <li><a href="#rodolfo">Sobre</a></li>
     <li><a href="#investimento">Investimento</a></li>
-    <li><a href="diagnostico.html" class="nav-cta">Diagnóstico Gratuito</a></li>
+    <li><a href="#diagnostico-cta" class="nav-cta">Diagnóstico Gratuito</a></li>
   </ul>
 </nav>
 
@@ -1820,7 +1843,7 @@
   <div class="hero-content">
     <div class="hero-badge">
       <i data-lucide="zap" style="width:14px;height:14px"></i>
-      Ecossistema Signum
+      Ecossistema Signun
     </div>
     <h1 class="hero-title">
       TRANSFORMAÇÃO<br>
@@ -1832,9 +1855,9 @@
       Estruturamos o talento, o método e a cultura da sua equipe comercial para escalar resultados de forma previsível e consistente.
     </p>
     <div class="hero-actions">
-      <a href="diagnostico.html" class="btn-primary">
-        <i data-lucide="calendar" style="width:18px;height:18px"></i>
-        Agendar Diagnóstico Gratuito
+      <a href="#diagnostico-cta" class="btn-primary">
+        <i data-lucide="clipboard-check" style="width:18px;height:18px"></i>
+        Faça seu Diagnóstico
       </a>
       <a href="#ecossistema" class="btn-ghost">
         <i data-lucide="arrow-down" style="width:18px;height:18px"></i>
@@ -1926,20 +1949,45 @@
       <div class="eco-card">
         <div class="eco-icon"><i data-lucide="graduation-cap" style="width:24px;height:24px"></i></div>
         <div class="eco-tag">Pilar 01</div>
-        <h3 class="eco-title">Signum Performance</h3>
+        <h3 class="eco-title">Signun Performance</h3>
         <p class="eco-desc">Treinamento e desenvolvimento da equipe comercial atual com foco em resultados previsíveis. Transformamos vendedores em condutores de decisão de alto nível.</p>
       </div>
       <div class="eco-card">
         <div class="eco-icon"><i data-lucide="user-check" style="width:24px;height:24px"></i></div>
         <div class="eco-tag">Pilar 02</div>
-        <h3 class="eco-title">Signum Talentos</h3>
-        <p class="eco-desc">Acesso direto a um pipeline de vendedores já validados e certificados pela Signum. Contrate com a segurança de quem já testou o talento sob pressão.</p>
+        <h3 class="eco-title">Signun Talentos</h3>
+        <p class="eco-desc">Acesso direto a um pipeline de vendedores já validados e certificados pela Signun. Contrate com a segurança de quem já testou o talento sob pressão.</p>
       </div>
       <div class="eco-card">
         <div class="eco-icon"><i data-lucide="rocket" style="width:24px;height:24px"></i></div>
         <div class="eco-tag">Pilar 03</div>
-        <h3 class="eco-title">Signum Operação 360</h3>
+        <h3 class="eco-title">Signun Operação 360</h3>
         <p class="eco-desc">Implementação completa de marketing e vendas para assumir o crescimento. Estrutura 360° do ICP ao acompanhamento mensal de performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO CTA -->
+<section id="diagnostico-cta">
+  <div class="diag-wrapper reveal">
+    <h2 class="diag-heading">DESCUBRA ONDE SUA<br><span class="accent">OPERAÇÃO</span> ESTÁ TRAVANDO</h2>
+    <p class="diag-subtitle">Responda 30 perguntas estratégicas e receba uma leitura sobre o gargalo mais provável da sua arquitetura comercial.</p>
+    <div class="diag-card">
+      <div class="diag-card-badge"><span class="dot"></span> Gratuito · Resultado Imediato</div>
+      <h3>Faça Seu<br>Diagnóstico <em>Gratuito</em></h3>
+      <p>30 perguntas. Resultado na hora. Descubra exatamente onde sua operação está travando e qual é o próximo passo para escalar.</p>
+      <a href="/diagnostico-b2b/" class="btn-primary" id="btn-diagnostic-portal">
+        <i data-lucide="clipboard-check" style="width:20px;height:20px"></i>
+        Fazer Meu Diagnóstico Agora →
+      </a>
+      <div class="diag-social-proof">
+        <i data-lucide="users" style="width:16px;height:16px;color:var(--cyan)"></i>
+        <strong>+200 empresas</strong> já fizeram o diagnóstico
+      </div>
+      <div class="diag-trust">
+        <span>100% gratuito</span>
+        <span>Resultado personalizado</span>
       </div>
     </div>
   </div>
@@ -1949,7 +1997,7 @@
 <section id="performance">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Signum Performance</div>
+      <div class="section-label">Signun Performance</div>
       <h2 class="section-title">TREINAMENTO<br><span class="accent">DE ELITE</span></h2>
       <p class="section-desc">Programa intensivo de 6 a 8 semanas com foco em prática deliberada e simulações reais.</p>
     </div>
@@ -2038,7 +2086,7 @@
   <div class="container">
     <div class="talent-header reveal">
       <div>
-        <div class="section-label">Signum Talentos</div>
+        <div class="section-label">Signun Talentos</div>
         <h2 class="section-title">MÉTODO PRÓPRIO.<br><span class="accent">RESULTADO PREVISÍVEL.</span></h2>
       </div>
       <p class="section-desc" style="max-width:400px">Criado por quem vive vendas todos os dias. Contratações mais assertivas e times que geram receita desde o início.</p>
@@ -2100,12 +2148,12 @@
       <div class="rev-left">
         <div class="rev-eyebrow">
           <span class="rev-eyebrow-line"></span>
-          <span class="rev-eyebrow-text">Signum Operação 360</span>
+          <span class="rev-eyebrow-text">Signun Operação 360</span>
           <span class="rev-eyebrow-dot"></span>
           <span class="rev-eyebrow-text" style="color:rgba(255,255,255,0.3)">Produto Premium</span>
         </div>
         <h2 class="rev-headline">NÃO VENDEMOS<br><span class="rev-headline-outline">SERVIÇO.</span><br><span class="rev-headline-accent">CONSTRUÍMOS</span><br>MÁQUINAS.</h2>
-        <p class="rev-subline">Enquanto você foca no produto, a Signum assume o crescimento. Do ICP ao fechamento — estruturamos, treinamos, implementamos e acompanhamos cada parte da sua operação comercial.</p>
+        <p class="rev-subline">Enquanto você foca no produto, a Signun assume o crescimento. Do ICP ao fechamento — estruturamos, treinamos, implementamos e acompanhamos cada parte da sua operação comercial.</p>
       </div>
 
       <!-- DIREITA -->
@@ -2210,7 +2258,7 @@
           <span class="rodolfo-stat-label">Em vendas geradas na carreira</span>
         </div>
         <p class="rodolfo-bio">
-          Rodolfo Alcoforado é um dos estrategistas comerciais mais experientes do Brasil, com trajetória construída em operações de alta performance e equipes de resultado. Com passagens por tecnologia, varejo, infoproduto e marca própria, ele acumulou mais de R$ 200 milhões em vendas geradas ao longo da carreira — e transformou esse conhecimento no método que hoje escala equipes pela Signum.
+          Rodolfo Alcoforado é um dos estrategistas comerciais mais experientes do Brasil, com trajetória construída em operações de alta performance e equipes de resultado. Com passagens por tecnologia, varejo, infoproduto e marca própria, ele acumulou mais de R$ 200 milhões em vendas geradas ao longo da carreira — e transformou esse conhecimento no método que hoje escala equipes pela Signun.
         </p>
         <div class="rodolfo-highlights">
           <div class="highlight-item">
@@ -2268,14 +2316,14 @@
           </div>
           <div class="highlight-item">
             <div class="highlight-icon"><i data-lucide="layers" style="width:20px;height:20px"></i></div>
-            <p class="highlight-text"><strong>Skin in the Game:</strong> Na <strong>Zetaloc</strong>, liderou um time de 100 pessoas e entregou +45% de faturamento YTD — aplicando na prática o mesmo método que hoje ensina e escala pela Signum.</p>
+            <p class="highlight-text"><strong>Skin in the Game:</strong> Na <strong>Zetaloc</strong>, liderou um time de 100 pessoas e entregou +45% de faturamento YTD — aplicando na prática o mesmo método que hoje ensina e escala pela Signun.</p>
           </div>
         </div>
         <div class="rodolfo-brands">
           <span class="brand-tag">Aspen Pharma</span>
           <span class="brand-tag">Voltz Motors</span>
           <span class="brand-tag">Zetaloc</span>
-          <span class="brand-tag">Signum</span>
+          <span class="brand-tag">Signun</span>
         </div>
       </div>
       <div class="rodolfo-avatar reveal">
@@ -2301,7 +2349,7 @@
     <div class="invest-grid reveal">
       <div class="invest-card">
         <div class="invest-icon"><i data-lucide="graduation-cap" style="width:28px;height:28px"></i></div>
-        <div class="invest-name">Performance<br>Equipe Pequena</div>
+        <div class="invest-name">Performance</div>
         <div class="invest-model">Até 8 vendedores · 6-8 semanas</div>
         <div class="invest-price">R$ 7.5k–12.5k</div>
         <div class="invest-price-note">Aprox. R$ 937 por vendedor</div>
@@ -2313,30 +2361,30 @@
           <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Framework comercial</li>
           <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Acompanhamento semanal</li>
         </ul>
-        <a href="diagnostico.html" class="btn-ghost" style="width:100%;justify-content:center">Agendar Diagnóstico</a>
+        <a href="https://wa.me/5581996118615?text=Olá! Gostaria de saber mais sobre o plano de Performance da Signun." class="btn-primary" style="width:100%;justify-content:center" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
       </div>
       <div class="invest-card featured">
         <div class="invest-icon"><i data-lucide="zap" style="width:28px;height:28px"></i></div>
-        <div class="invest-name">Performance<br>Times Maiores</div>
-        <div class="invest-model">10 a 20 vendedores · 6-8 semanas</div>
-        <div class="invest-price">R$ 15k–25k</div>
-        <div class="invest-price-note">Aprox. R$ 750 por vendedor</div>
+        <div class="invest-name">Signun Talentos</div>
+        <div class="invest-model">Valor depende da vaga</div>
+        <div class="invest-price">Sob Consulta</div>
+        <div class="invest-price-note">Fee: 1 salário do contratado</div>
         <div class="invest-divider"></div>
         <ul class="invest-features">
-          <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Tudo do plano anterior</li>
-          <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Treinamento em escala</li>
-          <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Playbook personalizado</li>
-          <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Mentoria com líderes</li>
-          <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Relatório de performance</li>
+          <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Mapeamento do perfil comercial</li>
+          <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Hunting ativo e triagem técnica</li>
+          <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Simulação e teste prático (Roleplay)</li>
+          <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Avaliação de fit cultural e vendas</li>
+          <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Candidato validado pela Signun</li>
         </ul>
-        <a href="diagnostico.html" class="btn-primary" style="width:100%;justify-content:center">Agendar Diagnóstico</a>
+        <a href="https://wa.me/5581996118615?text=Olá! Gostaria de saber mais sobre o Signun Talentos." class="btn-primary" style="width:100%;justify-content:center" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
       </div>
       <div class="invest-card">
         <div class="invest-icon"><i data-lucide="user-check" style="width:28px;height:28px"></i></div>
-        <div class="invest-name">Signum Talentos +<br>Signum Operação 360</div>
-        <div class="invest-model">Sob consulta · Implementação completa</div>
+        <div class="invest-name">Signun Operação 360</div>
+        <div class="invest-model">Sob consulta</div>
         <div class="invest-price">Sob Consulta</div>
-        <div class="invest-price-note">Fee: 1 salário do contratado (Talent)</div>
+        <div class="invest-price-note">Implementação completa</div>
         <div class="invest-divider"></div>
         <ul class="invest-features">
           <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Acesso a pipeline certificado</li>
@@ -2345,73 +2393,7 @@
           <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>CRM e playbook completo</li>
           <li><i data-lucide="check" class="fi" style="width:16px;height:16px"></i>Acompanhamento mensal</li>
         </ul>
-        <a href="diagnostico.html" class="btn-ghost" style="width:100%;justify-content:center">Solicitar Proposta</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMO COMEÇAR -->
-<section id="comecar">
-  <div class="container">
-    <div class="steps-header reveal">
-      <div class="section-label">Próximos Passos</div>
-      <h2 class="section-title">COMO<br><span class="accent">COMEÇAR</span></h2>
-      <p class="section-desc" style="margin:0 auto">Três passos simples para iniciar a transformação da sua operação comercial.</p>
-    </div>
-    <div class="steps-track reveal">
-      <div class="step-item">
-        <div class="step-circle">
-          <div class="step-circle-num">01</div>
-          <i data-lucide="search" class="step-circle-icon" style="width:22px;height:22px"></i>
-        </div>
-        <div class="step-label">Passo 01</div>
-        <div class="step-name">Diagnóstico Inicial</div>
-        <p class="step-desc">Reunião estratégica de 45 minutos para entender seu cenário atual, gargalos e objetivos de receita.</p>
-      </div>
-      <div class="step-item">
-        <div class="step-circle">
-          <div class="step-circle-num">02</div>
-          <i data-lucide="file-text" class="step-circle-icon" style="width:22px;height:22px"></i>
-        </div>
-        <div class="step-label">Passo 02</div>
-        <div class="step-name">Proposta Personalizada</div>
-        <p class="step-desc">Apresentação do plano customizado — Performance, Talent ou Signum Operação 360 — com cronograma e investimento.</p>
-      </div>
-      <div class="step-item">
-        <div class="step-circle">
-          <div class="step-circle-num">03</div>
-          <i data-lucide="play" class="step-circle-icon" style="width:22px;height:22px"></i>
-        </div>
-        <div class="step-label">Passo 03</div>
-        <div class="step-name">Onboarding Imediato</div>
-        <p class="step-desc">Aprovação e início da execução em até 7 dias. Acesso à plataforma e agendamento das sessões.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIAGNÓSTICO CTA -->
-<section id="diagnostico-cta">
-  <div class="diag-wrapper reveal">
-    <h2 class="diag-heading">DESCUBRA ONDE SUA<br><span class="accent">OPERAÇÃO</span> ESTÁ TRAVANDO</h2>
-    <p class="diag-subtitle">Responda 30 perguntas estratégicas e receba uma leitura sobre o gargalo mais provável da sua arquitetura comercial. Leva 3–5 minutos.</p>
-    <div class="diag-card">
-      <div class="diag-card-badge"><span class="dot"></span> Gratuito · Resultado Imediato</div>
-      <h3>Faça Seu<br>Diagnóstico <em>Gratuito</em></h3>
-      <p>30 perguntas. Resultado na hora. Descubra exatamente onde sua operação está travando e qual é o próximo passo para escalar.</p>
-      <a href="/diagnostico-b2b/" class="btn-primary" id="btn-diagnostic-portal">
-        <i data-lucide="clipboard-check" style="width:20px;height:20px"></i>
-        Fazer Meu Diagnóstico Agora →
-      </a>
-      <div class="diag-social-proof">
-        <i data-lucide="users" style="width:16px;height:16px;color:var(--cyan)"></i>
-        <strong>+200 empresas</strong> já fizeram o diagnóstico
-      </div>
-      <div class="diag-trust">
-        <span>100% gratuito</span>
-        <span>Leva 3–5 minutos</span>
-        <span>Resultado personalizado</span>
+        <a href="https://wa.me/5581996118615?text=Olá! Gostaria de saber mais sobre a Signun Operação 360." class="btn-primary" style="width:100%;justify-content:center" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
       </div>
     </div>
   </div>
@@ -2434,9 +2416,9 @@
         Agende seu diagnóstico gratuito de 45 minutos com Rodolfo Alcoforado. Sem "achismos" — apenas um mapeamento honesto da sua operação e um plano de ação real.
       </p>
       <div class="cta-actions">
-        <a href="diagnostico.html" class="btn-primary" style="font-size:1rem;padding:18px 48px">
-          <i data-lucide="calendar-check" style="width:20px;height:20px"></i>
-          Agendar Diagnóstico Gratuito
+        <a href="https://wa.me/5581996118615?text=Olá! Gostaria de falar com um especialista sobre a estruturação comercial da Signun." class="btn-primary" style="font-size:1rem;padding:18px 48px" target="_blank" rel="noopener noreferrer">
+          <i data-lucide="message-circle" style="width:20px;height:20px"></i>
+          Falar no WhatsApp
         </a>
       </div>
       <div class="cta-trust">
@@ -2459,8 +2441,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">SIGNUM.</div>
-  <p class="footer-copy">© 2025 Signum · Transformação que o Mercado Reconhece · @signuns_</p>
+  <div class="footer-logo">SIGNUN.</div>
+  <p class="footer-copy">© 2025 Signun · Transformação que o Mercado Reconhece · @signuns_</p>
 </footer>
 
 <!-- PORTAL OVERLAY -->

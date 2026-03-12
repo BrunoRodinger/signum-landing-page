@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diagnóstico de Arquitetura Comercial — SIGNUM</title>
+<title>Diagnóstico de Arquitetura Comercial — SIGNUN</title>
 <meta name="description" content="Descubra onde sua operação realmente está travando. Autodiagnóstico gratuito para empresas com venda consultiva e operações complexas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -53,19 +53,22 @@ body::before {
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--white);min-height:100vh;display:flex;flex-direction:column;align-items:center;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background 0.3s, color 0.3s}
 
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
+
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes glowPulse{0%,100%{box-shadow:0 4px 20px rgba(0,229,255,.3)}50%{box-shadow:0 4px 40px rgba(0,229,255,.6),0 0 60px rgba(0,229,255,.15)}}
 @keyframes dotBlink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:center;background:rgba(10,10,12,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,229,255,0.08)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:center;background:rgba(10,10,12,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,229,255,0.08)}
+@media (prefers-color-scheme: light) {
+  nav{background:rgba(255,255,255,0.92);border-bottom:1px solid rgba(0,0,0,0.08)}
+}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--cyan);letter-spacing:3px;text-decoration:none}
 .nav-logo span{color:var(--white)}
 
 /* HERO */
-.hero{width:100%;max-width:640px;padding:56px 24px 40px;text-align:center;animation:fadeUp .7s ease both}
+.hero{width:100%;max-width:640px;padding:90px 24px 40px;text-align:center;animation:fadeUp .7s ease both}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(0,229,255,0.3);padding:6px 16px;border-radius:100px;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:24px;background:rgba(0,229,255,0.06)}
 .hero-badge .dot{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:dotBlink 1.6s infinite}
 .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,6vw,3.5rem);line-height:.95;letter-spacing:2px;margin-bottom:16px}
@@ -233,19 +236,19 @@ footer{padding:40px 60px;background:var(--dark-2);border-top:1px solid var(--whi
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">SIGNUM<span>.</span></a>
+  <a href="/" class="nav-logo">SIGNUN<span>.</span></a>
 </nav>
 
 <div class="hero" id="heroText">
   <div class="hero-badge"><span class="dot"></span> Diagnóstico Gratuito · Resultado Imediato</div>
   <h1>DESCUBRA ONDE SUA<br><span class="accent">OPERAÇÃO</span> ESTÁ<br>TRAVANDO</h1>
-  <p>Responda as perguntas estratégicas e receba uma leitura sobre o gargalo mais provável da sua arquitetura comercial. Leva 10 a 15 minutos.</p>
+  <p>Responda as perguntas estratégicas e receba uma leitura sobre o gargalo mais provável da sua arquitetura comercial.</p>
 </div>
 
 <!-- LEADS CAPTURE STEP -->
 <div class="form-wrap" id="leadWrap">
   <div class="lead-form">
-    <div class="lead-form-title">Identificação do Líder Comercial</div>
+    <div class="lead-form-title">Identificação</div>
     
     <div class="input-group">
       <label>Nome Completo *</label>
@@ -293,8 +296,8 @@ footer{padding:40px 60px;background:var(--dark-2);border-top:1px solid var(--whi
 <div id="result"></div>
 
 <footer>
-  <div class="footer-logo">SIGNUM.</div>
-  <div class="footer-copy">© 2025 Signum. Todos os direitos reservados.</div>
+  <div class="footer-logo">SIGNUN.</div>
+  <div class="footer-copy">© 2025 Signun. Todos os direitos reservados.</div>
 </footer>
 
 <script>
@@ -536,7 +539,7 @@ async function showResult(){
   resultEl.innerHTML = '<div style="text-align:center; padding: 60px 20px;">' +
     '<div class="result-icon-wrap" style="animation: glowPulse 2s infinite;">&#8635;</div>' +
     '<h2 style="font-family:Bebas Neue,sans-serif;font-size:2rem;letter-spacing:2px;">GERANDO SEU DIAGNÓSTICO...</h2>' +
-    '<p style="color:var(--white-60);font-size:0.9rem;margin-top:10px;">A inteligência executiva da Signum está analisando seus gargalos comerciais.</p>' +
+    '<p style="color:var(--white-60);font-size:0.9rem;margin-top:10px;">A inteligência executiva da Signun está analisando seus gargalos comerciais.</p>' +
     '</div>';
   window.scrollTo({top:0,behavior:'smooth'});
 
@@ -596,7 +599,7 @@ async function showResult(){
       resultEl.innerHTML =
         '<div class="result-header">' +
           '<div class="result-icon-wrap" style="color:var(--cyan); border-color:var(--cyan);">&#10022;</div>' +
-          '<div class="result-zone">Leitura Estratégica Signum</div>' +
+          '<div class="result-zone">Leitura Estratégica Signun</div>' +
           '<h2 class="result-title">DIAGNÓSTICO DA<br>SUA <span class="accent">OPERAÇÃO</span></h2>' +
           '<p class="result-subtitle">Análise gerada com exclusividade para ' + firstName + ' (' + leadData.company + ').</p>' +
         '</div>' +
@@ -605,8 +608,8 @@ async function showResult(){
         '</div>' +
         '<div class="cta-block">' +
           '<h3>O PRÓXIMO <span class="accent">PASSO</span></h3>' +
-          '<p>Ter a clareza do problema é 50% da solução. Os outros 50% exigem método, processos e cultura. Fale com um consultor da Signum para entender como implementar a arquitetura comercial certa para o seu momento.</p>' +
-          '<a href="https://wa.me/5511999999999?text=Olá! Fiz o diagnóstico B2B da Signum, me chamo ' + leadData.name + ' da empresa ' + leadData.company + '. Recebi minha análise estratégica e gostaria de avançar para entender como a Signum pode ajudar minha operação." class="btn-primary">Falar com a Signum →</a>' +
+          '<p>Ter a clareza do problema é 50% da solução. Os outros 50% exigem método, processos e cultura. Fale com um consultor da Signun para entender como implementar a arquitetura comercial certa para o seu momento.</p>' +
+          '<a href="https://wa.me/5581996118615?text=Olá! Fiz o diagnóstico B2B da Signun, me chamo ' + leadData.name + ' da empresa ' + leadData.company + '. Recebi minha análise estratégica e gostaria de avançar para entender como a Signun pode ajudar minha operação." class="btn-primary">Falar com a Signun →</a>' +
         '</div>';
     } else {
       throw new Error("Erro na geração.");
