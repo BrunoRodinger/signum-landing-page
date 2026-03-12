@@ -5,7 +5,7 @@ const { OpenAI } = require('openai');
 require('dotenv').config();
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
+// OpenAI initialized lazily per-request
 
 const app = express();
 app.use(cors());
@@ -15,9 +15,13 @@ app.use(express.json());
 app.post('/api/generate-diagnostic', async (req, res) => {
   const { name, company, email, phone, answersText, worstCategory } = req.body;
 
-  if (!openai) {
+  const apiKey = process.env.OPENAI_API_KEY;
+  console.log('OPENAI_API_KEY present:', !!apiKey);
+  if (!apiKey) {
     return res.status(503).json({ error: 'Serviço de IA não configurado. Configure OPENAI_API_KEY.' });
   }
+
+  const openai = new OpenAI({ apiKey });
 
   if (!name || !answersText) {
     return res.status(400).json({ error: 'Nome e respostas são obrigatórios.' });
