@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signum Consultoria Comercial: Da prospecção ao pós-venda</title>
+<meta name="description" content="Consultoria estratégica e tecnologia de ponta para o seu time de vendas. Tráfego, site, WhatsApp, CRM e pós-venda em uma única operação.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0C264F;
+  --navy-deep:#071A38;
+  --blue:#1D63E0;
+  --blue-soft:#3B82F6;
+  --sky:#EAF1FB;
+  --sky-line:#D5E2F5;
+  --ink:#24303F;
+  --ink-soft:#5A6B80;
+  --silver:#9AA7B8;
+  --white:#FFFFFF;
+  --green:#1FA463;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Instrument Sans',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{font-family:'Sora',sans-serif;color:var(--navy);line-height:1.18}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.eyebrow{
+  display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--blue);background:var(--sky);
+  border:1px solid var(--sky-line);padding:.4em 1em;border-radius:999px;margin-bottom:18px;
+}
+section{padding:72px 0}
+.section-head{max-width:680px;margin:0 auto 46px;text-align:center}
+.section-head h2{font-size:clamp(1.55rem,3.4vw,2.2rem);font-weight:700}
+.section-head p{color:var(--ink-soft);margin-top:12px;font-size:1.02rem}
+
+/* ---------- HERO ---------- */
+.hero{padding:34px 0 84px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:auto -20% -55% -20%;height:75%;
+  background:radial-gradient(ellipse at 50% 100%, var(--sky) 0%, transparent 65%);
+  z-index:0;
+}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero-logo{width:118px;margin-bottom:26px}
+.hero h1{font-size:clamp(1.9rem,4.2vw,2.85rem);font-weight:800;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero .sub{margin-top:18px;font-size:1.08rem;color:var(--ink-soft);max-width:46ch}
+.cta-row{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;
+  padding:.95em 1.7em;border-radius:14px;text-decoration:none;transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 10px 24px rgba(29,99,224,.28)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(29,99,224,.34)}
+.btn-ghost{color:var(--navy);background:#fff;border:1.5px solid var(--sky-line)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.hero-note{font-size:.85rem;color:var(--silver);margin-top:14px}
+
+/* hero mockup stack */
+.mock-stack{position:relative;min-height:420px}
+.card{
+  background:#fff;border:1px solid var(--sky-line);border-radius:var(--radius);
+  box-shadow:0 18px 44px rgba(12,38,79,.10);
+}
+.mock{position:absolute;padding:18px}
+.mock-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);margin-bottom:10px}
+.mock-crm{top:0;left:0;width:62%;animation:float 7s ease-in-out infinite}
+.deal{border:1px solid var(--sky-line);border-radius:12px;padding:12px;margin-bottom:10px}
+.deal:last-child{margin-bottom:0}
+.deal-top{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:.9rem;color:var(--navy)}
+.tag{font-size:.68rem;font-weight:700;padding:.25em .8em;border-radius:999px}
+.tag-prog{background:#FFF3DC;color:#B0750A}
+.tag-novo{background:var(--sky);color:var(--blue)}
+.tag-won{background:#E2F6EC;color:var(--green)}
+.deal-val{font-size:.8rem;color:var(--ink-soft);margin-top:4px}
+.mock-chat{right:0;top:34%;width:58%;animation:float 7s ease-in-out 1.2s infinite}
+.bubble{font-size:.84rem;padding:.6em .9em;border-radius:12px;margin-bottom:8px;max-width:92%}
+.bubble-in{background:var(--sky);color:var(--navy);border-bottom-left-radius:4px}
+.bubble-out{background:var(--green);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.mock-goal{left:6%;bottom:0;width:60%;animation:float 7s ease-in-out 2.4s infinite}
+.goal-row{display:flex;align-items:center;gap:10px;margin-top:10px}
+.goal-bar{flex:1;height:9px;border-radius:999px;background:var(--sky);overflow:hidden}
+.goal-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--blue-soft),var(--blue))}
+.goal-num{font-size:.78rem;font-weight:700;color:var(--navy);min-width:64px;text-align:right}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ---------- DORES ---------- */
+.pains{background:var(--white)}
+.pain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 24px}
+.pain{
+  background:#fff;border:1px solid var(--sky-line);border-radius:var(--radius);
+  padding:24px 22px;transition:transform .15s ease, box-shadow .15s ease;
+}
+.pain:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(12,38,79,.08)}
+.pain .ico{
+  width:46px;height:46px;border-radius:12px;background:var(--sky);
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+}
+.pain .ico svg{width:24px;height:24px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pain p{font-size:.96rem;color:var(--ink)}
+.pain b{color:var(--navy)}
+
+/* ---------- FLUXOGRAMA ---------- */
+.flow-section{background:linear-gradient(180deg,var(--navy-deep) 0%,var(--navy) 100%);color:#fff}
+.flow-section .section-head h2{color:#fff}
+.flow-section .section-head p{color:#A9BCD8}
+.flow-section .eyebrow{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#8FB6FF}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:10px}
+.step{position:relative;padding:0 12px;text-align:center}
+.step .node{
+  width:62px;height:62px;margin:0 auto;border-radius:18px;
+  background:rgba(255,255,255,.06);border:1.5px solid rgba(143,182,255,.35);
+  display:flex;align-items:center;justify-content:center;position:relative;z-index:2;
+}
+.step .node svg{width:28px;height:28px;stroke:#8FB6FF;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.step h3{color:#fff;font-size:1rem;margin-top:14px;font-weight:700}
+.step .what{font-size:.82rem;color:#A9BCD8;margin-top:6px;line-height:1.5}
+.step:not(:last-child)::after{
+  content:"";position:absolute;top:31px;left:calc(50% + 40px);right:calc(-50% + 40px);
+  height:2px;background:repeating-linear-gradient(90deg,#3D5C8F 0 7px,transparent 7px 13px);z-index:1;
+}
+.step:not(:last-child)::before{
+  content:"";position:absolute;top:26px;right:calc(-50% + 34px);z-index:2;
+  border:6px solid transparent;border-left:8px solid #5E83BD;
+}
+.flow-foot{
+  margin-top:44px;text-align:center;font-size:.95rem;color:#CBD9EE;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;padding:16px 22px;max-width:720px;margin-left:auto;margin-right:auto;
+}
+.flow-foot b{color:#fff}
+
+/* ---------- PILARES ---------- */
+.pillars{background:var(--sky)}
+.pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pillar{background:#fff;border-radius:var(--radius);padding:24px 20px;border:1px solid var(--sky-line)}
+.pillar .num{font-family:'Sora';font-weight:800;font-size:.8rem;color:var(--blue);letter-spacing:.08em}
+.pillar h3{font-size:1.05rem;margin:8px 0 8px}
+.pillar p{font-size:.88rem;color:var(--ink-soft)}
+
+/* ---------- PROVA ---------- */
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.proof{
+  border:1px solid var(--sky-line);border-radius:var(--radius);padding:28px 24px;text-align:center;
+  background:linear-gradient(180deg,#fff 0%,var(--sky) 160%);
+}
+.proof .big{font-family:'Sora';font-weight:800;font-size:clamp(1.6rem,3vw,2.1rem);color:var(--blue);letter-spacing:-.01em}
+.proof .ctx{margin-top:8px;font-size:.92rem;color:var(--ink)}
+.proof .src{margin-top:6px;font-size:.78rem;color:var(--silver);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+
+/* ---------- COMO FUNCIONA ---------- */
+.how{background:#fff}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:passo}
+.how-step{border:1px solid var(--sky-line);border-radius:var(--radius);padding:24px 20px;position:relative}
+.how-step::before{
+  counter-increment:passo;content:counter(passo);
+  font-family:'Sora';font-weight:800;font-size:.85rem;color:#fff;
+  width:30px;height:30px;border-radius:10px;background:var(--blue);
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+}
+.how-step h3{font-size:1.02rem}
+.how-step p{font-size:.88rem;color:var(--ink-soft);margin-top:6px}
+
+/* ---------- DIAGNÓSTICO (split) ---------- */
+.diag{background:var(--white)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.split .eyebrow{margin-bottom:14px}
+.split h2{font-size:clamp(1.5rem,3.2vw,2.1rem)}
+.split .lead{margin-top:14px;color:var(--ink-soft);font-size:1.02rem}
+.check-list{list-style:none;margin-top:22px}
+.check-list li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:.96rem}
+.check-list .ck{
+  flex:0 0 22px;width:22px;height:22px;border-radius:7px;background:var(--sky);
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.check-list .ck svg{width:13px;height:13px;stroke:var(--blue);stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.split .btn{margin-top:26px}
+/* foto com duotone azul, qualquer imagem colocada aqui recebe o tratamento */
+.photo-frame{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 24px 56px rgba(12,38,79,.18)}
+.photo-frame img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.photo-frame::after{
+  content:"";position:absolute;inset:0;mix-blend-mode:multiply;
+  background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 90%);opacity:.82;
+}
+.photo-frame::before{
+  content:"";position:absolute;inset:0;z-index:2;mix-blend-mode:screen;
+  background:linear-gradient(135deg,rgba(143,182,255,.25),transparent 60%);
+}
+/* visual de dashboard em CSS (substituível por foto) */
+.diag-visual{background:none;border-radius:0;padding:0;box-shadow:none}
+.dv-title{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+.dv-score{display:flex;align-items:baseline;gap:10px;margin-bottom:22px}
+.dv-score .n{font-family:'Sora';font-weight:800;font-size:2.4rem;color:#fff}
+.dv-score .l{font-size:.82rem;color:#A9BCD8}
+.dv-row{margin-bottom:14px}
+.dv-row .lab{display:flex;justify-content:space-between;font-size:.8rem;color:#CBD9EE;margin-bottom:6px}
+.dv-bar{height:8px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
+.dv-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#8FB6FF,var(--blue-soft))}
+.dv-flag{margin-top:20px;font-size:.82rem;color:#FFD58A;background:rgba(255,213,138,.08);border:1px solid rgba(255,213,138,.25);border-radius:10px;padding:10px 14px}
+
+/* ---------- DEPOIMENTOS ---------- */
+.quotes{background:var(--sky);overflow:hidden}
+.carousel{position:relative}
+.carousel-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.carousel-slide{min-width:100%;box-sizing:border-box;padding:0 4px}
+.quote{background:#fff;border:1px solid var(--sky-line);border-radius:var(--radius);padding:36px 40px;display:flex;flex-direction:column;max-width:760px;margin:0 auto}
+.quote .qmark{font-family:'Sora';font-weight:800;font-size:2.6rem;color:var(--blue);line-height:1;margin-bottom:14px}
+.quote p{font-size:1.05rem;color:var(--ink);flex:1;line-height:1.75}
+.quote .who{margin-top:22px;font-size:.88rem}
+.quote .who b{display:block;color:var(--navy);font-size:.95rem}
+.quote .who span{color:var(--silver)}
+.carousel-nav{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:28px}
+.carousel-btn{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--blue);background:transparent;color:var(--blue);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
+.carousel-btn:hover{background:var(--blue);color:#fff}
+.carousel-dots{display:flex;gap:8px}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:var(--sky-line);border:none;cursor:pointer;padding:0;transition:background .2s}
+.carousel-dot.active{background:var(--blue)}
+.placeholder-note{
+  margin-top:22px;text-align:center;font-size:.82rem;color:#B0750A;
+  background:#FFF3DC;border:1px dashed #E3C27E;border-radius:10px;padding:10px 16px;
+  max-width:640px;margin-left:auto;margin-right:auto;
+}
+
+@media (max-width:900px){
+  .split{grid-template-columns:1fr;gap:34px}
+  .quote-grid{grid-template-columns:1fr}
+}
+
+/* ---------- CTA FINAL ---------- */
+.final{background:var(--navy-deep);color:#fff;text-align:center;padding:84px 0}
+.final h2{color:#fff;font-size:clamp(1.6rem,3.4vw,2.3rem);max-width:640px;margin:0 auto}
+.final p{color:#A9BCD8;margin:16px auto 0;max-width:520px}
+.final .btn-primary{margin-top:32px;font-size:1.05rem}
+.final .logo-foot{width:108px;margin:54px auto 0;background:#fff;border-radius:16px;padding:12px}
+.final .foot-line{margin-top:18px;font-size:.8rem;color:#5E83BD;letter-spacing:.06em}
+
+/* ---------- WHATS ICON ---------- */
+.wa{width:20px;height:20px;fill:currentColor}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .mock-stack{min-height:400px;max-width:480px;margin:0 auto;width:100%}
+  .pain-grid{grid-template-columns:repeat(2,1fr)}
+  .pillar-grid,.how-grid{grid-template-columns:repeat(2,1fr)}
+  .proof-grid{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr;gap:6px;max-width:380px;margin:0 auto}
+  .step{display:grid;grid-template-columns:62px 1fr;gap:16px;text-align:left;padding:14px 0;align-items:start}
+  .step h3{margin-top:0}
+  .step .txt{grid-column:2}
+  .step:not(:last-child)::after{
+    top:76px;bottom:-14px;left:30px;right:auto;width:2px;height:auto;
+    background:repeating-linear-gradient(180deg,#3D5C8F 0 7px,transparent 7px 13px);
+  }
+  .step:not(:last-child)::before{display:none}
+}
+@media (max-width:540px){
+  section{padding:56px 0}
+  .pain-grid{grid-template-columns:1fr}
+  .pillar-grid,.how-grid{grid-template-columns:1fr}
+  .mock-stack{min-height:430px}
+  .mock-crm,.mock-chat,.mock-goal{width:84%}
+  .mock-chat{top:30%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+
+/* ---------- MAO NA MASSA ---------- */
+.maos{background:var(--white);padding:80px 0}
+.maos-inner{display:flex;align-items:center;gap:56px}
+.maos-text{flex:1}
+
+.maos-text h2{color:var(--navy);font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15;margin-bottom:20px}
+.maos-text p{color:var(--ink-soft);font-size:1.05rem;line-height:1.7}
+.maos-img{flex:1;display:flex;justify-content:center;background:none}
+.maos-img img{max-width:100%;max-height:440px;object-fit:contain;mix-blend-mode:multiply}
+@media(max-width:700px){
+  .maos-inner{flex-direction:column;gap:36px}
+  .maos-text{text-align:center}
+  .maos-img img{max-height:280px}
+}
+
+/* ---------- IA E TECNOLOGIA ---------- */
+.ia-tech{background:#0a0a0a;padding:52px 0}
+.ia-tech-inner{display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:56px}
+.ia-tech-img{display:flex;justify-content:center;align-items:center}
+.ia-tech-img img{width:100%;max-height:345px;object-fit:contain;mix-blend-mode:lighten}
+.ia-tech-text .eyebrow{color:#60a5fa;background:rgba(96,165,250,.12);border-color:rgba(96,165,250,.25)}
+.ia-tech-text h2{color:#ffffff;font-size:clamp(1.4rem,2.4vw,2rem);margin:12px 0 20px;line-height:1.2;font-weight:800}
+.ia-body{color:rgba(255,255,255,.65);font-size:.97rem;line-height:1.75;margin-bottom:28px;max-width:460px}
+.ia-cta{display:inline-block}
+@media(max-width:768px){
+  .ia-tech-inner{grid-template-columns:1fr;gap:36px}
+  .ia-tech-img{order:1}
+  .ia-tech-text{order:2}
+}
+
+
+/* ---------- METODOLOGIA ---------- */
+.metodo{background:var(--white);padding:88px 0}
+.metodo .section-head h2{font-size:clamp(1.7rem,3vw,2.2rem)}
+.metodo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.metodo-card{background:#fff;border:1.5px solid var(--sky-line);border-radius:20px;padding:28px;transition:box-shadow .2s,border-color .2s}
+.metodo-card:hover{box-shadow:0 8px 32px rgba(29,99,224,.1);border-color:var(--blue-soft)}
+.metodo-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}
+.metodo-num{display:block;font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--blue);margin-bottom:6px;font-family:'Sora',sans-serif}
+.metodo-card h3{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.3;margin:0}
+.metodo-icon{flex-shrink:0;width:52px;height:52px;background:var(--sky);border-radius:14px;display:flex;align-items:center;justify-content:center}
+.metodo-card p{color:var(--ink-soft);font-size:.9rem;line-height:1.7;margin:0}
+@media(max-width:900px){.metodo-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.metodo-grid{grid-template-columns:1fr}}
+
+/* ---------- RADAR ---------- */
+.radar-wrap{margin:16px 0 10px}
+.radar-legend{display:flex;gap:20px;justify-content:center;margin-bottom:12px}
+.radar-leg-current,.radar-leg-potential{display:flex;align-items:center;gap:7px;font-size:.78rem;color:var(--ink-soft);font-family:'Instrument Sans',sans-serif}
+.radar-leg-current::before{content:'';width:26px;height:3px;background:#3B82F6;border-radius:2px;display:inline-block}
+.radar-leg-potential::before{content:'';width:26px;height:0;border-top:2px dashed rgba(59,130,246,.55);display:inline-block}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <img class="hero-logo" src="/imagens/nova-logo.png" alt="Signum Consultoria Comercial">
+      <h1>Consultoria estratégica e tecnologia de ponta para o seu <em>time de vendas</em>.</h1>
+      <p class="sub">Da prospecção ao pós-venda: a Signum estrutura, integra e gerencia sua operação comercial inteira, tráfego, site, WhatsApp, CRM e retenção, em uma única frente.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/5581996178166?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Signum%20e%20quero%20saber%20mais." target="_blank" rel="noopener">
+          <svg class="wa" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm5.83 14.12c-.25.7-1.45 1.33-2 1.39-.51.05-1.16.24-3.92-.82-3.32-1.31-5.42-4.69-5.58-4.91-.16-.21-1.33-1.77-1.33-3.38 0-1.61.84-2.4 1.14-2.73.3-.33.65-.41.87-.41h.63c.2 0 .47-.07.73.56.27.65.91 2.26.99 2.42.08.16.13.36.03.57-.1.21-.16.35-.31.54-.16.19-.33.42-.47.56-.16.16-.32.33-.14.64.18.31.81 1.34 1.74 2.17 1.2 1.07 2.21 1.4 2.52 1.56.31.16.49.13.68-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.7-.16.29.1 1.81.85 2.12 1.01.31.16.52.23.6.36.07.13.07.78-.18 1.49z"/></svg>
+          Falar com a Signum
+        </a>
+        
+      </div>
+      <p class="hero-note">Diagnóstico inicial da sua operação comercial sem custo.</p>
+    </div>
+
+    <!-- mockups flutuantes -->
+    <div class="mock-stack" aria-hidden="true">
+      <div class="card mock mock-crm">
+        <div class="mock-label">Pipeline de vendas: CRM</div>
+        <div class="deal">
+          <div class="deal-top"><span>Proposta: Cliente A</span><span class="tag tag-prog">Em negociação</span></div>
+          <div class="deal-val">Valor do negócio · R$ 18.500</div>
+        </div>
+        <div class="deal">
+          <div class="deal-top"><span>Lead: Tráfego pago</span><span class="tag tag-novo">Novo</span></div>
+          <div class="deal-val">Origem · Instagram Ads</div>
+        </div>
+        <div class="deal">
+          <div class="deal-top"><span>Contrato: Cliente B</span><span class="tag tag-won">Fechado</span></div>
+          <div class="deal-val">Valor do negócio · R$ 32.000</div>
+        </div>
+      </div>
+      <div class="card mock mock-chat">
+        <div class="mock-label">Atendimento: WhatsApp</div>
+        <div class="bubble bubble-in">Oi! Vi o anúncio de vocês. Como funciona?</div>
+        <div class="bubble bubble-out">Olá! Posso te fazer 2 perguntas rápidas pra te indicar a melhor opção?</div>
+        <div class="bubble bubble-in">Pode sim 👍</div>
+      </div>
+      <div class="card mock mock-goal">
+        <div class="mock-label">Plano de vendas: mês atual</div>
+        <div class="goal-row"><div class="goal-bar"><div class="goal-fill" style="width:78%"></div></div><span class="goal-num">78%</span></div>
+        <div class="goal-row"><div class="goal-bar"><div class="goal-fill" style="width:104%;max-width:100%"></div></div><span class="goal-num">104%</span></div>
+        <div class="goal-row"><div class="goal-bar"><div class="goal-fill" style="width:63%"></div></div><span class="goal-num">63%</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= DORES ================= -->
+<section class="pains">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">É pra você?</span>
+      <h2>A Signum é ideal para a empresa que...</h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-item">
+        <div class="pain-ico"><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M40 10 C40 10 56 18 56 38 L56 52 L40 62 L24 52 L24 38 C24 18 40 10 40 10Z" stroke="#0C264F" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <circle cx="40" cy="36" r="7" stroke="#0C264F" stroke-width="2" fill="none"/>
+  <path d="M24 46 L14 56 L20 58 L22 64 L30 54" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M56 46 L66 56 L60 58 L58 64 L50 54" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="40" y1="62" x2="40" y2="70" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2 3"/>
+</svg></div>
+        <p>Deseja <b>escalar as vendas</b> e não sabe por onde começar.</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-ico"><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 16 L22 44 A18 18 0 0 0 58 44 L58 16" stroke="#0C264F" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  <line x1="14" y1="16" x2="30" y2="16" stroke="#0C264F" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="50" y1="16" x2="66" y2="16" stroke="#0C264F" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="14" y1="24" x2="30" y2="24" stroke="#0C264F" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="50" y1="24" x2="66" y2="24" stroke="#0C264F" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="56" cy="58" r="6" stroke="#0C264F" stroke-width="1.6" fill="none"/>
+  <circle cx="56" cy="58" r="2" fill="#0C264F"/>
+  <line x1="50" y1="52" x2="44" y2="46" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="40" y1="44" x2="36" y2="40" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2 2"/>
+</svg></div>
+        <p>Tem dificuldade de <b>atrair novos clientes</b> de forma constante.</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-ico"><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="28" y="10" width="24" height="14" rx="3" stroke="#0C264F" stroke-width="1.8" fill="none"/>
+  <line x1="40" y1="24" x2="40" y2="32" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round"/>
+  <polygon points="40,32 30,42 50,42" stroke="#0C264F" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+  <line x1="30" y1="42" x2="14" y2="42" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="50" y1="42" x2="66" y2="42" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round"/>
+  <rect x="4" y="50" width="20" height="14" rx="3" stroke="#0C264F" stroke-width="1.8" fill="none"/>
+  <rect x="56" y="50" width="20" height="14" rx="3" stroke="#0C264F" stroke-width="1.8" fill="none"/>
+  <line x1="14" y1="42" x2="14" y2="50" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="66" y1="42" x2="66" y2="50" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round"/>
+</svg></div>
+        <p>Não tem <b>processo de vendas definido</b>, cada vendedor faz de um jeito.</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-ico"><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="36" cy="40" r="24" stroke="#0C264F" stroke-width="1.8" fill="none"/>
+  <circle cx="36" cy="40" r="15" stroke="#0C264F" stroke-width="1.6" fill="none"/>
+  <circle cx="36" cy="40" r="7" stroke="#0C264F" stroke-width="1.6" fill="none"/>
+  <circle cx="36" cy="40" r="2.5" fill="#0C264F"/>
+  <line x1="55" y1="20" x2="38" y2="38" stroke="#0C264F" stroke-width="2" stroke-linecap="round"/>
+  <polyline points="48,18 56,18 56,26" stroke="#0C264F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="36" y1="16" x2="36" y2="10" stroke="#0C264F" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="36" y1="64" x2="36" y2="70" stroke="#0C264F" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="12" y1="40" x2="6" y2="40" stroke="#0C264F" stroke-width="1.6" stroke-linecap="round"/>
+</svg></div>
+        <p>Precisa de um modelo de <b>prospecção ativa eficaz</b>.</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-ico"><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="36" cy="22" rx="20" ry="8" stroke="#0C264F" stroke-width="1.8" fill="none"/>
+  <path d="M16 22 L16 42 C16 46.4 24.9 50 36 50 C40 50 43.7 49.4 46.7 48.3" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <path d="M56 22 L56 34" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M16 32 C16 36.4 24.9 40 36 40 C39.8 40 43.4 39.4 46.3 38.4" stroke="#0C264F" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <circle cx="58" cy="56" r="12" stroke="#0C264F" stroke-width="1.8" fill="white"/>
+  <line x1="52" y1="50" x2="64" y2="62" stroke="#0C264F" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="64" y1="50" x2="52" y2="62" stroke="#0C264F" stroke-width="2.2" stroke-linecap="round"/>
+</svg></div>
+        <p>Tem CRM contratado, mas a equipe <b>não usa</b> e a decisão continua no achismo.</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-ico"><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="30" cy="24" r="10" stroke="#0C264F" stroke-width="1.8" fill="none"/>
+  <path d="M10 62 C10 50 50 50 50 62" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <path d="M56 30 C62 30 66 35 66 42 C66 49 62 54 54 54" stroke="#0C264F" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <polyline points="58,24 56,30 62,32" stroke="#0C264F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="54" y1="54" x2="54" y2="62" stroke="#0C264F" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2 2"/>
+</svg></div>
+        <p>Vende, mas <b>não acompanha o cliente depois</b> e perde recompra e indicação.</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-ico"><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <polyline points="10,55 22,30 32,48 44,20 54,40 68,28" stroke="#0C264F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="10" cy="55" r="3" fill="#0C264F"/>
+  <circle cx="22" cy="30" r="3" fill="#0C264F"/>
+  <circle cx="32" cy="48" r="3" fill="#0C264F"/>
+  <circle cx="44" cy="20" r="3" fill="#0C264F"/>
+  <circle cx="54" cy="40" r="3" fill="#0C264F"/>
+  <circle cx="68" cy="28" r="3" fill="#0C264F"/>
+  <line x1="10" y1="55" x2="10" y2="66" stroke="#0C264F" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2 2"/>
+  <line x1="32" y1="48" x2="32" y2="66" stroke="#0C264F" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2 2"/>
+  <line x1="54" y1="40" x2="54" y2="66" stroke="#0C264F" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2 2"/>
+  <line x1="6" y1="66" x2="74" y2="66" stroke="#0C264F" stroke-width="2" stroke-linecap="round"/>
+</svg></div>
+        <p><b>Resultados inconsistentes</b> e sem previsibilidade no faturamento.</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-ico"><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="40" cy="40" r="14" stroke="#0C264F" stroke-width="1.8" fill="none"/>
+  <circle cx="40" cy="40" r="5" stroke="#0C264F" stroke-width="1.8" fill="none"/>
+  <line x1="40" y1="18" x2="40" y2="24" stroke="#0C264F" stroke-width="3" stroke-linecap="round"/>
+  <line x1="40" y1="56" x2="40" y2="62" stroke="#0C264F" stroke-width="3" stroke-linecap="round"/>
+  <line x1="18" y1="40" x2="24" y2="40" stroke="#0C264F" stroke-width="3" stroke-linecap="round"/>
+  <line x1="56" y1="40" x2="62" y2="40" stroke="#0C264F" stroke-width="3" stroke-linecap="round"/>
+  <line x1="24" y1="24" x2="28" y2="28" stroke="#0C264F" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="52" y1="52" x2="56" y2="56" stroke="#0C264F" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="56" y1="24" x2="52" y2="28" stroke="#0C264F" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="28" y1="52" x2="24" y2="56" stroke="#0C264F" stroke-width="2.5" stroke-linecap="round"/>
+  <polyline points="35,40 39,44 46,36" stroke="#0C264F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
+        <p>Não tem <b>metodologia de vendas</b> estruturada e validada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FLUXOGRAMA ================= -->
+<section class="flow-section" id="maquina">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">O fluxo comercial Signum</span>
+      <h2>Uma máquina de vendas completa, ponta a ponta</h2>
+      <p>Cada etapa da jornada do seu cliente coberta por estratégia, ferramenta e processo, integrados e conversando entre si.</p>
+    </div>
+    <div class="flow">
+      <div class="step">
+        <div class="node"><svg viewBox="0 0 24 24"><path d="M11 5L4 9v6l7 4 9-5V9z"/><path d="M11 5v14"/></svg></div>
+        <div class="txt">
+          <h3>Atração</h3>
+          <p class="what">Tráfego pago no Meta e Google levando o cliente certo até você.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="node"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></div>
+        <div class="txt">
+          <h3>Conversão</h3>
+          <p class="what">Site e páginas de captura feitos para transformar visita em contato.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="node"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-4-1L3 20l1.2-5.5a8.5 8.5 0 1 1 16.8-3z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01"/></svg></div>
+        <div class="txt">
+          <h3>Atendimento</h3>
+          <p class="what">WhatsApp multiatendimento com automação e IA: ninguém fica sem resposta.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="node"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><rect x="7" y="11" width="3" height="5"/><rect x="12" y="8" width="3" height="8"/><rect x="17" y="5" width="3" height="11"/></svg></div>
+        <div class="txt">
+          <h3>Gestão &amp; CRM</h3>
+          <p class="what">Funil organizado, follow-up cobrado e indicadores para decidir com dados.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="node"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3-6.2"/><path d="M20 4v4h-4"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="txt">
+          <h3>Pós-venda</h3>
+          <p class="what">Rotina de retenção: recompra, renovação e indicação viram processo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIAGNÓSTICO ================= -->
+<section class="diag" id="diagnostico">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Por onde começamos</span>
+      <h2>Diagnóstico da sua operação comercial</h2>
+      <p class="lead">Antes de propor qualquer solução, a Signum levanta os gaps e as oportunidades de alavancagem rápida nos 4 pilares, do funil à ferramenta, da gestão ao time. Você sai enxergando exatamente onde está perdendo venda.</p>
+      <ul class="check-list">
+        <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Mapa do seu funil: onde o lead entra, onde ele trava e onde ele morre.</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Avaliação das ferramentas atuais: o que falta, o que sobra e o que não conversa entre si.</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Leitura dos números: conversão por etapa, tempo de resposta e custo por venda.</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Plano de ação priorizado: os 3 pontos que destravam resultado mais rápido.</li>
+      </ul>
+      <a class="btn btn-primary" href="https://wa.me/5581996178166?text=Ol%C3%A1!%20Quero%20agendar%20o%20diagn%C3%B3stico%20comercial." target="_blank" rel="noopener">Agendar meu diagnóstico</a>
+    </div>
+    <div class="diag-visual" aria-hidden="true">
+      <div class="dv-title">Diagnóstico Signum: visão geral da operação</div>
+      <div class="radar-wrap">
+        <svg viewBox="0 0 540 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:620px;display:block;margin:0 auto">
+  <polygon points="270,190 287.6,195.7 298.5,210.7 298.5,229.3 287.6,244.3 270,250 252.4,244.3 241.5,229.3 241.5,210.7 252.4,195.7" fill="none" stroke="rgba(15,42,94,.1)" stroke-width=".8"/>
+  <polygon points="270,160 305.3,171.5 327.1,201.5 327.1,238.5 305.3,268.5 270,280 234.7,268.5 212.9,238.5 212.9,201.5 234.7,171.5" fill="none" stroke="rgba(15,42,94,.1)" stroke-width=".8"/>
+  <polygon points="270,130 322.9,147.2 355.6,192.2 355.6,247.8 322.9,292.8 270,310 217.1,292.8 184.4,247.8 184.4,192.2 217.1,147.2" fill="none" stroke="rgba(15,42,94,.1)" stroke-width=".8"/>
+  <polygon points="270,100 340.5,122.9 384.1,182.9 384.1,257.1 340.5,317.1 270,340 199.5,317.1 155.9,257.1 155.9,182.9 199.5,122.9" fill="none" stroke="rgba(15,42,94,.1)" stroke-width=".8"/>
+  <polygon points="270,70 358.2,98.6 412.7,173.6 412.7,266.4 358.2,341.4 270,370 181.8,341.4 127.3,266.4 127.3,173.6 181.8,98.6" fill="none" stroke="rgba(15,42,94,.1)" stroke-width=".8"/>
+  <text x="274" y="194.0" fill="rgba(15,42,94,.3)" font-size="8.5" font-family="sans-serif">20%</text>
+  <text x="274" y="164.0" fill="rgba(15,42,94,.3)" font-size="8.5" font-family="sans-serif">40%</text>
+  <text x="274" y="134.0" fill="rgba(15,42,94,.3)" font-size="8.5" font-family="sans-serif">60%</text>
+  <text x="274" y="104.0" fill="rgba(15,42,94,.3)" font-size="8.5" font-family="sans-serif">80%</text>
+  <text x="274" y="74.0" fill="rgba(15,42,94,.3)" font-size="8.5" font-family="sans-serif">100%</text>
+  <line x1="270" y1="220" x2="270" y2="70" stroke="rgba(15,42,94,.15)" stroke-width=".8"/>
+  <line x1="270" y1="220" x2="358.2" y2="98.6" stroke="rgba(15,42,94,.15)" stroke-width=".8"/>
+  <line x1="270" y1="220" x2="412.7" y2="173.6" stroke="rgba(15,42,94,.15)" stroke-width=".8"/>
+  <line x1="270" y1="220" x2="412.7" y2="266.4" stroke="rgba(15,42,94,.15)" stroke-width=".8"/>
+  <line x1="270" y1="220" x2="358.2" y2="341.4" stroke="rgba(15,42,94,.15)" stroke-width=".8"/>
+  <line x1="270" y1="220" x2="270" y2="370" stroke="rgba(15,42,94,.15)" stroke-width=".8"/>
+  <line x1="270" y1="220" x2="181.8" y2="341.4" stroke="rgba(15,42,94,.15)" stroke-width=".8"/>
+  <line x1="270" y1="220" x2="127.3" y2="266.4" stroke="rgba(15,42,94,.15)" stroke-width=".8"/>
+  <line x1="270" y1="220" x2="127.3" y2="173.6" stroke="rgba(15,42,94,.15)" stroke-width=".8"/>
+  <line x1="270" y1="220" x2="181.8" y2="98.6" stroke="rgba(15,42,94,.15)" stroke-width=".8"/>
+  <polygon points="270,92.5 347.6,113.2 398.4,178.3 395.5,260.8 349.4,329.2 270,358 192.4,326.8 148.7,259.4 148.7,180.6 190.6,110.8" fill="rgba(59,130,246,.06)" stroke="rgba(59,130,246,.35)" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <polygon points="270,137.5 314.1,159.3 358.4,191.3 332.8,240.4 328.2,300.1 270,326.5 218.9,290.4 217.2,237.2 200.1,197.3 233,169" fill="rgba(29,99,224,.25)" stroke="#3B82F6" stroke-width="1.5"/>
+  <circle cx="270" cy="137.5" r="3.5" fill="#3B82F6" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="314.1" cy="159.3" r="3.5" fill="#3B82F6" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="358.4" cy="191.3" r="3.5" fill="#3B82F6" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="332.8" cy="240.4" r="3.5" fill="#3B82F6" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="328.2" cy="300.1" r="3.5" fill="#3B82F6" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="270" cy="326.5" r="3.5" fill="#3B82F6" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="218.9" cy="290.4" r="3.5" fill="#3B82F6" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="217.2" cy="237.2" r="3.5" fill="#3B82F6" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="200.1" cy="197.3" r="3.5" fill="#3B82F6" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="233" cy="169" r="3.5" fill="#3B82F6" stroke="#fff" stroke-width="1.2"/>
+  <text x="270" y="44" text-anchor="middle" dominant-baseline="middle" fill="#0f2a5e" font-size="10.5" font-family="Instrument Sans,sans-serif" font-weight="600">Prospecção</text>
+  <text x="373.5" y="77.6" text-anchor="start" dominant-baseline="middle" fill="#0f2a5e" font-size="10.5" font-family="Instrument Sans,sans-serif" font-weight="600">Qualificação</text>
+  <text x="437.4" y="165.6" text-anchor="start" dominant-baseline="middle" fill="#0f2a5e" font-size="10.5" font-family="Instrument Sans,sans-serif" font-weight="600">Funil de Vendas</text>
+  <text x="437.4" y="274.4" text-anchor="start" dominant-baseline="middle" fill="#0f2a5e" font-size="10.5" font-family="Instrument Sans,sans-serif" font-weight="600">CRM</text>
+  <text x="373.5" y="362.4" text-anchor="start" dominant-baseline="middle" fill="#0f2a5e" font-size="10.5" font-family="Instrument Sans,sans-serif" font-weight="600">Gestão</text>
+  <text x="270" y="396" text-anchor="middle" dominant-baseline="middle" fill="#0f2a5e" font-size="10.5" font-family="Instrument Sans,sans-serif" font-weight="600">Equipe</text>
+  <text x="166.5" y="362.4" text-anchor="end" dominant-baseline="middle" fill="#0f2a5e" font-size="10.5" font-family="Instrument Sans,sans-serif" font-weight="600">Processos</text>
+  <text x="102.6" y="274.4" text-anchor="end" dominant-baseline="middle" fill="#0f2a5e" font-size="10.5" font-family="Instrument Sans,sans-serif" font-weight="600">Marketing</text>
+  <text x="102.6" y="165.6" text-anchor="end" dominant-baseline="middle" fill="#0f2a5e" font-size="10.5" font-family="Instrument Sans,sans-serif" font-weight="600">Pós-venda</text>
+  <text x="166.5" y="77.6" text-anchor="end" dominant-baseline="middle" fill="#0f2a5e" font-size="10.5" font-family="Instrument Sans,sans-serif" font-weight="600">Previsibilidade</text>
+  <circle cx="270" cy="220" r="2.5" fill="rgba(15,42,94,.25)"/>
+</svg>
+      </div>
+      <div class="radar-legend">
+        <span class="radar-leg-current">Situação atual</span>
+        <span class="radar-leg-potential">Potencial identificado</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PILARES ================= -->
+<section class="pillars">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Método</span>
+      <h2>Os 4 pilares do método Signum</h2>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <span class="num">PILAR 01</span>
+        <h3>Processos</h3>
+        <p>Fluxos padronizados da atração do lead à renovação do contrato, eliminando gargalos na jornada do cliente.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">PILAR 02</span>
+        <h3>Plataforma</h3>
+        <p>CRM, WhatsApp e automações integrados, com os dados circulando livremente entre as ferramentas.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">PILAR 03</span>
+        <h3>Dados</h3>
+        <p>Uma única fonte de verdade: métricas como CAC, conversão e churn para decidir com fatos, não palpites.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">PILAR 04</span>
+        <h3>Capacitação</h3>
+        <p>Time treinado na ferramenta e no processo, com rotina de gestão para sustentar a produtividade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ================= METODOLOGIA ================= -->
+<section class="metodo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Nossa Metodologia</span>
+      <h2>Do diagnóstico à performance</h2>
+      <p>Um processo estruturado em 6 etapas para transformar sua operação comercial e garantir resultados reais.</p>
+    </div>
+    <div class="metodo-grid">
+      <div class="metodo-card">
+        <div class="metodo-card-head">
+          <div>
+            <span class="metodo-num">01</span>
+            <h3>Diagnóstico de Vendas</h3>
+          </div>
+          <div class="metodo-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1D63E0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+        </div>
+        <p>Entrevistas, laboratórios de vendas, check-up comercial e imersão na operação para identificar oportunidades de melhoria.</p>
+      </div>
+      <div class="metodo-card">
+        <div class="metodo-card-head">
+          <div>
+            <span class="metodo-num">02</span>
+            <h3>Alinhamento Estratégico</h3>
+          </div>
+          <div class="metodo-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1D63E0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        </div>
+        <p>Alinhamos com o boarding da empresa as prioridades de ação e os grupos de trabalho para a implementação.</p>
+      </div>
+      <div class="metodo-card">
+        <div class="metodo-card-head">
+          <div>
+            <span class="metodo-num">03</span>
+            <h3>Desenvolvimento das Soluções</h3>
+          </div>
+          <div class="metodo-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1D63E0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
+        </div>
+        <p>Desenvolvemos Playbooks, trilhas e materiais para as equipes comercial e de gestão otimizarem a operação.</p>
+      </div>
+      <div class="metodo-card">
+        <div class="metodo-card-head">
+          <div>
+            <span class="metodo-num">04</span>
+            <h3>Implantação das Soluções</h3>
+          </div>
+          <div class="metodo-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1D63E0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        </div>
+        <p>Aplicamos processos, parametrizamos CRMs e ferramentas tecnológicas, preparando o time para executar com eficiência.</p>
+      </div>
+      <div class="metodo-card">
+        <div class="metodo-card-head">
+          <div>
+            <span class="metodo-num">05</span>
+            <h3>Capacitação da Equipe</h3>
+          </div>
+          <div class="metodo-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1D63E0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg></div>
+        </div>
+        <p>Formamos líderes, vendedores e multiplicadores para garantir uma execução consistente que entregue os resultados planejados.</p>
+      </div>
+      <div class="metodo-card">
+        <div class="metodo-card-head">
+          <div>
+            <span class="metodo-num">06</span>
+            <h3>Acompanhamento de Resultados</h3>
+          </div>
+          <div class="metodo-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1D63E0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        </div>
+        <p>Acompanhamento sistemático de execuções e indicadores, com ajustes contínuos para a melhoria constante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IA E TECNOLOGIA ================= -->
+<section class="ia-tech">
+  <div class="wrap ia-tech-inner">
+    <div class="ia-tech-img">
+      <img src="/imagens/signunia.png" alt="Signum IA">
+    </div>
+    <div class="ia-tech-text">
+      <span class="eyebrow">IA &amp; Tecnologia</span>
+      <h2>Sua empresa na era da inteligência artificial</h2>
+      <p class="ia-body">A Signum implementa inteligência artificial onde ela gera mais resultado: automação de processos, aceleração do funil e análise preditiva de dados. Tecnologia que trabalha pelo seu crescimento.</p>
+      <a class="btn btn-primary ia-cta" href="https://wa.me/5581996178166?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20IA%20com%20a%20Signum." target="_blank" rel="noopener">Quero implementar IA na minha empresa</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAO NA MASSA ================= -->
+<section class="maos">
+  <div class="wrap maos-inner">
+    <div class="maos-text">
+      <span class="eyebrow">Consultoria</span>
+      <h2>100% Mão na Massa:<br>Da Estratégia à<br>Execução</h2>
+      <p>Vamos implementar as etapas necessárias para<br>impactar os resultados do seu negócio!</p>
+      <div class="cta-row" style="margin-top:28px">
+        <a class="btn btn-primary" href="https://wa.me/5581996178166?text=Ol%C3%A1!%20Tenho%20interesse%20na%20consultoria%20da%20Signum." target="_blank" rel="noopener">Quero uma consultoria</a>
+      </div>
+    </div>
+    <div class="maos-img">
+      <img src="/imagens/funil-de-vendas.png" alt="Funil de Vendas Signum">
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="final">
+  <div class="wrap">
+    <h2>Quer ver onde sua operação comercial está perdendo venda?</h2>
+    <p>Agende um diagnóstico inicial sem custo. Em uma conversa, você sai sabendo os 3 pontos que mais travam seu crescimento hoje.</p>
+    <a class="btn btn-primary" href="https://wa.me/5581996178166?text=Ol%C3%A1!%20Quero%20agendar%20o%20diagn%C3%B3stico%20comercial." target="_blank" rel="noopener">
+      <svg class="wa" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm5.83 14.12c-.25.7-1.45 1.33-2 1.39-.51.05-1.16.24-3.92-.82-3.32-1.31-5.42-4.69-5.58-4.91-.16-.21-1.33-1.77-1.33-3.38 0-1.61.84-2.4 1.14-2.73.3-.33.65-.41.87-.41h.63c.2 0 .47-.07.73.56.27.65.91 2.26.99 2.42.08.16.13.36.03.57-.1.21-.16.35-.31.54-.16.19-.33.42-.47.56-.16.16-.32.33-.14.64.18.31.81 1.34 1.74 2.17 1.2 1.07 2.21 1.4 2.52 1.56.31.16.49.13.68-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.7-.16.29.1 1.81.85 2.12 1.01.31.16.52.23.6.36.07.13.07.78-.18 1.49z"/></svg>
+      Agendar diagnóstico no WhatsApp
+    </a>
+    <imgclass="logo-foot"src="/imagens/nova-logo.png" alt="Signum">
+    <p class="foot-line">SIGNUM CONSULTORIA COMERCIAL · RECIFE, PE</p>
+  </div>
+</section>
+
+<script>
+(function(){
+  const track = document.getElementById('carouselTrack');
+  const dotsContainer = document.getElementById('carouselDots');
+  const slides = track ? track.querySelectorAll('.carousel-slide') : [];
+  const total = slides.length;
+  let current = 0;
+
+  // Build dots
+  slides.forEach(function(_, i){
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i+1));
+    d.addEventListener('click', function(){ goTo(i); });
+    dotsContainer.appendChild(d);
+  });
+
+  function goTo(n){
+    current = (n + total) % total;
+    track.style.transform = 'translateX(-' + current * 100 + '%)';
+    dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i){
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function(){ goTo(current - 1); });
+  document.getElementById('nextBtn').addEventListener('click', function(){ goTo(current + 1); });
+
+  // Auto-advance every 6s
+  setInterval(function(){ goTo(current + 1); }, 6000);
+})();
+</script>
+</body>
+</html>

@@ -143,8 +143,25 @@ app.get('/config', (req, res) => {
   });
 });
 
+// Serve images folder
+app.use('/imagens', express.static(path.join(__dirname, 'Imagens')));
+
+// New main landing page
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'newlandingpage', 'index.html'));
+});
+
 // Serve static files from the Vite build output directory
 app.use(express.static(path.join(__dirname, 'dist')));
+
+// Explicit routes for subpages
+app.get('/treinamento', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'treinamento', 'index.html'));
+});
+
+app.get('/talentos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'talentos', 'index.html'));
+});
 
 // Fallback to serving the index.html for any requested path that doesn't match an API route
 app.use((req, res) => {
