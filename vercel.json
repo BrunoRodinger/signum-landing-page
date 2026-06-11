@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/newlandingpage/index.html" },
+    { "source": "/imagens/:path*", "destination": "/Imagens/:path*" }
+  ]
+}
