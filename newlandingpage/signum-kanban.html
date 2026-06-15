@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:transparent;overflow:hidden}
+:root{
+  --navy:#0C264F;--blue:#1D63E0;--blue-soft:#3B82F6;
+  --sky:#EAF1FB;--sky-line:#D5E2F5;--ink:#24303F;
+  --ink-soft:#5A6B80;--silver:#8898AA;--green:#25D366;
+  --white:#fff;--radius:14px;
+  --shadow:0 8px 28px rgba(12,38,79,.13);
+}
+body{font-family:'Inter','Segoe UI',sans-serif;font-size:13px;color:var(--ink)}
+
+.stage{position:relative;width:100%;height:100%;min-height:420px}
+
+/* ---- CARDS ---- */
+.card{
+  position:absolute;background:var(--white);
+  border:1px solid var(--sky-line);border-radius:var(--radius);
+  padding:16px;box-shadow:var(--shadow);
+}
+.card-crm { top:0;   left:0;  width:62%; animation:f1 6s ease-in-out infinite }
+.card-chat { right:0; top:32%; width:56%; animation:f2 6s ease-in-out 1.4s infinite }
+.card-goal { left:4%; bottom:0;width:58%; animation:f3 6s ease-in-out 2.8s infinite }
+
+@keyframes f1{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes f2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes f3{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ---- LABEL ---- */
+.lbl{
+  font-size:.62rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--silver);margin-bottom:10px;
+}
+
+/* ---- DEALS ---- */
+.deal{border:1px solid var(--sky-line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.deal:last-child{margin-bottom:0}
+.deal-top{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:.82rem;color:var(--navy)}
+.deal-val{font-size:.74rem;color:var(--ink-soft);margin-top:3px}
+.tag{font-size:.62rem;font-weight:700;padding:.22em .7em;border-radius:999px;white-space:nowrap}
+.tag-prog{background:#FFF3DC;color:#B0750A}
+.tag-novo{background:#E8F4FF;color:#1D63E0}
+.tag-won{background:#E5F9EE;color:#15803D}
+
+/* deal3 entra com pop */
+.deal3{
+  animation:pop-in .5s cubic-bezier(.34,1.56,.64,1) 1.8s both;
+}
+@keyframes pop-in{
+  from{opacity:0;transform:scale(.93) translateY(6px)}
+  to  {opacity:1;transform:none}
+}
+
+/* ---- BOLHAS ---- */
+.bubble{
+  font-size:.8rem;padding:.55em .85em;border-radius:12px;
+  margin-bottom:7px;max-width:90%;line-height:1.4;
+}
+.bubble:last-child{margin-bottom:0}
+.bubble-in {background:var(--sky);  color:var(--navy); border-bottom-left-radius:4px}
+.bubble-out{background:var(--green);color:#fff;        margin-left:auto;border-bottom-right-radius:4px}
+
+/* bolhas aparecem em sequência via CSS */
+.b1{animation:fadein .4s ease .5s both}
+.b2{animation:fadein .4s ease 2.2s both}
+.b3{animation:fadein .4s ease 3.4s both}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* typing dots */
+.typing{
+  display:flex;gap:4px;align-items:center;
+  padding:.45em .85em;background:var(--sky);
+  border-radius:12px;border-bottom-left-radius:4px;
+  margin-bottom:7px;width:fit-content;
+  animation:fadein .3s ease 1.2s both, fadeout .3s ease 2.0s forwards;
+}
+@keyframes fadeout{to{opacity:0;display:none}}
+.dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--ink-soft);
+  animation:blink 1.2s ease-in-out infinite;
+}
+.dot:nth-child(2){animation-delay:.2s}
+.dot:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+
+/* ---- METAS ---- */
+.goal-row{display:flex;align-items:center;gap:8px;margin-top:8px}
+.goal-bar{flex:1;height:8px;border-radius:999px;background:var(--sky);overflow:hidden}
+.goal-fill{
+  height:100%;border-radius:999px;
+  background:linear-gradient(90deg,var(--blue-soft),var(--blue));
+}
+.gf1{animation:bar .4s ease .0s both; --w:78%}
+.gf2{animation:bar .4s ease .15s both;--w:100%}
+.gf3{animation:bar .4s ease .3s both; --w:63%}
+@keyframes bar{from{width:0}to{width:var(--w)}}
+.goal-num{font-size:.72rem;font-weight:700;color:var(--navy);min-width:36px;text-align:right}
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- CRM -->
+  <div class="card card-crm">
+    <div class="lbl">Pipeline de vendas: CRM</div>
+    <div class="deal">
+      <div class="deal-top"><span>Proposta: Cliente A</span><span class="tag tag-prog">Em negociação</span></div>
+      <div class="deal-val">Valor do negócio · R$ 18.500</div>
+    </div>
+    <div class="deal">
+      <div class="deal-top"><span>Lead: Tráfego pago</span><span class="tag tag-novo">Novo</span></div>
+      <div class="deal-val">Origem · Instagram Ads</div>
+    </div>
+    <div class="deal deal3">
+      <div class="deal-top"><span>Contrato: Cliente B</span><span class="tag tag-won">Fechado ✓</span></div>
+      <div class="deal-val">Valor do negócio · R$ 32.000</div>
+    </div>
+  </div>
+
+  <!-- WHATSAPP -->
+  <div class="card card-chat">
+    <div class="lbl">Atendimento: WhatsApp</div>
+    <div class="bubble bubble-in b1">Oi! Vi o anúncio de vocês.<br>Como funciona?</div>
+    <div class="typing"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <div class="bubble bubble-out b2">Olá! Posso te fazer 2 perguntas<br>pra te indicar a melhor opção?</div>
+    <div class="bubble bubble-in b3">Pode sim 👍</div>
+  </div>
+
+  <!-- METAS -->
+  <div class="card card-goal">
+    <div class="lbl">Plano de vendas: mês atual</div>
+    <div class="goal-row"><div class="goal-bar"><div class="goal-fill gf1"></div></div><span class="goal-num">78%</span></div>
+    <div class="goal-row"><div class="goal-bar"><div class="goal-fill gf2"></div></div><span class="goal-num">104%</span></div>
+    <div class="goal-row"><div class="goal-bar"><div class="goal-fill gf3"></div></div><span class="goal-num">63%</span></div>
+  </div>
+
+</div>
+</body>
+</html>

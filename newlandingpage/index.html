@@ -45,15 +45,109 @@ section{padding:72px 0}
 .section-head h2{font-size:clamp(1.55rem,3.4vw,2.2rem);font-weight:700}
 .section-head p{color:var(--ink-soft);margin-top:12px;font-size:1.02rem}
 
+/* ---------- LIQUID GLASS NAV ---------- */
+.lg-nav{
+  position:fixed;top:14px;left:50%;transform:translateX(-50%);
+  width:calc(100% - 40px);max-width:1040px;
+  z-index:9999;
+  border-radius:24px;
+  padding:0 20px;
+  height:62px;
+  display:flex;align-items:center;justify-content:space-between;
+  isolation:isolate;
+  /* camada de vidro */
+  background:rgba(255,255,255,0.18);
+  backdrop-filter:blur(48px) saturate(220%) brightness(1.08);
+  -webkit-backdrop-filter:blur(48px) saturate(220%) brightness(1.08);
+  /* borda reflexiva */
+  border:1.5px solid rgba(255,255,255,0.62);
+  outline:1px solid rgba(29,99,224,0.08);
+  /* sombras em camadas */
+  box-shadow:
+    inset 0 1.5px 0 rgba(255,255,255,1),
+    inset 0 -1px 0 rgba(255,255,255,0.25),
+    inset 1px 0 0 rgba(255,255,255,0.55),
+    inset -1px 0 0 rgba(255,255,255,0.35),
+    0 4px 6px rgba(12,38,79,0.04),
+    0 12px 40px rgba(12,38,79,0.10),
+    0 2px 8px rgba(29,99,224,0.06);
+}
+/* reflexo especular no topo */
+.lg-nav::before{
+  content:'';
+  position:absolute;inset:0;border-radius:23px;pointer-events:none;
+  background:linear-gradient(
+    175deg,
+    rgba(255,255,255,0.70) 0%,
+    rgba(255,255,255,0.18) 28%,
+    rgba(255,255,255,0.00) 55%
+  );
+  z-index:0;
+}
+/* camada de cor (tint azul suave) */
+.lg-nav::after{
+  content:'';
+  position:absolute;inset:0;border-radius:23px;pointer-events:none;
+  background:linear-gradient(
+    135deg,
+    rgba(209,228,255,0.28) 0%,
+    rgba(255,255,255,0.04) 100%
+  );
+  z-index:0;
+}
+.lg-logo-clip{
+  width:52px;height:31px;
+  overflow:hidden;flex-shrink:0;
+  position:relative;z-index:1;
+}
+.lg-logo-clip img{width:52px;display:block;margin-top:-2px}
+.lg-links{
+  display:flex;gap:2px;align-items:center;
+  position:relative;z-index:1;
+}
+.lg-links a{
+  font-size:.875rem;font-weight:600;color:var(--navy);
+  text-decoration:none;padding:.42em 1em;border-radius:12px;
+  transition:background .18s,color .18s;
+  white-space:nowrap;letter-spacing:-.01em;
+}
+.lg-links a:hover{
+  background:rgba(255,255,255,0.55);
+  color:var(--blue);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.9),0 2px 8px rgba(12,38,79,0.06);
+}
+.lg-cta{
+  position:relative;z-index:1;
+  display:inline-flex;align-items:center;gap:8px;
+  font-weight:700;font-size:.875rem;color:#fff;
+  background:linear-gradient(135deg,var(--blue-soft),var(--blue));
+  padding:.52em 1.15em;border-radius:14px;
+  text-decoration:none;white-space:nowrap;
+  border:1px solid rgba(255,255,255,0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    0 4px 16px rgba(29,99,224,.38);
+  transition:transform .15s,box-shadow .15s;
+}
+.lg-cta:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.3),0 6px 22px rgba(29,99,224,.48)}
+.lg-cta svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
+@media(max-width:700px){
+  .lg-links{display:none}
+  .lg-nav{top:10px;width:calc(100% - 20px);padding:0 14px;height:54px;border-radius:18px}
+}
+/* offset para nav fixo */
+#maquina,#pilares,#metodologia,#diagnostico{
+  scroll-margin-top:96px;
+}
+
 /* ---------- HERO ---------- */
-.hero{padding:34px 0 84px;position:relative;overflow:hidden}
+.hero{padding:100px 0 84px;position:relative;overflow:hidden}
 .hero::before{
   content:"";position:absolute;inset:auto -20% -55% -20%;height:75%;
   background:radial-gradient(ellipse at 50% 100%, var(--sky) 0%, transparent 65%);
   z-index:0;
 }
 .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-.hero-logo{width:118px;margin-bottom:26px}
 .hero h1{font-size:clamp(1.9rem,4.2vw,2.85rem);font-weight:800;letter-spacing:-.01em}
 .hero h1 em{font-style:normal;color:var(--blue)}
 .hero .sub{margin-top:18px;font-size:1.08rem;color:var(--ink-soft);max-width:46ch}
@@ -79,7 +173,9 @@ section{padding:72px 0}
 .mock-crm{top:0;left:0;width:62%;animation:float 7s ease-in-out infinite}
 .deal{border:1px solid var(--sky-line);border-radius:12px;padding:12px;margin-bottom:10px}
 .deal:last-child{margin-bottom:0}
-.deal-top{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:.9rem;color:var(--navy)}
+.deal-top{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:.82rem;color:var(--navy);gap:8px;flex-wrap:nowrap}
+.deal-top>span:first-child{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.deal-top .tag{flex-shrink:0}
 .tag{font-size:.68rem;font-weight:700;padding:.25em .8em;border-radius:999px}
 .tag-prog{background:#FFF3DC;color:#B0750A}
 .tag-novo{background:var(--sky);color:var(--blue)}
@@ -278,8 +374,48 @@ section{padding:72px 0}
   *{animation:none!important;transition:none!important}
 }
 
+/* ---------- KANBAN CARDS ---------- */
+.stage{position:relative;width:100%;height:100%;min-height:420px}
+.card-crm{top:0;left:0;width:62%;animation:f1 6s ease-in-out infinite}
+.card-chat{right:0;top:32%;width:56%;animation:f2 6s ease-in-out 1.4s infinite}
+.card-goal{left:4%;bottom:0;width:58%;animation:f3 6s ease-in-out 2.8s infinite}
+@keyframes f1{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes f2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes f3{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.deal3{animation:pop-in .5s cubic-bezier(.34,1.56,.64,1) 1.8s both}
+@keyframes pop-in{from{opacity:0;transform:scale(.93) translateY(6px)}to{opacity:1;transform:none}}
+.bubble{font-size:.8rem;padding:.55em .85em;border-radius:12px;margin-bottom:7px;max-width:90%;line-height:1.4}
+.bubble:last-child{margin-bottom:0}
+.bubble-in{background:var(--sky);color:var(--navy);border-bottom-left-radius:4px}
+.bubble-out{background:#25D366;color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.b1{animation:fadein .4s ease .5s both}
+.b2{animation:fadein .4s ease 2.2s both}
+.b3{animation:fadein .4s ease 3.4s both}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.typing-dots{
+  display:flex;gap:4px;align-items:center;
+  padding:.45em .85em;background:var(--sky);
+  border-radius:12px;border-bottom-left-radius:4px;
+  margin-bottom:7px;width:fit-content;
+  animation:fadein .3s ease 1.2s both,fadeout .3s ease 2.0s forwards;
+}
+@keyframes fadeout{to{opacity:0;visibility:hidden}}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--ink-soft);animation:blink 1.2s ease-in-out infinite}
+.dot:nth-child(2){animation-delay:.2s}
+.dot:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+.gf1{animation:bar .4s ease 0s both;--w:78%}
+.gf2{animation:bar .4s ease .15s both;--w:100%}
+.gf3{animation:bar .4s ease .3s both;--w:63%}
+@keyframes bar{from{width:0}to{width:var(--w)}}
+
 /* ---------- MAO NA MASSA ---------- */
-.maos{background:var(--white);padding:80px 0}
+.maos{
+  background:linear-gradient(135deg,var(--sky) 0%,#ddeeff 100%);
+  padding:80px 0;
+  border-top:1px solid var(--sky-line);
+  border-bottom:1px solid var(--sky-line);
+}
 .maos-inner{display:flex;align-items:center;gap:56px}
 .maos-text{flex:1}
 
@@ -333,11 +469,27 @@ section{padding:72px 0}
 </head>
 <body>
 
+<!-- ================= LIQUID GLASS NAV ================= -->
+<nav class="lg-nav" aria-label="Navegação principal">
+  <div class="lg-logo-clip">
+    <img src="/imagens/nova-logo.png" alt="Signum Consultoria Comercial">
+  </div>
+  <div class="lg-links">
+    <a href="#maquina">Fluxo Comercial</a>
+    <a href="#pilares">Pilares</a>
+    <a href="#metodologia">Metodologia</a>
+    <a href="#diagnostico">Diagnóstico</a>
+  </div>
+  <a class="lg-cta" href="https://wa.me/5581996178166?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Signum%20e%20quero%20saber%20mais." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm5.83 14.12c-.25.7-1.45 1.33-2 1.39-.51.05-1.16.24-3.92-.82-3.32-1.31-5.42-4.69-5.58-4.91-.16-.21-1.33-1.77-1.33-3.38 0-1.61.84-2.4 1.14-2.73.3-.33.65-.41.87-.41h.63c.2 0 .47-.07.73.56.27.65.91 2.26.99 2.42.08.16.13.36.03.57-.1.21-.16.35-.31.54-.16.19-.33.42-.47.56-.16.16-.32.33-.14.64.18.31.81 1.34 1.74 2.17 1.2 1.07 2.21 1.4 2.52 1.56.31.16.49.13.68-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.7-.16.29.1 1.81.85 2.12 1.01.31.16.52.23.6.36.07.13.07.78-.18 1.49z"/></svg>
+    Falar com a Signum
+  </a>
+</nav>
+
 <!-- ================= HERO ================= -->
 <header class="hero">
   <div class="wrap hero-inner">
     <div>
-      <img class="hero-logo" src="/imagens/nova-logo.png" alt="Signum Consultoria Comercial">
       <h1>Consultoria estratégica e tecnologia de ponta para o seu <em>time de vendas</em>.</h1>
       <p class="sub">Da prospecção ao pós-venda: a Signum estrutura, integra e gerencia sua operação comercial inteira, tráfego, site, WhatsApp, CRM e retenção, em uma única frente.</p>
       <div class="cta-row">
@@ -350,9 +502,11 @@ section{padding:72px 0}
       <p class="hero-note">Diagnóstico inicial da sua operação comercial sem custo.</p>
     </div>
 
-    <!-- mockups flutuantes -->
-    <div class="mock-stack" aria-hidden="true">
-      <div class="card mock mock-crm">
+    <!-- kanban animado -->
+    <div class="mock-stack stage" aria-hidden="true">
+
+      <!-- CRM -->
+      <div class="card mock card-crm">
         <div class="mock-label">Pipeline de vendas: CRM</div>
         <div class="deal">
           <div class="deal-top"><span>Proposta: Cliente A</span><span class="tag tag-prog">Em negociação</span></div>
@@ -362,23 +516,29 @@ section{padding:72px 0}
           <div class="deal-top"><span>Lead: Tráfego pago</span><span class="tag tag-novo">Novo</span></div>
           <div class="deal-val">Origem · Instagram Ads</div>
         </div>
-        <div class="deal">
-          <div class="deal-top"><span>Contrato: Cliente B</span><span class="tag tag-won">Fechado</span></div>
+        <div class="deal deal3">
+          <div class="deal-top"><span>Contrato: Cliente B</span><span class="tag tag-won">Fechado ✓</span></div>
           <div class="deal-val">Valor do negócio · R$ 32.000</div>
         </div>
       </div>
-      <div class="card mock mock-chat">
+
+      <!-- WHATSAPP -->
+      <div class="card mock card-chat">
         <div class="mock-label">Atendimento: WhatsApp</div>
-        <div class="bubble bubble-in">Oi! Vi o anúncio de vocês. Como funciona?</div>
-        <div class="bubble bubble-out">Olá! Posso te fazer 2 perguntas rápidas pra te indicar a melhor opção?</div>
-        <div class="bubble bubble-in">Pode sim 👍</div>
+        <div class="bubble bubble-in b1">Oi! Vi o anúncio de vocês.<br>Como funciona?</div>
+        <div class="typing-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="bubble bubble-out b2">Olá! Posso te fazer 2 perguntas<br>pra te indicar a melhor opção?</div>
+        <div class="bubble bubble-in b3">Pode sim 👍</div>
       </div>
-      <div class="card mock mock-goal">
+
+      <!-- METAS -->
+      <div class="card mock card-goal">
         <div class="mock-label">Plano de vendas: mês atual</div>
-        <div class="goal-row"><div class="goal-bar"><div class="goal-fill" style="width:78%"></div></div><span class="goal-num">78%</span></div>
-        <div class="goal-row"><div class="goal-bar"><div class="goal-fill" style="width:104%;max-width:100%"></div></div><span class="goal-num">104%</span></div>
-        <div class="goal-row"><div class="goal-bar"><div class="goal-fill" style="width:63%"></div></div><span class="goal-num">63%</span></div>
+        <div class="goal-row"><div class="goal-bar"><div class="goal-fill gf1"></div></div><span class="goal-num">78%</span></div>
+        <div class="goal-row"><div class="goal-bar"><div class="goal-fill gf2"></div></div><span class="goal-num">104%</span></div>
+        <div class="goal-row"><div class="goal-bar"><div class="goal-fill gf3"></div></div><span class="goal-num">63%</span></div>
       </div>
+
     </div>
   </div>
 </header>
@@ -497,6 +657,23 @@ section{padding:72px 0}
 </svg></div>
         <p>Não tem <b>metodologia de vendas</b> estruturada e validada.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAO NA MASSA ================= -->
+<section class="maos">
+  <div class="wrap maos-inner">
+    <div class="maos-text">
+      <span class="eyebrow">Consultoria</span>
+      <h2>100% Mão na Massa:<br>Da Estratégia à<br>Execução</h2>
+      <p>Vamos implementar as etapas necessárias para<br>impactar os resultados do seu negócio!</p>
+      <div class="cta-row" style="margin-top:28px">
+        <a class="btn btn-primary" href="https://wa.me/5581996178166?text=Ol%C3%A1!%20Tenho%20interesse%20na%20consultoria%20da%20Signum." target="_blank" rel="noopener">Quero uma consultoria</a>
+      </div>
+    </div>
+    <div class="maos-img">
+      <img src="/imagens/funil-de-vendas.png" alt="Funil de Vendas Signum">
     </div>
   </div>
 </section>
@@ -622,7 +799,7 @@ section{padding:72px 0}
 </section>
 
 <!-- ================= PILARES ================= -->
-<section class="pillars">
+<section class="pillars" id="pilares">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Método</span>
@@ -658,7 +835,7 @@ section{padding:72px 0}
 
 
 <!-- ================= METODOLOGIA ================= -->
-<section class="metodo">
+<section class="metodo" id="metodologia">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Nossa Metodologia</span>
@@ -745,23 +922,6 @@ section{padding:72px 0}
   </div>
 </section>
 
-<!-- ================= MAO NA MASSA ================= -->
-<section class="maos">
-  <div class="wrap maos-inner">
-    <div class="maos-text">
-      <span class="eyebrow">Consultoria</span>
-      <h2>100% Mão na Massa:<br>Da Estratégia à<br>Execução</h2>
-      <p>Vamos implementar as etapas necessárias para<br>impactar os resultados do seu negócio!</p>
-      <div class="cta-row" style="margin-top:28px">
-        <a class="btn btn-primary" href="https://wa.me/5581996178166?text=Ol%C3%A1!%20Tenho%20interesse%20na%20consultoria%20da%20Signum." target="_blank" rel="noopener">Quero uma consultoria</a>
-      </div>
-    </div>
-    <div class="maos-img">
-      <img src="/imagens/funil-de-vendas.png" alt="Funil de Vendas Signum">
-    </div>
-  </div>
-</section>
-
 <!-- ================= CTA FINAL ================= -->
 <section class="final">
   <div class="wrap">
@@ -771,7 +931,7 @@ section{padding:72px 0}
       <svg class="wa" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm5.83 14.12c-.25.7-1.45 1.33-2 1.39-.51.05-1.16.24-3.92-.82-3.32-1.31-5.42-4.69-5.58-4.91-.16-.21-1.33-1.77-1.33-3.38 0-1.61.84-2.4 1.14-2.73.3-.33.65-.41.87-.41h.63c.2 0 .47-.07.73.56.27.65.91 2.26.99 2.42.08.16.13.36.03.57-.1.21-.16.35-.31.54-.16.19-.33.42-.47.56-.16.16-.32.33-.14.64.18.31.81 1.34 1.74 2.17 1.2 1.07 2.21 1.4 2.52 1.56.31.16.49.13.68-.08.18-.21.78-.91.99-1.22.21-.31.42-.26.7-.16.29.1 1.81.85 2.12 1.01.31.16.52.23.6.36.07.13.07.78-.18 1.49z"/></svg>
       Agendar diagnóstico no WhatsApp
     </a>
-    <imgclass="logo-foot"src="/imagens/nova-logo.png" alt="Signum">
+    <img class="logo-foot" src="/imagens/nova-logo.png" alt="Signum">
     <p class="foot-line">SIGNUM CONSULTORIA COMERCIAL · RECIFE, PE</p>
   </div>
 </section>
