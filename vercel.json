@@ -1,6 +1,11 @@
 {
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "framework": null,
   "rewrites": [
     { "source": "/", "destination": "/newlandingpage/index.html" },
+    { "source": "/kanban", "destination": "/newlandingpage/signum-kanban.html" },
+    { "source": "/talentos", "destination": "/newlandingpage/talentos.html" },
     { "source": "/imagens/:path*", "destination": "/Imagens/:path*" }
   ]
 }
