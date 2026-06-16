@@ -151,6 +151,14 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'newlandingpage', 'index.html'));
 });
 
+// Serve newlandingpage static files (kanban, talentos, etc.)
+app.use(express.static(path.join(__dirname, 'newlandingpage')));
+
+// Explicit route for kanban iframe
+app.get('/signum-kanban.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'newlandingpage', 'signum-kanban.html'));
+});
+
 // Serve static files from the Vite build output directory
 app.use(express.static(path.join(__dirname, 'dist')));
 
