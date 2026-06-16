@@ -2,10 +2,12 @@
   "buildCommand": "",
   "outputDirectory": ".",
   "framework": null,
-  "rewrites": [
-    { "source": "/", "destination": "/newlandingpage/index.html" },
-    { "source": "/kanban", "destination": "/newlandingpage/signum-kanban.html" },
-    { "source": "/talentos", "destination": "/newlandingpage/talentos.html" },
-    { "source": "/imagens/:path*", "destination": "/Imagens/:path*" }
+  "routes": [
+    { "src": "/imagens/(.*)", "dest": "/Imagens/$1" },
+    { "src": "^/$", "dest": "/newlandingpage/index.html" },
+    { "src": "^/kanban$", "dest": "/newlandingpage/signum-kanban.html" },
+    { "src": "^/talentos$", "dest": "/newlandingpage/talentos.html" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
